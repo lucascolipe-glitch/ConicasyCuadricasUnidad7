@@ -1,1 +1,110 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Paraboloide elíptico, eje y</title><link rel="stylesheet" href="../../common/three-viewer.css"></head><body><main class="viewer-shell"><header class="viewer-head"><h1>Paraboloide elíptico, eje y</h1><p><span class="equation">x²+z²=y</span> · Abre en dirección y positiva.</p></header><div id="stage"></div><div class="adaptation">Arrastrá para rotar · rueda para zoom · botón derecho para desplazar.</div><div class="controls"><button id="reset-camera">Restablecer cámara</button><button id="export-png">Exportar PNG</button><button id="toggle-grid">Malla</button><button id="toggle-axes">Ejes</button><label>Proyección <select id="projection"><option value="perspective">Perspectiva</option><option value="ortho">Ortográfica</option></select></label><label>Transparencia <input id="opacity" type="range" min="0.15" max="1" step="0.05" value="0.66"></label><label class="trace-controls">Traza z=<span id="trace-value"></span><input id="trace-slider" type="range"></label></div></main><script>window.GRAPH_CONFIG={"title": "Paraboloide elíptico, eje y", "equation": "x²+z²=y", "description": "Abre en dirección y positiva.", "type": "ellipticParaboloid", "axis": "y", "a": 1, "b": 1, "R": 2, "camera": [7, 5, 7], "target": [0, 1.5, 0], "axisSize": 5, "slug": "25-paraboloide-eliptico-eje-y"};</script><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script><script type="module" src="../../common/three-viewer.js"></script></body></html>
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Paraboloide elíptico, eje y</title>
+
+    <link rel="stylesheet" href="../../common/three-viewer.css">
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+
+  <body>
+    <main class="viewer-shell">
+      <header class="viewer-head">
+        <h1>Paraboloide elíptico, eje y</h1>
+        <p>
+          <span class="equation">\(x^2+z^2=y\)</span>
+          <span aria-hidden="true"> · </span>
+          <span>Abre en dirección y positiva.</span>
+        </p>
+      </header>
+
+      <div id="stage"></div>
+
+      <div class="adaptation">
+        Arrastrá para rotar · rueda para zoom · botón derecho para desplazar.
+      </div>
+
+      <div class="controls">
+        <button id="reset-camera">Restablecer cámara</button>
+        <button id="export-png">Exportar PNG</button>
+        <button id="toggle-grid">Malla</button>
+        <button id="toggle-axes">Ejes</button>
+
+        <label>
+          Proyección
+          <select id="projection">
+            <option value="perspective">Perspectiva</option>
+            <option value="ortho">Ortográfica</option>
+          </select>
+        </label>
+
+        <label>
+          Transparencia
+          <input
+            id="opacity"
+            type="range"
+            min="0.15"
+            max="1"
+            step="0.05"
+            value="0.66"
+          >
+        </label>
+
+        <label class="trace-controls">
+          Traza \(z=\)<span id="trace-value"></span>
+          <input id="trace-slider" type="range">
+        </label>
+      </div>
+    </main>
+
+    <script>
+      window.GRAPH_CONFIG = {
+  "title": "Paraboloide elíptico, eje y",
+  "equation": "x²+z²=y",
+  "description": "Abre en dirección y positiva.",
+  "type": "ellipticParaboloid",
+  "axis": "y",
+  "a": 1,
+  "b": 1,
+  "R": 2,
+  "camera": [
+    7,
+    5,
+    7
+  ],
+  "target": [
+    0,
+    1.5,
+    0
+  ],
+  "axisSize": 5,
+  "slug": "25-paraboloide-eliptico-eje-y"
+};
+    </script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module" src="../../common/three-viewer.js"></script>
+  </body>
+</html>

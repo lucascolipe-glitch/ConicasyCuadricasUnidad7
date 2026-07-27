@@ -4,6 +4,13 @@ const navLinks = [...document.querySelectorAll('.nav-link')];
 const sidebar = document.querySelector('.sidebar');
 const menuToggle = document.querySelector('.menu-toggle');
 
+function loadSectionFrames(section) {
+  if (!section) return;
+  section.querySelectorAll('iframe[data-src]').forEach(frame => {
+    if (!frame.getAttribute('src')) frame.src = frame.dataset.src;
+  });
+}
+
 function pauseVideos(container = document) {
   container.querySelectorAll('iframe[data-youtube]').forEach(frame => {
     try { frame.contentWindow.postMessage(JSON.stringify({event:'command',func:'pauseVideo',args:[]}), '*'); } catch (_) {}
@@ -18,6 +25,7 @@ function showSection(id, pushHash = true) {
   sidebar?.classList.remove('open');
   window.scrollTo({top:0, behavior:'smooth'});
   const active = document.getElementById(id);
+  loadSectionFrames(active);
   if (window.MathJax?.typesetPromise && active) MathJax.typesetPromise([active]);
 }
 

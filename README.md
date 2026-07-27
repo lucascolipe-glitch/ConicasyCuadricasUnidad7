@@ -1,30 +1,33 @@
-# Cónicas y superficies cuádricas — unidad web
+# Cónicas y superficies cuádricas — unidad web interactiva
 
-## Publicación
+Proyecto web elaborado a partir del apunte teórico y del Trabajo Práctico N.º 7 de Álgebra y Geometría I.
 
-Subir el contenido completo de esta carpeta a un repositorio de GitHub y activar **Settings → Pages → Deploy from a branch**.
+## Cambios de esta versión
 
-Para probar localmente, abrir una terminal dentro de la carpeta y ejecutar:
+- Todos los archivos HTML fueron ordenados y tabulados para facilitar su edición.
+- Las ecuaciones visibles se escribieron con LaTeX y se renderizan mediante MathJax.
+- Las secciones de la página principal incorporan ventanas con los gráficos 3D relacionados.
+- Las variantes según los ejes principales se organizan en tres columnas en pantallas grandes.
+- Se conservan los 50 gráficos reconstruidos desde Asymptote y se agregan dos variantes didácticas:
+  - paraboloide hiperbólico con eje principal `x`;
+  - cono con eje principal `x`.
+- Los iframes se cargan únicamente al abrir su sección para evitar una carga inicial excesiva.
+- Los videos se pausan al cambiar de sección.
+
+## Probar localmente
+
+Desde la carpeta del proyecto:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Luego visitar `http://localhost:8000`.
+Luego abrir:
 
-## Estructura
+```text
+http://localhost:8000
+```
 
-- `index.html`: aplicación principal por secciones.
-- `css/` y `js/`: estilos y navegación.
-- `graficos-3d/`: 50 carpetas, una por entorno Asymptote del TeX.
-- `common/`: motor compartido Three.js para los gráficos 3D.
-- `graficos-2d/`: exploradores SVG/HTML.
-- `materiales/`: TeX y PDF originales.
+## Publicación
 
-## Dependencias externas
-
-La página carga Three.js y MathJax desde jsDelivr, y los videos desde YouTube. Por eso necesita conexión a internet para esas funciones.
-
-## Adaptación matemática
-
-No se realizó una traducción literal de Asymptote. Cada escena reconstruye el objeto matemático mediante parametrizaciones web equivalentes. Las superficies infinitas se muestran en dominios acotados. La sección «Notas de revisión» del sitio registra discrepancias detectadas entre comentarios, títulos y ecuaciones efectivas.
+La carpeta puede publicarse directamente con GitHub Pages. Three.js, MathJax y YouTube requieren conexión a internet porque se cargan desde servicios externos.

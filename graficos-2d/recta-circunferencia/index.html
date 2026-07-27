@@ -1,1 +1,137 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recta y circunferencia</title><style>*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui;color:#1f2937}.app{min-height:100vh;display:grid;grid-template-columns:280px 1fr}.panel{padding:20px;background:#f8fafc;border-right:1px solid #d8e1ef}.panel h1{font-size:1.2rem;color:#163d86}.panel input{width:100%}.status{padding:13px;border-radius:12px;background:#eaf1ff;font-weight:800;color:#163d86;margin:16px 0}.canvas{display:grid;place-items:center;padding:10px}svg{width:100%;height:min(78vh,620px)}@media(max-width:700px){.app{grid-template-columns:1fr}.panel{border-right:0;border-bottom:1px solid #d8e1ef}svg{height:430px}}</style></head><body><div class="app"><aside class="panel"><h1>Recta y circunferencia</h1><p>La circunferencia tiene centro C=(1,-2) y radio r=3.</p><label>Desplazamiento k de la recta 3x+4y+k=0<br><input id="k" type="range" min="-35" max="20" step=".1" value="-5"></label><p>k = <strong id="kv"></strong></p><div class="status" id="status"></div><p id="calc"></p><p>La distancia del centro a la recta es \(|3·1+4·(-2)+k|/5\).</p></aside><main class="canvas"><svg id="s" viewBox="-10 -9 20 18"></svg></main></div><script>const NS='http://www.w3.org/2000/svg',s=document.getElementById('s'),K=document.getElementById('k');function E(t,a){const e=document.createElementNS(NS,t);for(const[k,v]of Object.entries(a))e.setAttribute(k,v);return e}function L(x1,y1,x2,y2,a){s.append(E('line',{x1,y1:-y1,x2,y2:-y2,...a}))}function draw(){s.innerHTML='';for(let i=-10;i<=10;i++)L(i,-9,i,9,{stroke:'#edf1f6','stroke-width':.025});for(let j=-9;j<=9;j++)L(-10,j,10,j,{stroke:'#edf1f6','stroke-width':.025});L(-10,0,10,0,{stroke:'#111827','stroke-width':.06});L(0,-9,0,9,{stroke:'#111827','stroke-width':.06});s.append(E('circle',{cx:1,cy:2,r:3,fill:'none',stroke:'#164bb8','stroke-width':.12}));s.append(E('circle',{cx:1,cy:2,r:.13,fill:'#16a34a'}));const k=+K.value,y1=-(3*(-10)+k)/4,y2=-(3*10+k)/4;L(-10,y1,10,y2,{stroke:'#dc2626','stroke-width':.12});const d=Math.abs(3-8+k)/5;let st=d>3?'Exterior':Math.abs(d-3)<.03?'Tangente':'Secante';document.getElementById('kv').textContent=k.toFixed(1);document.getElementById('status').textContent=st;document.getElementById('calc').textContent=`d(C,L)=${d.toFixed(2)} y r=3`; }K.addEventListener('input',draw);draw();</script></body></html>
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recta y circunferencia</title>
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; color: #1f2937; font-family: Inter, system-ui, sans-serif; }
+      .app { min-height: 100vh; display: grid; grid-template-columns: 280px 1fr; }
+      .panel { padding: 20px; background: #f8fafc; border-right: 1px solid #d8e1ef; }
+      .panel h1 { color: #163d86; font-size: 1.2rem; }
+      .panel input { width: 100%; }
+      .status {
+        margin: 16px 0;
+        padding: 13px;
+        color: #163d86;
+        background: #eaf1ff;
+        border-radius: 12px;
+        font-weight: 800;
+      }
+      .canvas { display: grid; place-items: center; padding: 10px; }
+      svg { width: 100%; height: min(78vh, 620px); }
+      @media (max-width: 700px) {
+        .app { grid-template-columns: 1fr; }
+        .panel { border-right: 0; border-bottom: 1px solid #d8e1ef; }
+        svg { height: 430px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app">
+      <aside class="panel">
+        <h1>Recta y circunferencia</h1>
+        <p>La circunferencia tiene centro \(C=(1,-2)\) y radio \(r=3\).</p>
+
+        <label>
+          Desplazamiento \(k\) de la recta \(3x+4y+k=0\)
+          <br>
+          <input id="k" type="range" min="-35" max="20" step=".1" value="-5">
+        </label>
+
+        <p>\(k=\)<strong id="kv"></strong></p>
+        <div class="status" id="status"></div>
+        <p id="calc"></p>
+        <p>
+          La distancia del centro a la recta es
+          \[d(C,L)=\frac{|3\cdot1+4\cdot(-2)+k|}{5}.\]
+        </p>
+      </aside>
+
+      <main class="canvas">
+        <svg id="s" viewBox="-10 -9 20 18" aria-label="Recta y circunferencia"></svg>
+      </main>
+    </div>
+
+    <script>
+      const SVG_NS = 'http://www.w3.org/2000/svg';
+      const svg = document.getElementById('s');
+      const slider = document.getElementById('k');
+      const calculation = document.getElementById('calc');
+
+      function element(tag, attributes) {
+        const node = document.createElementNS(SVG_NS, tag);
+        Object.entries(attributes).forEach(([key, value]) => node.setAttribute(key, value));
+        return node;
+      }
+
+      function line(x1, y1, x2, y2, attributes) {
+        svg.append(element('line', { x1, y1: -y1, x2, y2: -y2, ...attributes }));
+      }
+
+      function typesetCalculation() {
+        if (!window.MathJax?.typesetPromise) return;
+        MathJax.typesetClear([calculation]);
+        MathJax.typesetPromise([calculation]);
+      }
+
+      function draw() {
+        svg.innerHTML = '';
+
+        for (let x = -10; x <= 10; x += 1) {
+          line(x, -9, x, 9, { stroke: '#edf1f6', 'stroke-width': .025 });
+        }
+        for (let y = -9; y <= 9; y += 1) {
+          line(-10, y, 10, y, { stroke: '#edf1f6', 'stroke-width': .025 });
+        }
+
+        line(-10, 0, 10, 0, { stroke: '#111827', 'stroke-width': .06 });
+        line(0, -9, 0, 9, { stroke: '#111827', 'stroke-width': .06 });
+
+        svg.append(element('circle', {
+          cx: 1,
+          cy: 2,
+          r: 3,
+          fill: 'none',
+          stroke: '#164bb8',
+          'stroke-width': .12
+        }));
+        svg.append(element('circle', { cx: 1, cy: 2, r: .13, fill: '#16a34a' }));
+
+        const k = Number(slider.value);
+        const y1 = -(3 * (-10) + k) / 4;
+        const y2 = -(3 * 10 + k) / 4;
+        line(-10, y1, 10, y2, { stroke: '#dc2626', 'stroke-width': .12 });
+
+        const distance = Math.abs(3 - 8 + k) / 5;
+        const status = distance > 3
+          ? 'Exterior'
+          : Math.abs(distance - 3) < .03
+            ? 'Tangente'
+            : 'Secante';
+
+        document.getElementById('kv').textContent = k.toFixed(1);
+        document.getElementById('status').textContent = status;
+        calculation.textContent = String.raw`\(d(C,L)=${distance.toFixed(2)}\quad\text{y}\quad r=3\)`;
+        typesetCalculation();
+      }
+
+      slider.addEventListener('input', draw);
+      draw();
+    </script>
+  </body>
+</html>

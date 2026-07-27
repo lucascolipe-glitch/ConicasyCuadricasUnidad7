@@ -1,1 +1,140 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Completar cuadrados</title><style>body{margin:0;font-family:Inter,system-ui;background:#fff;color:#1f2937}.wrap{max-width:900px;margin:auto;padding:24px}.steps{display:grid;gap:12px}.step{display:none;border:1px solid #d8e1ef;border-radius:14px;padding:16px;background:#f8fafc}.step.active{display:block;animation:in .2s}.math{font-family:Georgia,serif;font-size:clamp(1rem,3vw,1.45rem);text-align:center;overflow:auto}.controls{display:flex;gap:10px;margin-top:18px}button{border:1px solid #bdc8d8;border-radius:10px;background:#fff;padding:9px 14px;cursor:pointer}button.primary{background:#163d86;color:#fff}.bar{height:9px;background:#e5eaf2;border-radius:999px;overflow:hidden;margin:16px 0}.fill{height:100%;background:#2d6bc7;transition:.2s}</style></head><body><main class="wrap"><h1>Completar cuadrados paso a paso</h1><p>Ejemplo del apunte: reducir 4x²+9y²−8x+36y+4=0.</p><div class="bar"><div class="fill" id="fill"></div></div><div class="steps"><section class="step"><h2>1. Agrupar</h2><p class="math">4(x²−2x)+9(y²+4y)+4=0</p></section><section class="step"><h2>2. Completar cada cuadrado</h2><p class="math">4[(x−1)²−1]+9[(y+2)²−4]+4=0</p></section><section class="step"><h2>3. Reorganizar</h2><p class="math">4(x−1)²+9(y+2)²=36</p></section><section class="step"><h2>4. Normalizar</h2><p class="math">(x−1)²/9+(y+2)²/4=1</p></section><section class="step"><h2>5. Interpretar</h2><p>Elipse con centro (1,−2), semieje mayor 3 paralelo a x y semieje menor 2 paralelo a y.</p></section></div><div class="controls"><button id="prev">← Anterior</button><button id="next" class="primary">Siguiente →</button></div></main><script>const s=[...document.querySelectorAll('.step')],f=document.getElementById('fill');let i=0;function r(){s.forEach((e,j)=>e.classList.toggle('active',i===j));f.style.width=`${(i+1)/s.length*100}%`;document.getElementById('prev').disabled=i===0;document.getElementById('next').textContent=i===s.length-1?'Reiniciar':'Siguiente →'}document.getElementById('prev').onclick=()=>{i=Math.max(0,i-1);r()};document.getElementById('next').onclick=()=>{i=i===s.length-1?0:i+1;r()};r();</script></body></html>
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Completar cuadrados</title>
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        color: #1f2937;
+        background: #fff;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      .wrap { max-width: 900px; margin: auto; padding: 24px; }
+      .steps { display: grid; gap: 12px; }
+      .step {
+        display: none;
+        padding: 16px;
+        background: #f8fafc;
+        border: 1px solid #d8e1ef;
+        border-radius: 14px;
+      }
+      .step.active { display: block; animation: in .2s; }
+      .math {
+        overflow: auto;
+        text-align: center;
+        font-size: clamp(1rem, 3vw, 1.45rem);
+      }
+      .controls { display: flex; gap: 10px; margin-top: 18px; }
+      button {
+        padding: 9px 14px;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #bdc8d8;
+        border-radius: 10px;
+      }
+      button.primary { color: #fff; background: #163d86; }
+      .bar {
+        height: 9px;
+        margin: 16px 0;
+        overflow: hidden;
+        background: #e5eaf2;
+        border-radius: 999px;
+      }
+      .fill { height: 100%; background: #2d6bc7; transition: .2s; }
+    </style>
+  </head>
+
+  <body>
+    <main class="wrap">
+      <h1>Completar cuadrados paso a paso</h1>
+      <p>
+        Ejemplo del apunte: reducir
+        \(4x^2+9y^2-8x+36y+4=0\).
+      </p>
+
+      <div class="bar" aria-hidden="true">
+        <div class="fill" id="fill"></div>
+      </div>
+
+      <div class="steps">
+        <section class="step">
+          <h2>1. Agrupar</h2>
+          <div class="math">\[4(x^2-2x)+9(y^2+4y)+4=0\]</div>
+        </section>
+
+        <section class="step">
+          <h2>2. Completar cada cuadrado</h2>
+          <div class="math">\[4\left[(x-1)^2-1\right]+9\left[(y+2)^2-4\right]+4=0\]</div>
+        </section>
+
+        <section class="step">
+          <h2>3. Reorganizar</h2>
+          <div class="math">\[4(x-1)^2+9(y+2)^2=36\]</div>
+        </section>
+
+        <section class="step">
+          <h2>4. Normalizar</h2>
+          <div class="math">\[\frac{(x-1)^2}{9}+\frac{(y+2)^2}{4}=1\]</div>
+        </section>
+
+        <section class="step">
+          <h2>5. Interpretar</h2>
+          <p>
+            Elipse con centro \((1,-2)\), semieje mayor \(3\) paralelo al eje \(x\)
+            y semieje menor \(2\) paralelo al eje \(y\).
+          </p>
+        </section>
+      </div>
+
+      <div class="controls">
+        <button id="prev">← Anterior</button>
+        <button id="next" class="primary">Siguiente →</button>
+      </div>
+    </main>
+
+    <script>
+      const steps = [...document.querySelectorAll('.step')];
+      const fill = document.getElementById('fill');
+      const previousButton = document.getElementById('prev');
+      const nextButton = document.getElementById('next');
+      let index = 0;
+
+      function render() {
+        steps.forEach((step, stepIndex) => {
+          step.classList.toggle('active', index === stepIndex);
+        });
+
+        fill.style.width = `${((index + 1) / steps.length) * 100}%`;
+        previousButton.disabled = index === 0;
+        nextButton.textContent = index === steps.length - 1 ? 'Reiniciar' : 'Siguiente →';
+      }
+
+      previousButton.addEventListener('click', () => {
+        index = Math.max(0, index - 1);
+        render();
+      });
+
+      nextButton.addEventListener('click', () => {
+        index = index === steps.length - 1 ? 0 : index + 1;
+        render();
+      });
+
+      render();
+    </script>
+  </body>
+</html>

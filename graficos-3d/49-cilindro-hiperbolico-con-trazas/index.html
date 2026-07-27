@@ -1,1 +1,112 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cilindro hiperbólico con trazas</title><link rel="stylesheet" href="../../common/three-viewer.css"></head><body><main class="viewer-shell"><header class="viewer-head"><h1>Cilindro hiperbólico con trazas</h1><p><span class="equation">x²/4-z²=1, generatriz y</span> · Las curvas punteadas muestran trazas paralelas.</p></header><div id="stage"></div><div class="adaptation">Arrastrá para rotar · rueda para zoom · botón derecho para desplazar.</div><div class="controls"><button id="reset-camera">Restablecer cámara</button><button id="export-png">Exportar PNG</button><button id="toggle-grid">Malla</button><button id="toggle-axes">Ejes</button><label>Proyección <select id="projection"><option value="perspective">Perspectiva</option><option value="ortho">Ortográfica</option></select></label><label>Transparencia <input id="opacity" type="range" min="0.15" max="1" step="0.05" value="0.66"></label><label class="trace-controls">Traza z=<span id="trace-value"></span><input id="trace-slider" type="range"></label></div></main><script>window.GRAPH_CONFIG={"title": "Cilindro hiperbólico con trazas", "equation": "x²/4-z²=1, generatriz y", "description": "Las curvas punteadas muestran trazas paralelas.", "type": "hyperbolicCylinder", "axis": "y", "a": 2, "b": 1, "T": 1.3, "length": 3, "camera": [10, 7, 11], "axisSize": 7, "showSourceTraces": true, "traceValues": [-3, 0, 3], "slug": "49-cilindro-hiperbolico-con-trazas"};</script><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script><script type="module" src="../../common/three-viewer.js"></script></body></html>
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cilindro hiperbólico con trazas</title>
+
+    <link rel="stylesheet" href="../../common/three-viewer.css">
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+
+  <body>
+    <main class="viewer-shell">
+      <header class="viewer-head">
+        <h1>Cilindro hiperbólico con trazas</h1>
+        <p>
+          <span class="equation">\(\frac{x^2}{4}-z^2=1\)</span>
+          <span aria-hidden="true"> · </span>
+          <span>Las curvas punteadas muestran trazas paralelas.</span>
+        </p>
+      </header>
+
+      <div id="stage"></div>
+
+      <div class="adaptation">
+        Arrastrá para rotar · rueda para zoom · botón derecho para desplazar.
+      </div>
+
+      <div class="controls">
+        <button id="reset-camera">Restablecer cámara</button>
+        <button id="export-png">Exportar PNG</button>
+        <button id="toggle-grid">Malla</button>
+        <button id="toggle-axes">Ejes</button>
+
+        <label>
+          Proyección
+          <select id="projection">
+            <option value="perspective">Perspectiva</option>
+            <option value="ortho">Ortográfica</option>
+          </select>
+        </label>
+
+        <label>
+          Transparencia
+          <input
+            id="opacity"
+            type="range"
+            min="0.15"
+            max="1"
+            step="0.05"
+            value="0.66"
+          >
+        </label>
+
+        <label class="trace-controls">
+          Traza \(z=\)<span id="trace-value"></span>
+          <input id="trace-slider" type="range">
+        </label>
+      </div>
+    </main>
+
+    <script>
+      window.GRAPH_CONFIG = {
+  "title": "Cilindro hiperbólico con trazas",
+  "equation": "x²/4-z²=1, generatriz y",
+  "description": "Las curvas punteadas muestran trazas paralelas.",
+  "type": "hyperbolicCylinder",
+  "axis": "y",
+  "a": 2,
+  "b": 1,
+  "T": 1.3,
+  "length": 3,
+  "camera": [
+    10,
+    7,
+    11
+  ],
+  "axisSize": 7,
+  "showSourceTraces": true,
+  "traceValues": [
+    -3,
+    0,
+    3
+  ],
+  "slug": "49-cilindro-hiperbolico-con-trazas"
+};
+    </script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+
+    <script type="module" src="../../common/three-viewer.js"></script>
+  </body>
+</html>

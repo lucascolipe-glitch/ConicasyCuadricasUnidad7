@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cilindro parabólico con generatriz oblicua</title>
+    <title>Cono elíptico, eje x</title>
 
     <link rel="stylesheet" href="../../common/three-viewer.css">
 
@@ -24,11 +24,11 @@
   <body>
     <main class="viewer-shell">
       <header class="viewer-head">
-        <h1>Cilindro parabólico con generatriz oblicua</h1>
+        <h1>Cono elíptico, eje x</h1>
         <p>
-          <span class="equation">\(\mathbf r(u,s)=\left(u,s,u^2-s\right)\)</span>
+          <span class="equation">\(y^2+z^2=x^2\)</span>
           <span aria-hidden="true"> · </span>
-          <span>La parametrización implementa (x,y,z)=(u,s,u²-s).</span>
+          <span>Cono circular con eje \(x\).</span>
         </p>
       </header>
 
@@ -73,18 +73,23 @@
 
     <script>
       window.GRAPH_CONFIG = {
-  "title": "Cilindro parabólico con generatriz oblicua",
-  "equation": "z=x² trasladada en dirección (0,1,-1)",
-  "description": "La parametrización implementa (x,y,z)=(u,s,u²-s).",
-  "type": "obliqueParabolicCylinder",
+  "title": "Cono elíptico, eje x",
+  "equation": "y²+z²=x²",
+  "description": "Cono circular con eje x.",
+  "type": "ellipticCone",
+  "axis": "x",
+  "a": 1,
+  "b": 1,
+  "c": 1,
+  "T": 2.4,
   "camera": [
-    9,
+    8,
     7,
     10
   ],
-  "axisSize": 7,
-  "gridSize": 16,
-  "slug": "47-cilindro-parabolico-oblicuo"
+  "axisSize": 5,
+  "gridSize": 14,
+  "slug": "44-cono-eliptico-eje-x"
 };
     </script>
 

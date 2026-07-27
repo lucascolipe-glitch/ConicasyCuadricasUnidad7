@@ -1,1 +1,62 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Gráficos 2D</title><style>body{font-family:Inter,system-ui;margin:0;background:#f5f7fb;color:#1f2937}header{padding:34px 6vw;background:#fff}main{padding:30px 6vw;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}article{background:#fff;border:1px solid #d8e1ef;border-radius:16px;padding:22px}a{color:#163d86;font-weight:750}</style></head><body><header><h1>Gráficos 2D interactivos</h1><a href="../index.html">← Volver a la unidad</a></header><main><article><h2>Explorador de cónicas</h2><p>Parámetros, centro, focos, vértices, directriz y asíntotas.</p><a href="explorador-conicas/index.html">Abrir →</a></article><article><h2>Recta y circunferencia</h2><p>Secante, tangente o exterior según la distancia al centro.</p><a href="recta-circunferencia/index.html">Abrir →</a></article><article><h2>Completar cuadrados</h2><p>Secuencia interactiva del ejemplo de reducción a forma ordinaria.</p><a href="completar-cuadrados/index.html">Abrir →</a></article></main></body></html>
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Galería de gráficos 2D</title>
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']]
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; color: #1f2937; background: #f5f7fb; font-family: Inter, system-ui, sans-serif; }
+      header { padding: 32px clamp(18px, 5vw, 64px); background: #fff; border-bottom: 1px solid #d8e1ef; }
+      h1 { color: #163d86; }
+      main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 18px;
+        padding: 28px clamp(16px, 4vw, 58px);
+      }
+      article { padding: 22px; background: #fff; border: 1px solid #d8e1ef; border-radius: 16px; }
+      a { color: #163d86; font-weight: 800; }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Galería de gráficos 2D</h1>
+      <p>Recursos SVG interactivos para explorar cónicas y procedimientos algebraicos.</p>
+      <a href="../index.html">← Volver a la unidad</a>
+    </header>
+
+    <main>
+      <article>
+        <h2>Explorador de cónicas</h2>
+        <p>Modificá \(h\), \(k\), los semiejes, el radio o el parámetro \(p\).</p>
+        <a href="explorador-conicas/index.html">Abrir recurso →</a>
+      </article>
+
+      <article>
+        <h2>Recta y circunferencia</h2>
+        <p>Compará \(d(C,L)\) con el radio para reconocer posiciones exteriores, tangentes y secantes.</p>
+        <a href="recta-circunferencia/index.html">Abrir recurso →</a>
+      </article>
+
+      <article>
+        <h2>Completar cuadrados</h2>
+        <p>Recorré paso a paso la reducción de una ecuación desarrollada a su forma ordinaria.</p>
+        <a href="completar-cuadrados/index.html">Abrir recurso →</a>
+      </article>
+    </main>
+  </body>
+</html>

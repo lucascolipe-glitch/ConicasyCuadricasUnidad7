@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cilindro parabólico con generatriz oblicua</title>
+    <title>Paraboloide hiperbólico, eje x</title>
 
     <link rel="stylesheet" href="../../common/three-viewer.css">
 
@@ -24,11 +24,11 @@
   <body>
     <main class="viewer-shell">
       <header class="viewer-head">
-        <h1>Cilindro parabólico con generatriz oblicua</h1>
+        <h1>Paraboloide hiperbólico, eje x</h1>
         <p>
-          <span class="equation">\(\mathbf r(u,s)=\left(u,s,u^2-s\right)\)</span>
+          <span class="equation">\(y^2-z^2=x\)</span>
           <span aria-hidden="true"> · </span>
-          <span>La parametrización implementa (x,y,z)=(u,s,u²-s).</span>
+          <span>El eje principal es x.</span>
         </p>
       </header>
 
@@ -73,18 +73,22 @@
 
     <script>
       window.GRAPH_CONFIG = {
-  "title": "Cilindro parabólico con generatriz oblicua",
-  "equation": "z=x² trasladada en dirección (0,1,-1)",
-  "description": "La parametrización implementa (x,y,z)=(u,s,u²-s).",
-  "type": "obliqueParabolicCylinder",
+  "title": "Paraboloide hiperbólico, eje x",
+  "equation": "y²-z²=x",
+  "description": "El eje principal es x.",
+  "type": "hyperbolicParaboloid",
+  "axis": "x",
+  "a": 1,
+  "b": 1,
+  "R": 2.1,
   "camera": [
     9,
     7,
     10
   ],
-  "axisSize": 7,
-  "gridSize": 16,
-  "slug": "47-cilindro-parabolico-oblicuo"
+  "axisSize": 6,
+  "gridSize": 14,
+  "slug": "38b-paraboloide-hiperbolico-eje-x"
 };
     </script>
 
