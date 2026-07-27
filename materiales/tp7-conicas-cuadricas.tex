@@ -1,0 +1,877 @@
+\documentclass[11pt]{article}
+
+
+\usepackage[inline]{asymptote}
+\usepackage{asypictureB}
+%\usepackage[default]{frcursive}
+\usepackage[a4paper,text={17.3cm,25.4cm},centering,top=2 cm]{geometry} 
+\usepackage{amsfonts}
+%\usepackage{amsmath}
+\usepackage{amssymb,amsmath,stackrel,mathrsfs} %wasysym
+\usepackage{multicol}
+\usepackage{pdflscape}% girar una pagina, hay que usar \begin{landscape}En este punto inicia la hoja en vertical \end{landscape}
+%\usepackage[mathcal]{euscript}
+%\usepackage{amssymb}
+\usepackage{esvect}%para la flecha de vector 
+
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+%\usepackage[latin1,ansinew]{inputenc}\usepackage{calligra}
+%\usepackage[pdftex]{graphicx}
+%\usepackage{etex}
+\usepackage{calligra}
+\usepackage{array}
+ \usepackage{booktabs}
+ \usepackage{ifsym}
+\usepackage{pgf,tikz,pgfplots}
+\usepackage{tkz-graph}%paquete (di)grafos
+\usepackage{tkz-euclide}% Para realizar diagramas que coloreen conjuntos
+\usetikzlibrary[decorations.text]% Decorar curvas
+%\usetikzlibrary{matrix}
+\usetikzlibrary{arrows,matrix}
+%\usetkzobj{all}
+
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{makecell} %Paquete para controlar altura de celdas
+\usepackage{verbatim} 
+\usetikzlibrary{babel}%para no general error al usar babel y tikz simultaneamente.
+\usetikzlibrary{patterns,patterns.meta}%%%%%%%%%%%para  pintar de forma rrallada un rectangulo
+
+\usepackage{pictex}
+\usepackage{verbatim}%me sirve para usar comentarios con mucha lineas 
+\usepackage{amstext}
+\usepackage{enumerate}
+%\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{mathdots}% para tener mas opciones de puntos suspensivos
+
+%\usepackage{pgf,tikz}%,pgfplots
+%\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+%\usetikzlibrary{arrows}
+%\usepackage{etex,tkz-euclide} 
+%\usetkzobj{all}
+\usepackage{color}
+
+\usepackage{cancel}
+\newcommand{\Cancelar}[2][black]{{\color{#1}\cancel{\color{black}#2}}}%%% para cancelar con colores recordar usar mayusculas
+\usepackage{lscape}%paquete para girar hojas
+
+
+\usepackage{bm}
+
+
+
+
+
+
+
+
+
+\newcommand{\dis}{\displaystyle}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\re}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\K}{\mathbb{K}}
+%\newcommand{\B}{\mathcal{B}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\can}{\mathcal{C}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Pol}{\mathcal{P}}
+
+\newcommand{\iv}{\bm{\check{\imath}}}
+\newcommand{\jv}{\bm{\check{\jmath}}}
+\newcommand{\kv}{\check{\bm k}}
+\newcommand{\moduloprop}{\hookrightarrow_{\hspace{-2.5mm}\mbox{\tiny$^{_\neq}$}}}
+
+\newtheorem{ejer}{Ejercicio}[]
+
+\newtheorem{teo}{Teorema}%[section]
+\newtheorem{lema}[teo]{Lema}
+\newtheorem{propo}[teo]{Proposición}
+\newtheorem{defi}[teo]{Definición}
+\newtheorem{ejem}[teo]{}
+\newtheorem*{ejemsinn}{}
+\newtheorem{obs}[teo]{Observación}%[section]
+\newtheorem{acla}{Aclaración}%[section]
+\newtheorem{act}{Actividad}%%%%%%%%%%%%%%%%
+\newtheorem*{defsinn}{{\bf Definición}:}
+\newtheorem*{ejemplosinn}{{\bf Ejemplo}:}
+\newtheorem*{proposinn}{{\bf\sc Proposición}}
+\newtheorem*{obssinn}{Observación:}
+\newtheorem*{corosinn}{Corolario}
+\newtheorem*{propsinn}{Propiedades:}
+%\newenvironment{proof} { \noindent {\bf Demostración: }\rm}{$\quad \hfill \blacksquare $}
+\usepackage{setspace} % (es una alternativa a \renewcommand{\baselinestretch}{1.3}) usando \doublespacing \onehalfspace \singlespace \spacing{1.5}  se va cambiando segun uno quiera
+\spacing{1.2}
+
+%\newenvironment{proof}[Demostración:]
+\newenvironment{sol}{ \noindent {\bf Solución:} \rm}{%\hfill \protect\tikz[overlay,yshift=-4pt]\protect\node[xshift=8mm, yshift=13mm, blue]() {\huge $\checkmark$ };
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\renewcommand{\baselinestretch}{1.5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[framemethod=TikZ]{mdframed}%Paquete para estilos de los bordes de los ambientes Importante este paquete (mdframed) define un entorno  que trata automáticamente los saltos de página en el texto enmarcado.
+            \mdfsetup{skipabove=1\baselineskip, skipbelow=1.5\baselineskip ,             frametitlefont= \sffamily\bfseries , needspace=4\baselineskip , splittopskip=1.5\baselineskip} %
+            \mdfsetup{apptotikzsetting={\tikzset{mdfbackground/.append style={draw=none}}}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo para Cuentas auxiliares
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mdfdefinestyle{Cuentaauxi}{%skipabove=10pt, skipbelow=0,
+userdefinedwidth=1.02\textwidth,align=center,
+  everyline=true,
+  ignorelastdescenders=true,
+  middlelinewidth=1pt,
+  linecolor=black!20,
+  outerlinewidth=1pt,
+  %leftline=false,topline=false
+  %rightline=false,bottomline=false,
+  %backgroundcolor=black!20,
+  innerleftmargin=2mm, innerrightmargin=2mm,
+  innerbottommargin=3mm,
+  innertopmargin=1mm,
+  frametitleaboveskip=2mm,
+  frametitlebelowskip=2mm,
+  %frametitlerule=false,
+  %repeatframetitle=false,
+ % outerlinewidth=6pt,outerlinecolor=blue!20,
+ pstricksappsetting={\addtopsstyle{mdfouterlinestyle}{linestyle=dashed}},
+ %firstextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, 
+ %minimum size=15mm, fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}
+ %  \endtikzpicture
+ %}; },
+ %singleextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, minimum size=15mm,
+  %fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}    
+ %  \endtikzpicture
+ %}; }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo para Citar
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mdfdefinestyle{citar}{
+userdefinedwidth=.83\textwidth ,align=center,
+skipabove=5pt, skipbelow=5pt,
+  everyline=true,
+  ignorelastdescenders=true,
+  middlelinewidth=1pt,
+  linecolor=blue!60,
+  outerlinewidth=2pt,
+  %leftline=false,
+  topline=false,
+  rightline=false,
+  bottomline=false,
+  %backgroundcolor=black!20,
+  innerleftmargin=5mm, innerrightmargin=5mm,
+  innerbottommargin=3mm,
+  innertopmargin=1mm,
+  leftmargin= 14mm,
+  %frametitleaboveskip=2mm,
+  %frametitlebelowskip=2mm,
+  %frametitlerule=false,
+  %repeatframetitle=false,
+ % outerlinewidth=6pt,outerlinecolor=blue!20,
+ pstricksappsetting={\addtopsstyle{mdfouterlinestyle}{linestyle=dashed}},
+ %firstextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, 
+ %minimum size=15mm, fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}
+ %  \endtikzpicture
+ %}; },
+ %singleextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, minimum size=15mm,
+  %fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}    
+ %  \endtikzpicture
+ %}; }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Dem}{\protect\tikz[overlay,yshift=-4pt]\protect\draw[line width=1.5pt,line cap=round,color=gray] (0,0)[out=14,in=180] to node [shift=(90:6.pt),color=black] {\large\bf Dem:} (7:1); \qquad \quad }
+\DeclareRobustCommand{\michi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[1]{\raisebox{\depth}{\large$#1\chi$}} % inner command, used by \rchi
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando aclaraciones  
+
+\newcommand{\aclaracion}[2]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#2}) [color=black,above right] {\bf #1};
+\foreach \y in {1,2,...,#2}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando respuesta 
+
+\newcommand{\res}[1]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#1}) [color=black,above right] {\bf respuesta:};
+\foreach \y in {1,2,...,#1}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando ejemplo para completar 
+
+\newcommand{\ejparacompletar}[1]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#1}) [color=black,above right] {\bf Ejemplo:};
+\foreach \y in {1,2,...,#1}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando conclusión 
+
+\newcommand{\conclus}[1]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#1}) [color=black,above right] {\bf Conclusión:};
+\foreach \y in {1,2,...,#1}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% boton calculadora 
+
+\newcommand{\boton}[2]{
+\tikzpicture{  \node[draw,color=#1,fill=#1,text=white,,rounded corners=3mm,text width=7mm,text height =3mm,align=center,midway]  at (0,0) { \large \bf #2 };
+}
+\endtikzpicture
+}
+
+\usepackage[framemethod=TikZ]{mdframed}%Paquete para estilos de los bordes de los ambientes Importante este paquete (mdframed) define un entorno  que trata automáticamente los saltos de página en el texto enmarcado.
+            \mdfsetup{skipabove=2\baselineskip,skipbelow=2\baselineskip,frametitlefont=\sffamily\bfseries, needspace=4\baselineskip, splittopskip=1.5\baselineskip} 
+            \mdfsetup{apptotikzsetting={\tikzset{mdfbackground/.append style={draw=none}}}} 
+            
+            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo  para cajas
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mdfdefinestyle{teoSty}{backgroundcolor=blue!10, linecolor=blue, linewidth=3pt,
+skipabove=4pt,
+skipbelow=3pt, 
+innerleftmargin=3ex, innerrightmargin=3ex, innertopmargin=3mm, innerbottommargin=3mm, innermargin=15pt, outermargin=-15pt, needspace={0.2\textheight},roundcorner=10pt}
+
+\mdfdefinestyle{ObsSty}{backgroundcolor=red!10, linecolor=red, linewidth=2pt,
+skipabove=4pt,
+skipbelow=3pt, 
+innerleftmargin=3ex, innerrightmargin=3ex, innertopmargin=3mm, innerbottommargin=3mm, innermargin=5pt, outermargin=-5pt, needspace={0.2\textheight},roundcorner=10pt}
+
+\mdfdefinestyle{EjerSty}{backgroundcolor=blue!5!green!5!, linecolor=blue!50!green!50!, linewidth=2pt,
+skipabove=4pt,
+skipbelow=3pt, 
+innerleftmargin=3ex, innerrightmargin=3ex, innertopmargin=3mm, innerbottommargin=3mm, innermargin=5pt, outermargin=-5pt, needspace={0.2\textheight},roundcorner=10pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo  para lineas de relleno usando el paquete patterns y la libreria  patterns.meta
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzdeclarepattern{
+  name=mylines,
+  parameters={
+      \pgfkeysvalueof{/pgf/pattern keys/size},
+      \pgfkeysvalueof{/pgf/pattern keys/angle},
+      \pgfkeysvalueof{/pgf/pattern keys/line width},
+  },
+  bounding box={
+    (0,-0.5*\pgfkeysvalueof{/pgf/pattern keys/line width}) and
+    (\pgfkeysvalueof{/pgf/pattern keys/size},
+0.5*\pgfkeysvalueof{/pgf/pattern keys/line width})},
+  tile size={(\pgfkeysvalueof{/pgf/pattern keys/size},
+\pgfkeysvalueof{/pgf/pattern keys/size})},
+  tile transformation={rotate=\pgfkeysvalueof{/pgf/pattern keys/angle}},
+  defaults={
+    size/.initial=5pt,
+    angle/.initial=45,
+    line width/.initial=.4pt,
+  },
+  code={
+      \draw [line width=\pgfkeysvalueof{/pgf/pattern keys/line width}]
+        (0,0) -- (\pgfkeysvalueof{/pgf/pattern keys/size},0);
+  },
+}
+
+
+
+
+
+\newcommand{\semejante}[1]{\stackrel[#1]{}{\longleftrightarrow}}% \thicksim para decir la Semejanza de matrices la variable #1  indica la operacion elemental 
+\newcommand{\OptipoUno}[1]{\stackrel[#1]{}{=}}
+
+
+
+\newcommand{\indicador}[4]{
+{\tikz[remember picture,overlay]\coordinate (#1) at #2;}{\tikz[remember picture,overlay]\coordinate (#3) at #4;} 
+}
+
+\newcommand{\marka}[2]{
+{\tikz[remember picture,overlay]\coordinate (#1) at #2;}
+}
+
+
+
+
+\newcommand{\cof}{ \mbox{cof}}
+
+\newcommand{\paralela}{\rotatebox[origin=c]{-10}{\Large$\parallel$}}
+
+\usepackage{fancyhdr}
+\fancypagestyle{miestilo}{
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{pág \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\renewcommand{\footrulewidth}{1pt}
+\pagestyle{fancy}\markboth{}{}
+\renewcommand{\headrulewidth}{.05pt}
+\renewcommand{\headrule}{{\color{gray}%
+\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+\renewcommand{\footrule}{{\color{gray}%
+\vskip-\footruleskip\vskip-\footrulewidth
+\hrule width\headwidth height\footrulewidth\vskip\footruleskip}}
+\renewcommand{\footrulewidth}{.50pt}
+\fancyhead[L]{\color{gray}{\footnotesize \sc  \materia} }
+\fancyhead[C]{}
+\fancyhead[R]{\color{gray}{\sc \footnotesize  Universidad Nacional Del Comahue}}
+\fancyfoot[R]{pág. \thepage}
+\fancyfoot[C]{}
+\setlength{\headheight}{15pt}
+
+%\usepackage{wrapfig}
+
+\newcommand{\co}{\mathbb{C}}
+%\newcommand{\re}{\mathbb{R}}
+\newcommand{\q}{\mathbb{Q}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\ve}{\mathbb{V}}
+\newcommand{\w}{\mathbb{W}}
+\newcommand{\be}{{\cal B}}
+\newcommand{\ca}{{\cal C}}
+\newcommand{\pqx}{\mathbb{Q}[x]}
+\newcommand{\prx}{\mathbb{R}[x]}
+\newcommand{\pcx}{\mathbb{C}[x]}
+%\newcommand{\izg}{\big\langle}
+%\newcommand{\rangle}{\big\rangle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\newcommand{\materia}{\sc Álgebra y Geometría I}%separadas con '&'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% se define el encabezado, 
+% el parametro es el texto que va despues de: trabajo practico $N^\circ$... (agregar numero y titulo)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\newcommand{\encabezado}[1]{%
+\fancyfoot[L]{\vspace*{-3.5mm}\color{gray}{\small T. P. N°7: Ecuaciones de segundo grado en el plano y espacio}}
+\thispagestyle{miestilo} 
+\newcommand{\encabezado}[1]{%
+\fancyfoot[L]{\vspace*{-3.5mm}\color{gray}{\small T. P. #1}}
+%\thispagestyle{miestilo}%
+%--------------------logodpto //texto // logouni------------------
+%--------------------logodpto------------------
+
+\vspace*{-18mm}\hspace*{-11mm} \begin{minipage}{2.7cm}
+\begin{center} 
+     \includegraphics[width=2.7cm, height=2.7cm]{logodpto}
+\end{center}  
+\end{minipage}\hspace*{-15mm} \begin{minipage}{15.9cm}
+\begin{center}
+\begin{tabular}{c @{ - } c}
+ \materia \\
+\carreras
+\end{tabular}
+
+\cuatri
+
+\medskip
+
+TRABAJO PRÁCTICO N$^\circ$#1 
+
+\end{center}
+
+\end{minipage}\hspace{-14mm} \begin{minipage}{2.5cm}
+  \begin{center} 
+    \includegraphics[width=2.5cm, height=2.5cm]{logouni}
+  \end{center}  
+\end{minipage}
+%-----------------------------------------------------
+
+%----------------------------------------------------------------
+\hrule
+%---------------------------------------------------------------
+}%%
+
+
+
+\pagestyle{fancy}
+\def\identacion{-2.5mm}%mueve la identacion de la enumeracion de los ejercicios.
+
+
+\usepackage{asypictureB}
+\begin{asyheader}
+settings.outformat="png";
+settings.render=8;
+import graph3;
+import smoothcontour3;
+
+pen bpen = rgb(0.75, 0.07, 0.01);
+//material m = material(diffusepen=0.7bpen, ambientpen=bpen+opacity(0.8), emissivepen=0.3*bpen,specularpen=0.999white, shininess=1.0);      
+\end{asyheader}
+
+
+\usepackage{multicol}
+\setlength{\columnsep}{7mm}
+
+
+
+
+\begin{document}
+
+
+\setlength{\headheight}{15pt}
+
+\vspace*{-2.5cm}
+%--------------------logodpto------------------
+\begin{figure}[htbp]
+  \begin{minipage}[r][][t]{0.15\textwidth}
+\begin{center} 
+ % Universidad Nacional del Comahue.  
+ \includegraphics[width=2.2cm, height=2.2cm]{imagen/inglogo.jpg}
+\vspace{1.8cm}
+\end{center}  
+\end{minipage}\quad
+% texto central
+\begin{minipage}[r][][t]{0.31\textwidth}
+\begin{center}
+\vspace*{-25mm}
+ÁLGEBRA Y GEOMETRÍA I
+ \\
+Primer Cuatrimestre 2026
+ \end{center}
+\end{minipage}\quad\begin{minipage}[r][][t]{0.31\textwidth}
+\begin{center}
+\vspace*{-25mm}
+Ingeniería en Petróleo \\
+Módulo 4
+\end{center}
+\end{minipage}\quad
+%----------------------logouni-------------------------
+\begin{minipage}[r][][t]{0.15\textwidth}
+  \begin{center} 
+     \includegraphics[width=2.2cm, height=2.2cm]{imagen/Logo_UNco.jpg}
+     \vspace{1.8cm}
+  \end{center}  
+\end{minipage}
+%-----------------------------------------------------
+\end{figure}
+\vspace*{-35mm}
+
+\begin{center}
+{\bf \Large{ Trabajo Práctico N° 7 – Ecuaciones de segundo\\ grado en el plano y espacio}}
+\end{center}
+
+
+
+%{\bf{Importante: Recordar que hay ejemplos resueltos tanto en teoría como en el archivo ejercicios modelo que te ayudarán a desarrollar este trabajo práctico.}}
+
+
+
+
+\underline{\bf \large{Ecuaciones de segundo grado en el plano}}
+\begin{enumerate}[\hspace{-5mm}$1)$]
+\item Para las siguientes ecuaciones, determinar de qué cónica se trata, indicar sus elementos y graficar. 
+\begin{enumerate}[a)]
+\begin{minipage}{.32\textwidth}
+\item $(x + 1)^2 + (y - 4)^2 - 9 = 0$
+\medskip
+\item $\left( \dfrac{x + \frac{1}{2}}{3} \right)^2 + \left( \dfrac{y + 2}{5} \right)^2 = 1$
+\end{minipage}\quad\begin{minipage}{.37\textwidth}
+\item $-2(x + 2)^2 + 18(y + 2)^2 - 18 = 0$
+\bigskip
+\item $2y^2 + 6 = -3x$
+\end{minipage}\quad\begin{minipage}{.2\textwidth}
+\item $\dfrac{x^2}{16} - \dfrac{(y - 1)^2}{4} = 1$
+\bigskip
+\item $4(y - 1)^2 + x^2 = 16$
+\end{minipage}
+\end{enumerate} 
+
+
+
+
+
+
+
+
+
+
+\item Encontrar la ecuación de la cónica que satisface las condiciones dadas.
+\begin{enumerate}[a)]
+\item \textbf{Circunferencia}
+\begin{enumerate}[i.]
+\item Centro $(4, -3)$ y radio 6.
+\item Centro $C = (2, 3)$ y pasa por $P = (3, -2)$.
+\item Diámetro $AB$ con $A = (0, 5)$ y $B = (6, -1)$.
+\item Centro $(1, -1)$ y tangente a la recta $L: -x + y - 2 = 0$.
+\end{enumerate}
+
+\item \textbf{Elipse}
+\begin{enumerate}[i.]
+\item Eje mayor $= 10$, paralelo al eje $Y$, distancia entre focos $= 8$, centro $C = (3, 1)$.
+\item Centro $C = (1, -2)$, eje mayor vertical de longitud 8, excentricidad $1/2$.
+\item Pasa por $A = (4, 3)$, vértices $V_1 = (5, 2)$ y $V_2 = (-3, 2)$.
+\end{enumerate}
+
+\item \textbf{Hipérbola}
+\begin{enumerate}[i.]
+\item Centro en el origen, eje real vertical, pasa por $A = (2, -2)$, asíntota $x + 2y = 0$.
+\item Focos $F_1 = (-3, 0)$ y $F_2 = (3, 0)$, pasa por $A = (8, 5\sqrt{3})$.
+\item Pasa por $A = (4, 6)$, asíntotas $2x + y - 3 = 0$ y $2x - y - 1 = 0$, eje real horizontal.
+\end{enumerate}
+
+\item \textbf{Parábola}
+\begin{enumerate}[i.]
+\item Directriz $x - 5 = 0$, foco $F = (-5, 0)$.
+\item Vértice $V = (-2, 4)$, foco $F = (-2, 5/2)$.
+\item Vértice en el origen, simétrica respecto al eje $X$, pasa por $P = (9, 6)$.
+\end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+
+\item Reducir cada ecuación a la forma canónica, identificar la cónica, determinar sus elementos y graficar:
+\begin{multicols}{2}
+\begin{enumerate}[a)]
+\item $8x + y^2 + 4y + 44 = 0$
+\item $2x^2 + y^2 + 4x + 6y - 5 = 0$
+\item $x^2 - 6x + 4y - 7 = 0$
+\item $16x^2 - 9y^2 = 144$
+\item $49y^2 - 4x^2 + 98y - 48x - 291 = 0$
+\item $9x^2 + 9y^2 = 36$
+\item $16x^2 + 25y^2 + 160x = -200y - 400$
+\item $x^2 + y^2 - 8x - 2y + 1 = 0$
+\end{enumerate}
+\end{multicols}
+
+
+
+
+
+
+
+\item Hallar el lugar geométrico y determinar su nombre:
+\begin{enumerate}[a)]
+\item Puntos que equidistan de $(1, -3)$ y $(5, 1)$.
+\item Los puntos $P = (x, y)$ tales que $d(P, A = (-1, 3)) = 2 \cdot d(P, B = (7, -1))$.
+\item Puntos que equidistan de los ejes coordenados.
+\item Puntos $P$ tales que $d(P, A = (0,6)) = \dfrac{3}{2} \cdot d(P, 3y = 8)$.
+\item Puntos $P = (x, y)$ tales que $d(P, A = (3, 0)) + d(P, B = (-3, 0)) = 8$.
+\item Puntos a distancia 4 de la recta $\sqrt{5}y - 2 = 2x - 1$.
+\item Puntos a distancia 9 de $A = (-2, 3)$.
+\item Puntos que equidistan de $A = (3, 0)$ y de la recta $x = -4$.
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\underline{\bf \large{Ecuaciones de segundo grado en el espacio.}}
+\begin{enumerate}[\hspace{-5mm}$1)$]
+
+\item 
+\begin{enumerate}[a)]
+\item Encontrar e identificar todas las trazas de la superficie $x^2 + y^2 - z^2 = 1$. Graficarla.
+\item Si se cambia la ecuación por $x^2 - y^2 + z^2 = 1$, ¿en qué cambia la gráfica?
+\item ¿Qué pasa si se cambia la ecuación a $x^2 + (y + 1)^2 - z^2 = 1$?
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+\item Dibujar e identificar las siguientes superficies, indicando sus trazas sobre los planos coordenados:
+\begin{multicols}{3}
+\begin{enumerate}[a)]
+\item $x^2 + y^2 + z^2 = 9$
+\item $x^2 + \dfrac{y^2}{4} = z$
+\item $x^2 = y^2 + z^2$
+\item $z = 16 - x^2 - y^2$
+\item $4x^2 + y^2 = 4$
+\item $\dfrac{z^2}{4} - \dfrac{y^2}{9} - \dfrac{x^2}{9} = 1$
+\end{enumerate}
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item Dadas las siguientes superficies:
+
+\begin{enumerate}[a)]
+    \item Clasificar y graficar dichas cuádricas.
+
+
+    \item Hallar analíticamente las ecuaciones de las intersecciones pedidas e identificar el lugar geométrico hallado.
+\begin{enumerate}[i)]
+\item $4x^2 - y^2 + 4z^2 = 4$; intersección con $x = 2$; $y = \pm 6$
+\item $\dfrac{x^2}{16} - \dfrac{y^2}{9} - \dfrac{z^2}{4} = 1$; $x = \pm 8$; $y = 3$
+\item $y^2 + z^2 = 2x$; $x = 9$; $y = -2$
+\item $x^2 + 4y^2 + 4z^2 = 16$; $x = \pm 2$
+\item $\dfrac{x^2}{4} + y^2 = 2z - 4$; $x = 2$; $z = 2$; $z = \dfrac{5}{2}$
+\item $\dfrac{x^2}{4} - \dfrac{z^2}{9} = y$; $y = \pm 2$; $x = \pm 2$
+\item $y^2 + z = 4$; intersección con $y - x = 0$; $y - \dfrac{1}{2}x = 0$; $y - 2x = 0$
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+
+
+
+\item Hallar el lugar geométrico de los puntos del espacio que:
+\begin{enumerate}[a)]
+\begin{minipage}{.5\textwidth}
+\item Equidistan de $P_1 = (3, 0, -1)$ y $P_2 = (-2, 2, 1)$.
+\end{minipage}\qquad\qquad\begin{minipage} {.37\textwidth}
+\item Están a 5 unidades de $P = (2, 1, 7)$.
+\end{minipage} 
+\end{enumerate}
+
+\end{enumerate} 
+
+
+
+\underline{\bf \large{Ejercicios De Integración. }}
+
+\begin{enumerate}[\hspace{-5mm}$1)$]
+\item Dada la circunferencia $x^2 + y^2 - 12x + 10y - 3 = 0$, hallar las rectas tangentes a ella que son paralelas a $L: x + y + 4 = 0$. Graficar e indicar los puntos de contacto.
+
+
+
+
+
+
+
+
+
+
+
+\item Hallar los puntos de intersección de la recta $L: x + y - 3 = 0$ con la parábola $x^2 = 4y$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\item Dada la elipse $\dfrac{x^2}{9} + \dfrac{y^2}{4} = 1$:
+\begin{enumerate}[a)]
+\item Determinar la posición relativa de la recta $L: y = 2x + 1$.
+\item Determinar la posición relativa de la recta $L: \dfrac{x}{5} + \dfrac{y}{6} = 1$.
+\end{enumerate}
+
+
+
+
+
+
+
+\item Dadas las ecuaciones:\qquad\qquad (A) $x^2 + 2kx - y^2 - 1 + 2k^2 = y^2 \rule{0mm}{6mm}$ \qquad (B) $\dfrac{x^2}{25 - k^2} + \dfrac{y^2}{9 - k^2} = 1$    
+
+En cada caso, analizar para qué valores de $k \in \mathbb{R}$ representan:
+\quad$a)\ $ Una elipse. \qquad
+$b)\ $ Una hipérbola.
+
+
+
+
+
+
+
+\item Dada la ecuación $\dfrac{x^2}{16} + \dfrac{y^2}{9} - \dfrac{z^2}{4} = -1$:
+\begin{enumerate}[a)]
+\item ¿Qué cónica se obtiene si $y = 0$? ¿Y si $z = 0$? Graficar.
+\item ¿Para qué valores de $z = k$ se obtiene una elipse?
+\item ¿Para qué valores de $z = k$ se obtiene un punto?
+\end{enumerate}
+
+
+
+
+
+
+\item Dada la ecuación $-y^2 + 3z^2 + x^2 + 20 - 18z + 4y = 0$:
+\begin{enumerate}[a)]
+\item Identificar la superficie y graficarla.
+\item Determinar la intersección con la recta $L: (x, y, z) = (2, 0, 2) + \lambda(1, 1, 2)$, $\lambda \in \mathbb{R}$.
+\end{enumerate}
+
+
+
+
+
+\item Determinar las coordenadas del punto de contacto entre el plano tangente $2x - 2y - z = 5$ y la superficie $x^2 + (y - 3)^2 + (z + 2)^2 = 9$. Determinar si los puntos $A = (1, 2, 2)$ y $B = (1, 2, -2)$ están en la superficie, dentro o fuera de ella.
+
+
+
+
+
+\item Sea la superficie $Ax^2 + (A - 1)y^2 + 2Az^2 = 1$. Hallar los valores de $A \in \mathbb{R}$ tales que la superficie sea:
+\begin{enumerate}[a)]
+\begin{multicols}{3}
+\item Un elipsoide
+\item Un hiperboloide de una hoja
+\item Un cilindro elíptico
+\end{multicols}
+\end{enumerate}
+
+\end{enumerate}
+
+
+
+
+\hrule 
+
+\medskip
+
+{\large \bf CÓNICAS – EJERCITACIÓN EXTRA.}
+
+\noindent\textbf{Determinar, en cada uno de los siguientes casos, la ecuación de la:}
+\hspace{-7mm}\begin{itemize} 
+\item \textbf{Circunferencia:}
+\begin{enumerate}[a)]
+    \item Que pasa por los puntos \( A = (1,3) \), \( B = (3,5) \), y tiene el centro sobre la recta \( x + 2y = 3 \).
+    
+    \item De centro \( C = (-4, 3) \) y tal que el eje \( X \) es tangente a ella.
+    
+    \item Que pasa por los puntos \( P = (-3,5) \), \( Q = (5,1) \), y \( R = (2,4) \).
+\end{enumerate}
+
+\item \textbf{Elipse:}
+\begin{enumerate}[a)]
+    \item Tiene centro en el punto \( C = (-2,1) \), su eje mayor es paralelo al eje \( Y \), su semieje menor mide 8 unidades y su excentricidad es \( \dfrac{3}{5} \).
+    
+    \item No tiene centro en el origen, sus ejes miden \( 2\sqrt{7} \) y \( 2\sqrt{3} \), y uno de sus focos es el punto \( F_1 = (2, 0) \).
+\end{enumerate}
+
+\item \textbf{Hipérbola:}
+\begin{enumerate}[a)]
+    \item La distancia entre sus vértices es igual a 24 y tiene focos en \( F_1 = (16, 2) \) y \( F_2 = (-10, 2) \).
+    
+    \item Sus vértices son los puntos \( V_1 = (-2, 0) \) y \( V_2 = (-2, -16) \), y uno de sus focos es \( F = (-2, -18) \).
+\end{enumerate}
+
+\item \textbf{Parábola:}
+\begin{enumerate}[a)]
+    \item Tiene foco en \( F = (4, 3) \) y su directriz es la recta \( y + 1 = 0 \).
+    
+    \item Con eje vertical y pasa por los puntos \( A = (0,0) \), \( B = (3,0) \) y \( C = (-1,4) \).
+\end{enumerate}
+
+\end{itemize}
+
+
+\end{document}

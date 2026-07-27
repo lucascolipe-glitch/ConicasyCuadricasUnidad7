@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Unidad interactiva sobre cónicas y superficies cuádricas para Álgebra y Geometría I.">
+  <title>Cónicas y superficies cuádricas | Álgebra y Geometría I</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script>
+  window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="brand"><div class="brand-mark">AG</div><div><h1>Álgebra y Geometría I</h1><small>Ingeniería en Petróleo · Unidad 7</small></div></div>
+  <button class="btn menu-toggle" aria-label="Abrir contenidos">☰ Contenidos</button>
+</header>
+<div class="layout">
+<aside class="sidebar" aria-label="Tabla de contenidos">
+  <h2>Contenidos</h2>
+  <nav><ul class="nav-list">
+    <li><button class="nav-link active" data-section="inicio">Inicio</button></li>
+    <li><button class="nav-link" data-section="conicas">Lugares geométricos y cónicas</button></li>
+    <li><button class="nav-link" data-section="completar">Completar cuadrados</button></li>
+    <li><button class="nav-link" data-section="circunferencia">Circunferencia</button></li>
+    <li><button class="nav-link" data-section="parabola">Parábola</button></li>
+    <li><button class="nav-link" data-section="elipse">Elipse</button></li>
+    <li><button class="nav-link" data-section="hiperbola">Hipérbola</button></li>
+    <li><button class="nav-link" data-section="cuadricas">Superficies cuádricas</button></li>
+    <li><button class="nav-link" data-section="esfera-elipsoide">Esfera y elipsoide</button></li>
+    <li><button class="nav-link" data-section="paraboloides">Paraboloides</button></li>
+    <li><button class="nav-link" data-section="hiperboloides-cono">Hiperboloides y cono</button></li>
+    <li><button class="nav-link" data-section="cilindros-trazas">Cilindros y trazas</button></li>
+    <li><button class="nav-link" data-section="practica">Práctica y autoevaluación</button></li>
+    <li><button class="nav-link" data-section="revision">Notas de revisión del material</button></li>
+  </ul></nav>
+  <div class="sidebar-links">
+    <a href="graficos-3d/index.html">Galería completa 3D</a>
+    <a href="graficos-2d/index.html">Galería de gráficos 2D</a>
+    <a href="materiales/teoria-conicas-cuadricas.pdf">PDF de teoría</a>
+    <a href="materiales/tp7-conicas-cuadricas.pdf">PDF del TP 7</a>
+  </div>
+</aside>
+<main class="main">
+<section class="content-section active" id="inicio">
+  <div class="hero">
+    <div class="eyebrow">Unidad interactiva</div>
+    <h2>Ecuaciones de segundo grado en el plano y en el espacio</h2>
+    <p>Una reconstrucción web de la teoría y el Trabajo Práctico N.º 7: cónicas, superficies cuádricas, cilindros y método de las trazas. Los gráficos 3D fueron reinterpretados matemáticamente desde Asymptote y reconstruidos con Three.js.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#conicas" data-go-section="conicas">Comenzar la unidad</a>
+      <a class="btn soft" href="graficos-3d/index.html">Explorar los 50 gráficos 3D</a>
+      <a class="btn" href="materiales/tp7-conicas-cuadricas.pdf">Abrir el práctico</a>
+    </div>
+  </div>
+  <div class="grid-3" style="margin-top:22px">
+    <article class="card"><h3>Plano</h3><p>Circunferencia, parábola, elipse e hipérbola como lugares geométricos y como ecuaciones de segundo grado.</p></article>
+    <article class="card"><h3>Espacio</h3><p>Esfera, elipsoide, paraboloides, hiperboloides, cono y cilindros cuádricos.</p></article>
+    <article class="card"><h3>Interacción</h3><p>Controles de cámara, trazas, parámetros, malla, transparencia, proyección y exportación PNG.</p></article>
+  </div>
+  <div class="card note" style="margin-top:22px"><strong>Funcionamiento:</strong> al cambiar de sección, la anterior se oculta y cualquier video activo recibe la orden de pausa. Cada bloque de videos tiene controles «Anterior» y «Siguiente».</div>
+</section>
+
+<section class="content-section" id="conicas">
+  <div class="section-head"><div class="eyebrow">Plano</div><h2 class="section-title">Lugares geométricos y secciones cónicas</h2><p class="lead">Un lugar geométrico es el conjunto de puntos que satisfacen una propiedad. Las cónicas pueden describirse mediante distancias o como intersecciones entre un cono circular doble y un plano.</p></div>
+  <div class="card definition"><h3>Lugar geométrico</h3><div class="equation">\[P\in \mathcal L \iff P\text{ satisface la propiedad que define a }\mathcal L.\]</div><p>La circunferencia fija una distancia a un centro; la parábola iguala la distancia a un foco y a una directriz; la elipse mantiene constante una suma de distancias y la hipérbola una diferencia absoluta.</p></div>
+  <iframe class="graph-frame" src="graficos-3d/01-seccion-conica-circunferencia/index.html" title="Sección cónica: circunferencia" loading="lazy"></iframe>
+  <div class="graph-links"><a class="btn soft" href="graficos-3d/02-seccion-conica-elipse/index.html">Elipse 3D</a><a class="btn soft" href="graficos-3d/03-seccion-conica-parabola/index.html">Parábola 3D</a><a class="btn soft" href="graficos-3d/04-seccion-conica-hiperbola/index.html">Hipérbola 3D</a><a class="btn" href="graficos-3d/05-conicas-degeneradas/index.html">Casos degenerados</a><a class="btn" href="graficos-2d/explorador-conicas/index.html">Explorador 2D</a></div>
+  <div class="video-grid"><article class="video-panel" id="videos-conicas-teoria" data-video-carousel>
+      <header><h3>Videos de teoría</h3><p>Definiciones, elementos y comparación de las cuatro cónicas.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article><article class="video-panel" id="videos-conicas-practica" data-video-carousel>
+      <header><h3>Videos de práctica</h3><p>Clasificación, completamiento de cuadrados y representación.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article></div>
+  <div class="card activity"><h3>Actividad breve</h3><div class="question" data-question="c1" data-explain="El corte perpendicular produce una circunferencia."><p><strong>¿Qué cónica se obtiene al cortar un cono con un plano perpendicular a su eje?</strong></p><div class="options"><button class="option" data-correct="true">Circunferencia</button><button class="option" data-correct="false">Parábola</button><button class="option" data-correct="false">Hipérbola</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="c2" data-explain="El denominador mayor corresponde al cuadrado del semieje mayor."><p><strong>En una elipse, ¿qué indica el denominador mayor?</strong></p><div class="options"><button class="option" data-correct="true">El eje mayor</button><button class="option" data-correct="false">La directriz</button><button class="option" data-correct="false">El radio</button></div><div class="feedback" aria-live="polite"></div></div></div>
+</section>
+
+<section class="content-section" id="completar">
+  <div class="section-head"><div class="eyebrow">Herramienta algebraica</div><h2 class="section-title">Completar cuadrados</h2><p class="lead">El pasaje de la forma desarrollada a la forma ordinaria permite leer centro, vértice, ejes, focos y orientación.</p></div>
+  <div class="grid-2"><article class="card"><h3>Identidad fundamental</h3><div class="equation">\[x^2+mx=\left(x+\frac m2\right)^2-\left(\frac m2\right)^2.\]</div><p>Se agrupan los términos de cada variable, se extraen factores y se completa un cuadrado perfecto.</p></article><article class="card example"><h3>Ejemplo</h3><div class="equation">\[4x^2+9y^2-8x+36y+4=0\]</div><div class="equation">\[\frac{(x-1)^2}9+\frac{(y+2)^2}4=1.\]</div><p>Es una elipse de centro \((1,-2)\), con semiejes 3 y 2.</p></article></div>
+  <iframe class="graph-frame compact" src="graficos-2d/completar-cuadrados/index.html" title="Completamiento de cuadrados interactivo" loading="lazy"></iframe>
+  <ol class="steps card"><li>Ordenar y agrupar los términos en x, y —y z en el espacio—.</li><li>Sacar factor común de los coeficientes cuadráticos.</li><li>Completar cuadrados sin alterar la igualdad.</li><li>Reorganizar las constantes.</li><li>Normalizar el segundo miembro e identificar la geometría.</li></ol>
+  <div class="video-grid"><article class="video-panel" id="videos-completar-practica" data-video-carousel>
+      <header><h3>Videos de procedimiento</h3><p>Los ejemplos se recorren con los botones del panel.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article><article class="video-panel" id="videos-completar-teoria" data-video-carousel>
+      <header><h3>Repaso conceptual</h3><p>Una mirada global antes de resolver el práctico.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article></div>
+</section>
+
+<section class="content-section" id="circunferencia">
+  <div class="section-head"><div class="eyebrow">Cónica 1</div><h2 class="section-title">Circunferencia</h2><p class="lead">Lugar geométrico de los puntos del plano que están a una distancia fija r de un centro \(C=(h,k)\).</p></div>
+  <div class="grid-2"><article class="card definition"><h3>Forma ordinaria</h3><div class="equation">\[(x-h)^2+(y-k)^2=r^2.\]</div><p>En forma desarrollada, los coeficientes de \(x^2\) e \(y^2\) son iguales y no aparece el término \(xy\).</p></article><article class="card example"><h3>Ejemplo del apunte</h3><div class="equation">\[x^2+y^2-6x+4y-12=0\]</div><div class="equation">\[(x-3)^2+(y+2)^2=25.\]</div><p>Centro \(C=(3,-2)\) y radio \(r=5\).</p></article></div>
+  <iframe class="graph-frame compact" src="graficos-2d/recta-circunferencia/index.html" title="Posición relativa de una recta y una circunferencia" loading="lazy"></iframe>
+  <div class="video-grid"><article class="video-panel" id="videos-circ-teoria" data-video-carousel>
+      <header><h3>Videos de teoría</h3><p>Ecuación, centro, radio y posición relativa.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article><article class="video-panel" id="videos-circ-practica" data-video-carousel>
+      <header><h3>Videos de ejemplos</h3><p>Reducción, clasificación y ejercicios semejantes al TP.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article></div>
+  <div class="card activity"><h3>Actividad breve</h3><div class="question" data-question="cc1" data-explain="El radio es la raíz cuadrada del segundo miembro."><p><strong>En \((x-3)^2+(y+2)^2=25\), ¿cuál es el radio?</strong></p><div class="short-answer"><input type="text" inputmode="decimal" data-answer="5" data-tolerance="0.001" aria-label="Respuesta"><button class="btn soft">Comprobar</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="cc2" data-explain="La igualdad indica un único punto de contacto."><p><strong>Si d(C,L)=r, la recta es…</strong></p><div class="options"><button class="option" data-correct="true">tangente</button><button class="option" data-correct="false">secante</button><button class="option" data-correct="false">exterior</button></div><div class="feedback" aria-live="polite"></div></div></div>
+</section>
+
+<section class="content-section" id="parabola">
+  <div class="section-head"><div class="eyebrow">Cónica 2</div><h2 class="section-title">Parábola</h2><p class="lead">Los puntos de una parábola equidistan de un foco y de una directriz. El parámetro dirigido p determina la apertura.</p></div>
+  <div class="table-wrap card"><table><thead><tr><th>Ecuación</th><th>Elementos</th><th>Apertura</th></tr></thead><tbody><tr><td>\((x-h)^2=4p(y-k)\)</td><td>\(V=(h,k)\), \(F=(h,k+p)\), directriz \(y=k-p\)</td><td>arriba si p&gt;0; abajo si p&lt;0</td></tr><tr><td>\((y-k)^2=4p(x-h)\)</td><td>\(V=(h,k)\), \(F=(h+p,k)\), directriz \(x=h-p\)</td><td>derecha si p&gt;0; izquierda si p&lt;0</td></tr></tbody></table></div>
+  <iframe class="graph-frame compact" src="graficos-2d/explorador-conicas/index.html?tipo=parabola" title="Parábola interactiva" loading="lazy"></iframe>
+  <div class="video-grid"><article class="video-panel" id="videos-parabola-teoria" data-video-carousel>
+      <header><h3>Videos de teoría</h3><p>Foco, directriz, vértice, eje y lado recto.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article><article class="video-panel" id="videos-parabola-practica" data-video-carousel>
+      <header><h3>Videos de práctica</h3><p>Ejercicios con ecuación, foco y vértice.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article></div>
+  <div class="card activity"><h3>Actividad breve</h3><div class="question" data-question="p1" data-explain="El término no cuadrático es x y 4p=8&gt;0."><p><strong>En \((y-3)^2=8(x-1)\), la parábola abre…</strong></p><div class="options"><button class="option" data-correct="true">hacia la derecha</button><button class="option" data-correct="false">hacia arriba</button><button class="option" data-correct="false">hacia la izquierda</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="p2" data-explain="Compará 8 con 4p."><p><strong>Para \((y-3)^2=8(x-1)\), ¿cuánto vale p?</strong></p><div class="short-answer"><input type="text" inputmode="decimal" data-answer="2" data-tolerance="0.001" aria-label="Respuesta"><button class="btn soft">Comprobar</button></div><div class="feedback" aria-live="polite"></div></div></div>
+</section>
+
+<section class="content-section" id="elipse">
+  <div class="section-head"><div class="eyebrow">Cónica 3</div><h2 class="section-title">Elipse</h2><p class="lead">La suma de las distancias a dos focos permanece constante e igual a \(2a\), con \(a&gt;b&gt;0\).</p></div>
+  <div class="grid-2"><article class="card definition"><h3>Eje mayor horizontal</h3><div class="equation">\[\frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1\]</div><p>Focos \((h\pm c,k)\), donde \(c^2=a^2-b^2\).</p></article><article class="card"><h3>Eje mayor vertical</h3><div class="equation">\[\frac{(x-h)^2}{b^2}+\frac{(y-k)^2}{a^2}=1\]</div><p>Focos \((h,k\pm c)\) y excentricidad \(e=c/a\).</p></article></div>
+  <iframe class="graph-frame compact" src="graficos-2d/explorador-conicas/index.html?tipo=elipse" title="Elipse interactiva" loading="lazy"></iframe>
+  <div class="video-grid"><article class="video-panel" id="videos-elipse-teoria" data-video-carousel>
+      <header><h3>Videos de teoría</h3><p>Propiedad focal, ejes, vértices y excentricidad.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article><article class="video-panel" id="videos-elipse-practica" data-video-carousel>
+      <header><h3>Videos de práctica</h3><p>Reducción e identificación a partir de ecuaciones.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article></div>
+  <div class="card activity"><h3>Actividad breve</h3><div class="question" data-question="e1" data-explain="Usá c²=a²-b²."><p><strong>Si una elipse tiene a=5 y b=3, ¿cuánto vale c?</strong></p><div class="short-answer"><input type="text" inputmode="decimal" data-answer="4" data-tolerance="0.001" aria-label="Respuesta"><button class="btn soft">Comprobar</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="e2" data-explain="El denominador mayor determina la dirección del eje mayor."><p><strong>Si el denominador mayor está bajo \((y-k)^2\), el eje mayor es…</strong></p><div class="options"><button class="option" data-correct="true">vertical</button><button class="option" data-correct="false">horizontal</button><button class="option" data-correct="false">oblicuo</button></div><div class="feedback" aria-live="polite"></div></div></div>
+</section>
+
+<section class="content-section" id="hiperbola">
+  <div class="section-head"><div class="eyebrow">Cónica 4</div><h2 class="section-title">Hipérbola</h2><p class="lead">El valor absoluto de la diferencia de las distancias a dos focos es constante. La hipérbola tiene dos ramas y dos asíntotas.</p></div>
+  <div class="grid-2"><article class="card definition"><h3>Eje real horizontal</h3><div class="equation">\[\frac{(x-h)^2}{a^2}-\frac{(y-k)^2}{b^2}=1\]</div><p>Asíntotas \(y-k=\pm\frac ba(x-h)\).</p></article><article class="card"><h3>Eje real vertical</h3><div class="equation">\[\frac{(y-k)^2}{a^2}-\frac{(x-h)^2}{b^2}=1\]</div><p>En ambos casos \(c^2=a^2+b^2\) y \(e=c/a&gt;1\).</p></article></div>
+  <iframe class="graph-frame compact" src="graficos-2d/explorador-conicas/index.html?tipo=hiperbola" title="Hipérbola interactiva" loading="lazy"></iframe>
+  <div class="video-grid"><article class="video-panel" id="videos-hiperbola-teoria" data-video-carousel>
+      <header><h3>Videos de teoría</h3><p>Ramas, centro, vértices, focos y asíntotas.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article><article class="video-panel" id="videos-hiperbola-practica" data-video-carousel>
+      <header><h3>Videos de práctica</h3><p>Ejercicios de reducción y representación.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article></div>
+  <div class="card activity"><h3>Actividad breve</h3><div class="question" data-question="h1" data-explain="El término positivo está asociado a x."><p><strong>En \((x+1)^2/9-(y-1)^2/4=1\), el eje real es…</strong></p><div class="options"><button class="option" data-correct="true">horizontal</button><button class="option" data-correct="false">vertical</button><button class="option" data-correct="false">oblicuo</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="h2" data-explain="Usá c²=a²+b²."><p><strong>Para la hipérbola anterior, ¿cuánto vale c?</strong></p><div class="short-answer"><input type="text" inputmode="decimal" data-answer="3.605551275463989" data-tolerance="0.01" aria-label="Respuesta"><button class="btn soft">Comprobar</button></div><div class="feedback" aria-live="polite"></div></div></div>
+</section>
+
+<section class="content-section" id="cuadricas">
+  <div class="section-head"><div class="eyebrow">Espacio tridimensional</div><h2 class="section-title">Superficies cuádricas</h2><p class="lead">Son lugares geométricos de \(\mathbb R^3\) definidos por una ecuación polinómica de segundo grado. En esta unidad se priorizan formas canónicas sin productos cruzados.</p></div>
+  <div class="card definition"><div class="equation">\[Ax^2+By^2+Cz^2+Dxy+Exz+Fyz+Gx+Hy+Iz+J=0.\]</div><p>Tras traslaciones, rotaciones y completamiento de cuadrados, muchas ecuaciones se reconocen como esfera, elipsoide, paraboloide, hiperboloide, cono o cilindro.</p></div>
+  <iframe class="graph-frame" src="graficos-3d/06-resumen-elipsoide/index.html" title="Elipsoide interactivo" loading="lazy"></iframe>
+  <div class="graph-links"><a class="btn soft" href="graficos-3d/index.html">Abrir galería completa</a><a class="btn" href="graficos-3d/08-resumen-paraboloide-hiperbolico/index.html">Silla de montar</a><a class="btn" href="graficos-3d/09-resumen-hiperboloide-una-hoja/index.html">Una hoja</a><a class="btn" href="graficos-3d/10-resumen-hiperboloide-dos-hojas/index.html">Dos hojas</a></div>
+  <div class="video-grid"><article class="video-panel" id="videos-cuadricas-teoria" data-video-carousel>
+      <header><h3>Videos de teoría</h3><p>Reconocimiento y geometría de las superficies cuádricas.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article><article class="video-panel" id="videos-cuadricas-practica" data-video-carousel>
+      <header><h3>Videos de práctica</h3><p>Ejercicios de examen, trazas y reconstrucción gráfica.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article></div>
+  <div class="card activity"><h3>Actividad breve</h3><div class="question" data-question="q1" data-explain="Dos términos positivos y uno negativo, con segundo miembro 1, producen una hoja."><p><strong>La ecuación \(x^2+y^2-z^2=1\) representa…</strong></p><div class="options"><button class="option" data-correct="true">hiperboloide de una hoja</button><button class="option" data-correct="false">hiperboloide de dos hojas</button><button class="option" data-correct="false">cono</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="q2" data-explain="La superficie se extiende paralelamente al eje de la variable ausente."><p><strong>En una ecuación cilíndrica, la variable ausente indica…</strong></p><div class="options"><button class="option" data-correct="true">la dirección generatriz</button><button class="option" data-correct="false">el centro</button><button class="option" data-correct="false">el radio</button></div><div class="feedback" aria-live="polite"></div></div></div>
+</section>
+
+<section class="content-section" id="esfera-elipsoide">
+  <div class="section-head"><div class="eyebrow">Cuádricas cerradas</div><h2 class="section-title">Esfera y elipsoide</h2><p class="lead">La esfera fija una distancia a un centro; el elipsoide generaliza la esfera con tres semiejes posiblemente diferentes.</p></div>
+  <div class="grid-2"><article class="card"><h3>Esfera</h3><div class="equation">\[(x-x_0)^2+(y-y_0)^2+(z-z_0)^2=r^2.\]</div><p>Ejemplo: \((x-2)^2+(y+3)^2+(z+1)^2=25\).</p><a class="btn soft" href="graficos-3d/21-esfera-desplazada/index.html">Abrir gráfico</a></article><article class="card"><h3>Elipsoide</h3><div class="equation">\[\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}+\frac{(z-z_0)^2}{c^2}=1.\]</div><p>Ejemplo: centro \((1,-2,3)\), semiejes 2, 3 y 4.</p><a class="btn soft" href="graficos-3d/23-elipsoide-desplazado/index.html">Abrir gráfico</a></article></div>
+  <iframe class="graph-frame" src="graficos-3d/23-elipsoide-desplazado/index.html" title="Elipsoide desplazado interactivo" loading="lazy"></iframe>
+  <div class="card activity"><h3>Actividad breve</h3><div class="question" data-question="se1" data-explain="Tomá la raíz cuadrada de 25."><p><strong>¿Cuál es el radio de \((x-2)^2+(y+3)^2+(z+1)^2=25\)?</strong></p><div class="short-answer"><input type="text" inputmode="decimal" data-answer="5" data-tolerance="0.001" aria-label="Respuesta"><button class="btn soft">Comprobar</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="se2" data-explain="Los tres semiejes iguales producen simetría esférica."><p><strong>Si a=b=c en un elipsoide, se obtiene…</strong></p><div class="options"><button class="option" data-correct="true">una esfera</button><button class="option" data-correct="false">un cono</button><button class="option" data-correct="false">un cilindro</button></div><div class="feedback" aria-live="polite"></div></div></div>
+</section>
+
+<section class="content-section" id="paraboloides">
+  <div class="section-head"><div class="eyebrow">Cuádricas sin centro</div><h2 class="section-title">Paraboloides</h2><p class="lead">El paraboloide elíptico tiene secciones elípticas; el paraboloide hiperbólico se curva en sentidos opuestos y posee un punto de silla.</p></div>
+  <div class="grid-2"><article class="card"><h3>Paraboloide elíptico</h3><div class="equation">\[\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}=z-z_0.\]</div><a class="btn soft" href="graficos-3d/28-paraboloide-eliptico-desplazado/index.html">Ejemplo desplazado</a></article><article class="card"><h3>Paraboloide hiperbólico</h3><div class="equation">\[\frac{(x-x_0)^2}{a^2}-\frac{(y-y_0)^2}{b^2}=z-z_0.\]</div><a class="btn soft" href="graficos-3d/40-paraboloide-hiperbolico-desplazado/index.html">Ejemplo desplazado</a></article></div>
+  <iframe class="graph-frame" src="graficos-3d/40-paraboloide-hiperbolico-desplazado/index.html" title="Paraboloide hiperbólico desplazado" loading="lazy"></iframe>
+  <div class="card activity"><h3>Actividad breve</h3><div class="question" data-question="pa1" data-explain="Queda x²-y²=0, que factoriza como (x-y)(x+y)=0."><p><strong>La traza z=0 de \(x^2-y^2=z\) es…</strong></p><div class="options"><button class="option" data-correct="true">dos rectas que se cortan</button><button class="option" data-correct="false">una elipse</button><button class="option" data-correct="false">un punto</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="pa2" data-explain="Tiene una sola pieza y se extiende en la dirección de su eje."><p><strong>Un paraboloide elíptico es una superficie…</strong></p><div class="options"><button class="option" data-correct="true">conexa y abierta</button><button class="option" data-correct="false">de dos componentes</button><button class="option" data-correct="false">plana</button></div><div class="feedback" aria-live="polite"></div></div></div>
+</section>
+
+<section class="content-section" id="hiperboloides-cono">
+  <div class="section-head"><div class="eyebrow">Cuádricas abiertas</div><h2 class="section-title">Hiperboloides y cono elíptico</h2><p class="lead">Los signos de los términos cuadráticos permiten distinguir una hoja, dos hojas y cono.</p></div>
+  <div class="table-wrap card"><table><thead><tr><th>Superficie</th><th>Forma típica</th><th>Lectura</th></tr></thead><tbody><tr><td>Una hoja</td><td>\(x^2/a^2+y^2/b^2-z^2/c^2=1\)</td><td>Dos signos positivos y uno negativo.</td></tr><tr><td>Dos hojas</td><td>\(-x^2/a^2-y^2/b^2+z^2/c^2=1\)</td><td>Un único término positivo indica el eje de apertura.</td></tr><tr><td>Cono</td><td>\(x^2/a^2+y^2/b^2-z^2/c^2=0\)</td><td>Superficie doble con vértice.</td></tr></tbody></table></div>
+  <iframe class="graph-frame" src="graficos-3d/45-cono-eliptico-desplazado/index.html" title="Cono elíptico desplazado" loading="lazy"></iframe>
+  <div class="graph-links"><a class="btn" href="graficos-3d/31-hiperboloide-una-hoja-desplazado/index.html">Una hoja desplazado</a><a class="btn" href="graficos-3d/35-hiperboloide-dos-hojas-desplazado/index.html">Dos hojas desplazado</a><a class="btn" href="graficos-3d/41-cono-eliptico-eje-z/index.html">Cono canónico</a></div>
+  <div class="card activity"><h3>Actividad breve</h3><div class="question" data-question="hc1" data-explain="Las hojas se separan sobre el eje asociado al término positivo."><p><strong>En un hiperboloide de dos hojas, el único término positivo determina…</strong></p><div class="options"><button class="option" data-correct="true">el eje de apertura</button><button class="option" data-correct="false">una asíntota plana</button><button class="option" data-correct="false">la variable ausente</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="hc2" data-explain="La igualdad a cero hace que ambas nappes se unan en el vértice."><p><strong>El cono elíptico canónico tiene segundo miembro…</strong></p><div class="options"><button class="option" data-correct="true">0</button><button class="option" data-correct="false">1</button><button class="option" data-correct="false">-1</button></div><div class="feedback" aria-live="polite"></div></div></div>
+</section>
+
+<section class="content-section" id="cilindros-trazas">
+  <div class="section-head"><div class="eyebrow">Reconstrucción geométrica</div><h2 class="section-title">Cilindros y método de las trazas</h2><p class="lead">Una variable ausente indica la dirección generatriz. Las trazas son intersecciones con planos \(x=k\), \(y=k\) o \(z=k\).</p></div>
+  <div class="grid-3"><article class="card"><h3>Cilindro elíptico</h3><div class="equation">\[\frac{x^2}4+\frac{y^2}9=1\]</div><p>z está ausente: generatrices paralelas a z.</p></article><article class="card"><h3>Cilindro hiperbólico</h3><div class="equation">\[\frac{x^2}4-z^2=1\]</div><p>y está ausente: generatrices paralelas a y.</p></article><article class="card"><h3>Cilindro parabólico</h3><div class="equation">\[y^2-z=0\]</div><p>x está ausente: generatrices paralelas a x.</p></article></div>
+  <iframe class="graph-frame" src="graficos-3d/50-cilindro-parabolico-con-trazas/index.html" title="Cilindro parabólico y trazas" loading="lazy"></iframe>
+  <div class="graph-links"><a class="btn" href="graficos-3d/48-cilindro-eliptico-con-trazas/index.html">Elíptico con trazas</a><a class="btn" href="graficos-3d/49-cilindro-hiperbolico-con-trazas/index.html">Hiperbólico con trazas</a><a class="btn" href="graficos-3d/46-cilindro-senoidal/index.html">Cilindro senoidal</a><a class="btn" href="graficos-3d/47-cilindro-parabolico-oblicuo/index.html">Generatriz oblicua</a></div>
+  <div class="video-grid"><article class="video-panel" id="videos-trazas-teoria" data-video-carousel>
+      <header><h3>Videos de teoría</h3><p>Trazas, variable ausente y lectura espacial.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article><article class="video-panel" id="videos-trazas-practica" data-video-carousel>
+      <header><h3>Videos de práctica</h3><p>Ejemplos de identificación y gráficos por trazas.</p></header>
+      <div class="video-wrap"><iframe loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+      <div class="video-controls"><button class="btn" data-prev aria-label="Video anterior">← Anterior</button><div class="video-title"></div><button class="btn" data-next>Siguiente →</button></div>
+      <div class="video-index"></div>
+    </article></div>
+  <div class="card activity"><h3>Actividad breve</h3><div class="question" data-question="t1" data-explain="Al fijar z=0 queda x²+y²=9."><p><strong>La traza de \(x^2+y^2+z^2=9\) con \(z=0\) es…</strong></p><div class="options"><button class="option" data-correct="true">una circunferencia de radio 3</button><button class="option" data-correct="false">una parábola</button><button class="option" data-correct="false">dos rectas</button></div><div class="feedback" aria-live="polite"></div></div></div>
+</section>
+
+<section class="content-section" id="practica">
+  <div class="section-head"><div class="eyebrow">Trabajo Práctico N.º 7</div><h2 class="section-title">Práctica y autoevaluación</h2><p class="lead">Actividades inspiradas directamente en el práctico: clasificar, reducir, construir ecuaciones, analizar lugares geométricos y hallar trazas.</p></div>
+  <div class="grid-2"><article class="card"><h3>Material completo</h3><p>El PDF conserva todos los ejercicios de cónicas, cuádricas, integración y ejercitación extra.</p><p><a class="btn primary" href="materiales/tp7-conicas-cuadricas.pdf">Abrir TP 7</a> <a class="btn" href="materiales/tp7-conicas-cuadricas.tex">Código TeX</a></p></article><article class="card"><h3>Galerías</h3><p>Usá los gráficos como apoyo para anticipar la forma antes de realizar las cuentas.</p><p><a class="btn soft" href="graficos-3d/index.html">Gráficos 3D</a> <a class="btn soft" href="graficos-2d/index.html">Gráficos 2D</a></p></article></div>
+  <div class="card activity"><h3>Autoevaluación acumulativa</h3><div class="question" data-question="c1" data-explain="El corte perpendicular produce una circunferencia."><p><strong>¿Qué cónica se obtiene al cortar un cono con un plano perpendicular a su eje?</strong></p><div class="options"><button class="option" data-correct="true">Circunferencia</button><button class="option" data-correct="false">Parábola</button><button class="option" data-correct="false">Hipérbola</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="c2" data-explain="El denominador mayor corresponde al cuadrado del semieje mayor."><p><strong>En una elipse, ¿qué indica el denominador mayor?</strong></p><div class="options"><button class="option" data-correct="true">El eje mayor</button><button class="option" data-correct="false">La directriz</button><button class="option" data-correct="false">El radio</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="cc1" data-explain="El radio es la raíz cuadrada del segundo miembro."><p><strong>En \((x-3)^2+(y+2)^2=25\), ¿cuál es el radio?</strong></p><div class="short-answer"><input type="text" inputmode="decimal" data-answer="5" data-tolerance="0.001" aria-label="Respuesta"><button class="btn soft">Comprobar</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="p1" data-explain="El término no cuadrático es x y 4p=8&gt;0."><p><strong>En \((y-3)^2=8(x-1)\), la parábola abre…</strong></p><div class="options"><button class="option" data-correct="true">hacia la derecha</button><button class="option" data-correct="false">hacia arriba</button><button class="option" data-correct="false">hacia la izquierda</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="p2" data-explain="Compará 8 con 4p."><p><strong>Para \((y-3)^2=8(x-1)\), ¿cuánto vale p?</strong></p><div class="short-answer"><input type="text" inputmode="decimal" data-answer="2" data-tolerance="0.001" aria-label="Respuesta"><button class="btn soft">Comprobar</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="e1" data-explain="Usá c²=a²-b²."><p><strong>Si una elipse tiene a=5 y b=3, ¿cuánto vale c?</strong></p><div class="short-answer"><input type="text" inputmode="decimal" data-answer="4" data-tolerance="0.001" aria-label="Respuesta"><button class="btn soft">Comprobar</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="h1" data-explain="El término positivo está asociado a x."><p><strong>En \((x+1)^2/9-(y-1)^2/4=1\), el eje real es…</strong></p><div class="options"><button class="option" data-correct="true">horizontal</button><button class="option" data-correct="false">vertical</button><button class="option" data-correct="false">oblicuo</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="h2" data-explain="Usá c²=a²+b²."><p><strong>Para la hipérbola anterior, ¿cuánto vale c?</strong></p><div class="short-answer"><input type="text" inputmode="decimal" data-answer="3.605551275463989" data-tolerance="0.01" aria-label="Respuesta"><button class="btn soft">Comprobar</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="q1" data-explain="Dos términos positivos y uno negativo, con segundo miembro 1, producen una hoja."><p><strong>La ecuación \(x^2+y^2-z^2=1\) representa…</strong></p><div class="options"><button class="option" data-correct="true">hiperboloide de una hoja</button><button class="option" data-correct="false">hiperboloide de dos hojas</button><button class="option" data-correct="false">cono</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="q2" data-explain="La superficie se extiende paralelamente al eje de la variable ausente."><p><strong>En una ecuación cilíndrica, la variable ausente indica…</strong></p><div class="options"><button class="option" data-correct="true">la dirección generatriz</button><button class="option" data-correct="false">el centro</button><button class="option" data-correct="false">el radio</button></div><div class="feedback" aria-live="polite"></div></div><div class="question" data-question="t1" data-explain="Al fijar z=0 queda x²+y²=9."><p><strong>La traza de \(x^2+y^2+z^2=9\) con \(z=0\) es…</strong></p><div class="options"><button class="option" data-correct="true">una circunferencia de radio 3</button><button class="option" data-correct="false">una parábola</button><button class="option" data-correct="false">dos rectas</button></div><div class="feedback" aria-live="polite"></div></div><div class="progress-box"><strong data-progress-text></strong><div class="progress-track"><div class="progress-fill"></div></div></div></div>
+</section>
+
+<section class="content-section" id="revision">
+  <div class="section-head"><div class="eyebrow">Lectura crítica del código</div><h2 class="section-title">Notas de revisión y adaptaciones</h2><p class="lead">La reconstrucción prioriza las ecuaciones y parametrizaciones efectivas del TeX/Asymptote. Las discrepancias del material no fueron corregidas de forma silenciosa.</p></div>
+  <div class="card warning"><h3>Discrepancias detectadas</h3><ul><li>En el ejemplo de la página 26, la forma \((x-1)^2/4+(y+4)^2-(z-3)^2/9=1\) corresponde a un <strong>hiperboloide de una hoja</strong>; el texto lo llama de dos hojas, aunque el título y el gráfico apuntan a una hoja.</li><li>En la continuación del ejemplo de dos hojas, la ecuación conduce al centro \((-1,2,-2)\); luego aparece \((-1,2,3)\), que no coincide con la ecuación reducida.</li><li>Algunos nombres internos de los entornos Asymptote se repiten o no describen el objeto dibujado —por ejemplo, variables llamadas «ParaboloideHiperbolico» que renderizan elipsoides o hiperboloides—. Los nombres de las carpetas siguen la matemática efectiva.</li><li>Se unificó la orientación visual: en Three.js el eje matemático z se muestra vertical, aunque algunos gráficos del apunte rotan los ejes para destacar el eje principal.</li></ul></div>
+  <div class="card note"><h3>Adaptación técnica</h3><p>Las superficies implícitas de Asymptote se reconstruyeron con parametrizaciones equivalentes. Se mantuvieron dominios finitos de visualización para representar superficies infinitas. Los controles de malla, transparencia, proyección, cámara y trazas no cambian el significado matemático.</p></div>
+</section>
+
+<footer class="site-footer"><p>Unidad web elaborada a partir del apunte de teoría y del Trabajo Práctico N.º 7. Los videos pertenecen a sus respectivos canales de YouTube.</p></footer>
+</main></div>
+</body></html>

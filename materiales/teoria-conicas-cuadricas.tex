@@ -1,0 +1,4472 @@
+\documentclass[11pt]{article}
+
+
+\usepackage[inline]{asymptote}
+\usepackage{asypictureB}
+
+\usepackage{qrcode}
+%\usepackage[default]{frcursive}
+\usepackage[a4paper,text={17.5cm,25cm},centering,top=2.5cm]{geometry} 
+\usepackage{amsfonts}
+%\usepackage[colorlinks=true,linkcolor=black]{hyperref}
+%\usepackage{amsmath}
+\usepackage{amssymb,amsmath,stackrel,wasysym,mathrsfs}
+\usepackage{multicol}
+\usepackage{pdflscape}% girar una pagina, hay que usar \begin{landscape}En este punto inicia la hoja en vertical \end{landscape}
+%\usepackage[mathcal]{euscript}
+%\usepackage{amssymb}
+\usepackage{esvect}%para la flecha de vector 
+
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+%\usepackage[latin1,ansinew]{inputenc}\usepackage{calligra}
+%\usepackage[pdftex]{graphicx}
+%\usepackage{etex}
+\usepackage{calligra}
+\usepackage{array}
+ \usepackage{booktabs}
+ \usepackage{ifsym}
+\usepackage{pgf,tikz,pgfplots}
+\usepackage{tkz-graph}%paquete (di)grafos
+\usepackage{tkz-euclide}% Para realizar diagramas que coloreen conjuntos
+\usetikzlibrary[decorations.text]% Decorar curvas
+%\usetikzlibrary{matrix}
+\usetikzlibrary{arrows,matrix}
+%\usetkzobj{all}
+
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{makecell} %Paquete para controlar altura de celdas
+\usepackage{verbatim} 
+\usetikzlibrary{babel}%para no general error al usar babel y tikz simultaneamente.
+\usetikzlibrary{patterns,patterns.meta}%%%%%%%%%%%para  pintar de forma rrallada un rectangulo
+
+\usepackage{pictex}
+\usepackage{verbatim}%me sirve para usar comentarios con mucha lineas 
+\usepackage{amstext}
+\usepackage{enumerate}
+%\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{mathdots}% para tener mas opciones de puntos suspensivos
+
+%\usepackage{pgf,tikz}%,pgfplots
+%\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+%\usetikzlibrary{arrows}
+%\usepackage{etex,tkz-euclide} 
+%\usetkzobj{all}
+\usepackage{color}
+
+\usepackage{cancel}
+\newcommand{\Cancelar}[2][black]{{\color{#1}\cancel{\color{black}#2}}}%%% para cancelar con colores recordar usar mayusculas
+\usepackage{lscape}%paquete para girar hojas
+
+
+\usepackage{float}% en el entorno figure El modificador [H] (requiere \usepackage{float}) fuerza a que la figura aparezca justo ahí, útil para presentaciones o exámenes.
+
+
+
+
+\usepackage{caption}% para maejar de manera más fina la numeración de las figuras
+
+
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\re}{\mathbb{R}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\K}{\mathbb{K}}
+%\newcommand{\B}{\mathcal{B}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\can}{\mathcal{C}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Pol}{\mathcal{P}}
+\newcommand{\moduloprop}{\hookrightarrow_{\hspace{-2.5mm}\mbox{\tiny$^{_\neq}$}}}
+
+\newcommand{\dis}{\displaystyle}
+
+
+
+\newtheorem{ejer}{Ejercicio}[]
+
+\newtheorem{teo}{Teorema}%[section]
+\newtheorem{lema}[teo]{Lema}
+\newtheorem{propo}[teo]{Proposición}
+\newtheorem{defi}[teo]{Definición}
+\newtheorem{ejem}[teo]{{\bf Ejemplo}:}
+\newtheorem*{ejemsinn}{}
+\newtheorem{obs}[teo]{Observación}%[section]
+\newtheorem{acla}{Aclaración}%[section]
+\newtheorem{act}{Actividad}%%%%%%%%%%%%%%%%
+\newtheorem*{defsinn}{{\bf Definición}:}
+\newtheorem*{ejemplosinn}{{\bf Ejemplo}:}
+\newtheorem*{proposinn}{{\bf\sc Proposición}}
+\newtheorem*{obssinn}{Observación:}
+\newtheorem*{corosinn}{Corolario}
+\newtheorem*{propsinn}{Propiedades:}
+%\newenvironment{proof} { \noindent {\bf Demostración: }\rm}{$\quad \hfill \blacksquare $}
+\usepackage{setspace} % (es una alternativa a \renewcommand{\baselinestretch}{1.3}) usando \doublespacing \onehalfspace \singlespace \spacing{1.5}  se va cambiando segun uno quiera
+
+%\newenvironment{proof}[Demostración:]
+\newenvironment{sol}{ \noindent {\bf Solución:} \rm}{%\hfill \protect\tikz[overlay,yshift=-4pt]\protect\node[xshift=8mm, yshift=13mm, blue]() {\huge $\checkmark$ };
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\renewcommand{\baselinestretch}{1.5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[framemethod=TikZ]{mdframed}%Paquete para estilos de los bordes de los ambientes Importante este paquete (mdframed) define un entorno  que trata automáticamente los saltos de página en el texto enmarcado.
+            \mdfsetup{skipabove=1\baselineskip, skipbelow=1.5\baselineskip ,             frametitlefont= \sffamily\bfseries , needspace=4\baselineskip , splittopskip=1.5\baselineskip} %
+            \mdfsetup{apptotikzsetting={\tikzset{mdfbackground/.append style={draw=none}}}} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo para Cuentas auxiliares
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mdfdefinestyle{Cuentaauxi}{%skipabove=10pt, skipbelow=0,
+userdefinedwidth=1.02\textwidth,align=center,
+  everyline=true,
+  ignorelastdescenders=true,
+  middlelinewidth=1pt,
+  linecolor=black!20,
+  outerlinewidth=1pt,
+  %leftline=false,topline=false
+  %rightline=false,bottomline=false,
+  %backgroundcolor=black!20,
+  innerleftmargin=2mm, innerrightmargin=2mm,
+  innerbottommargin=3mm,
+  innertopmargin=1mm,
+  frametitleaboveskip=2mm,
+  frametitlebelowskip=2mm,
+  %frametitlerule=false,
+  %repeatframetitle=false,
+ % outerlinewidth=6pt,outerlinecolor=blue!20,
+ pstricksappsetting={\addtopsstyle{mdfouterlinestyle}{linestyle=dashed}},
+ %firstextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, 
+ %minimum size=15mm, fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}
+ %  \endtikzpicture
+ %}; },
+ %singleextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, minimum size=15mm,
+  %fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}    
+ %  \endtikzpicture
+ %}; }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo para Citar
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mdfdefinestyle{citar}{
+userdefinedwidth=.83\textwidth ,align=center,
+skipabove=5pt, skipbelow=5pt,
+  everyline=true,
+  ignorelastdescenders=true,
+  middlelinewidth=1pt,
+  linecolor=blue!60,
+  outerlinewidth=2pt,
+  %leftline=false,
+  topline=false,
+  rightline=false,
+  bottomline=false,
+  %backgroundcolor=black!20,
+  innerleftmargin=5mm, innerrightmargin=5mm,
+  innerbottommargin=3mm,
+  innertopmargin=1mm,
+  leftmargin= 14mm,
+  %frametitleaboveskip=2mm,
+  %frametitlebelowskip=2mm,
+  %frametitlerule=false,
+  %repeatframetitle=false,
+ % outerlinewidth=6pt,outerlinecolor=blue!20,
+ pstricksappsetting={\addtopsstyle{mdfouterlinestyle}{linestyle=dashed}},
+ %firstextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, 
+ %minimum size=15mm, fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}
+ %  \endtikzpicture
+ %}; },
+ %singleextra={\node[xshift=5cm,right,draw=White, line width=1.5pt,%star,star points=10,star point ratio=1.2, minimum size=15mm,
+  %fill=white] at (P-|O) {\tikzpicture\draw[draw=black!20,decoration=snake, fill=white] (0,0) --(2.5,0) decorate{--(2.5,1)}--(0,1)decorate{--cycle};%\includegraphics[width=10mm]{.pdf}    
+ %  \endtikzpicture
+ %}; }
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Dem}{\protect\tikz[overlay,yshift=-4pt]\protect\draw[line width=1.5pt,line cap=round,color=gray] (0,0)[out=14,in=180] to node [shift=(90:6.pt),color=black] {\large\bf Dem:} (7:1); \qquad \quad }
+\DeclareRobustCommand{\michi}{{\mathpalette\irchi\relax}}
+\newcommand{\irchi}[1]{\raisebox{\depth}{\large$#1\chi$}} % inner command, used by \rchi
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando aclaraciones  
+
+\newcommand{\aclaracion}[2]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#2}) [color=black,above right] {\bf #1};
+\foreach \y in {1,2,...,#2}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando respuesta 
+
+\newcommand{\res}[1]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#1}) [color=black,above right] {\bf respuesta:};
+\foreach \y in {1,2,...,#1}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando ejemplo para completar 
+
+\newcommand{\ejparacompletar}[1]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#1}) [color=black,above right] {\bf Ejemplo:};
+\foreach \y in {1,2,...,#1}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comando conclusión 
+
+\newcommand{\conclus}[1]{
+
+\begin{center}
+\definecolor{gris}{rgb}{0.5,0.5,0.5}
+\begin{tikzpicture}[line cap=round,line join=round,scale=1]
+%\draw [color=gris,dash pattern=on 1pt off 1pt, xstep=1cm,ystep=1cm] (0.1,0.1) grid (6.3,6.3);
+%\draw[color=black] (0.,0.) -- (\linewidth,0.);
+\node at (.23,{.9*#1}) [color=black,above right] {\bf Conclusión:};
+\foreach \y in {1,2,...,#1}
+\draw[shift={(0,{.9*\y})},color=gris,opacity=.5] (0.,0.) -- ({.99*\linewidth},0.);
+\end{tikzpicture} 
+\end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% boton calculadora 
+
+\newcommand{\boton}[2]{
+\tikzpicture{  \node[draw,color=#1,fill=#1,text=white,,rounded corners=3mm,text width=7mm,text height =3mm,align=center,midway]  at (0,0) { \large \bf #2 };
+}
+\endtikzpicture
+}
+
+\usepackage[framemethod=TikZ]{mdframed}%Paquete para estilos de los bordes de los ambientes Importante este paquete (mdframed) define un entorno  que trata automáticamente los saltos de página en el texto enmarcado.
+            \mdfsetup{skipabove=2\baselineskip,skipbelow=2\baselineskip,frametitlefont=\sffamily\bfseries, needspace=4\baselineskip, splittopskip=1.5\baselineskip} 
+            \mdfsetup{apptotikzsetting={\tikzset{mdfbackground/.append style={draw=none}}}} 
+            
+            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo  para cajas
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\mdfdefinestyle{teoSty}{backgroundcolor=blue!10, linecolor=blue, linewidth=3pt,
+skipabove=4pt,
+skipbelow=3pt, 
+innerleftmargin=3ex, innerrightmargin=3ex, innertopmargin=3mm, innerbottommargin=3mm, innermargin=15pt, outermargin=-15pt, needspace=2\baselineskip,roundcorner=10pt}
+
+\mdfdefinestyle{ObsSty}{backgroundcolor=red!10, linecolor=red, linewidth=2pt,
+skipabove=4pt,
+skipbelow=3pt, 
+innerleftmargin=3ex, innerrightmargin=3ex, innertopmargin=3mm, innerbottommargin=3mm, innermargin=5pt, outermargin=-5pt,
+needspace=2\baselineskip,roundcorner=10pt}
+
+\mdfdefinestyle{EjerSty}{backgroundcolor=blue!5!green!5!, linecolor=blue!50!green!50!, linewidth=2pt,
+skipabove=4pt,
+skipbelow=3pt, 
+innerleftmargin=3ex, innerrightmargin=3ex, innertopmargin=3mm, innerbottommargin=3mm, innermargin=5pt, outermargin=-5pt,
+needspace=2\baselineskip,
+roundcorner=10pt}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%Estilo  para lineas de relleno usando el paquete patterns y la libreria  patterns.meta
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tikzdeclarepattern{
+  name=mylines,
+  parameters={
+      \pgfkeysvalueof{/pgf/pattern keys/size},
+      \pgfkeysvalueof{/pgf/pattern keys/angle},
+      \pgfkeysvalueof{/pgf/pattern keys/line width},
+  },
+  bounding box={
+    (0,-0.5*\pgfkeysvalueof{/pgf/pattern keys/line width}) and
+    (\pgfkeysvalueof{/pgf/pattern keys/size},
+0.5*\pgfkeysvalueof{/pgf/pattern keys/line width})},
+  tile size={(\pgfkeysvalueof{/pgf/pattern keys/size},
+\pgfkeysvalueof{/pgf/pattern keys/size})},
+  tile transformation={rotate=\pgfkeysvalueof{/pgf/pattern keys/angle}},
+  defaults={
+    size/.initial=5pt,
+    angle/.initial=45,
+    line width/.initial=.4pt,
+  },
+  code={
+      \draw [line width=\pgfkeysvalueof{/pgf/pattern keys/line width}]
+        (0,0) -- (\pgfkeysvalueof{/pgf/pattern keys/size},0);
+  },
+}
+
+
+
+
+
+\newcommand{\semejante}[1]{\stackrel[#1]{}{\longleftrightarrow}}% \thicksim para decir la Semejanza de matrices la variable #1  indica la operacion elemental 
+\newcommand{\OptipoUno}[1]{\stackrel[#1]{}{=}}
+
+
+
+\newcommand{\indicador}[4]{
+{\tikz[remember picture,overlay]\coordinate (#1) at #2;}{\tikz[remember picture,overlay]\coordinate (#3) at #4;} 
+}
+
+\newcommand{\marka}[2]{
+{\tikz[remember picture,overlay]\coordinate (#1) at #2;}
+}
+
+
+
+
+\newcommand{\cof}{ \mbox{cof}}
+
+\newcommand{\paralela}{\rotatebox[origin=c]{-10}{\Large$\parallel$}}
+
+\usepackage{fancyhdr}
+\fancypagestyle{miestilo}{
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{}
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{pág \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+%%%%%%%%%%%%
+%%%%%%%%%%%%
+\renewcommand{\footrulewidth}{1pt}
+\pagestyle{fancy}\markboth{}{}
+\renewcommand{\headrulewidth}{.05pt}
+\renewcommand{\headrule}{{\color{gray}%
+\hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+\renewcommand{\footrule}{{\color{gray}%
+\vskip-\footruleskip\vskip-\footrulewidth
+\hrule width\headwidth height\footrulewidth\vskip\footruleskip}}
+\renewcommand{\footrulewidth}{.50pt}
+\fancyhead[L]{\color{gray}{\footnotesize \sc ALGEBRA Y GEOMETRIA I} }
+\fancyhead[C]{}
+\fancyhead[R]{\color{gray}{\sc \footnotesize  Universidad Nacional Del Comahue}}
+\fancyfoot[R]{pág. \thepage}
+\fancyfoot[C]{\color{gray}{\sc \footnotesize Ingenieria en petroleo}}
+\setlength{\headheight}{15pt}
+
+%\usepackage{wrapfig}
+
+\newcommand{\co}{\mathbb{C}}
+%\newcommand{\re}{\mathbb{R}}
+\newcommand{\q}{\mathbb{Q}}
+\newcommand{\z}{\mathbb{Z}}
+\newcommand{\n}{\mathbb{N}}
+\newcommand{\ve}{\mathbb{V}}
+\newcommand{\w}{\mathbb{W}}
+\newcommand{\be}{{\cal B}}
+\newcommand{\ca}{{\cal C}}
+\newcommand{\pqx}{\mathbb{Q}[x]}
+\newcommand{\prx}{\mathbb{R}[x]}
+\newcommand{\pcx}{\mathbb{C}[x]}
+%\newcommand{\izg}{\big\langle}
+%\newcommand{\rangle}{\big\rangle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\newcommand{\materias}{\sc ALGEBRA Y GEOMETRIA I}%separadas con '&'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% se define el encabezado, 
+% el parametro es el texto que va despues de: trabajo practico $N^\circ$... (agregar numero y titulo)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\newcommand{\encabezado}[1]{%
+\fancyfoot[L]{\vspace*{-3.5mm}\color{gray}{\small Las superficies cuádricas.}}
+\thispagestyle{miestilo} 
+\newcommand{\encabezado}[1]{%
+\fancyfoot[L]{\vspace*{-3.5mm}\color{gray}{\small T. P. #1}}
+%\thispagestyle{miestilo}%
+%--------------------logodpto //texto // logouni------------------
+%--------------------logodpto------------------
+
+\vspace*{-18mm}\hspace*{-11mm} \begin{minipage}{2.7cm}
+\begin{center} 
+     \includegraphics[width=2.7cm, height=2.7cm]{logodpto}
+\end{center}  
+\end{minipage}\hspace*{-15mm} \begin{minipage}{15.9cm}
+\begin{center}
+\begin{tabular}{c @{ - } c}
+ \materias \\
+\carreras
+\end{tabular}
+
+\cuatri
+
+\medskip
+
+TRABAJO PRÁCTICO N$^\circ$#1 
+
+\end{center}
+
+\end{minipage}\hspace{-14mm} \begin{minipage}{2.5cm}
+  \begin{center} 
+    \includegraphics[width=2.5cm, height=2.5cm]{logouni}
+  \end{center}  
+\end{minipage}
+%-----------------------------------------------------
+
+%----------------------------------------------------------------
+\hrule
+%---------------------------------------------------------------
+}%%
+
+
+
+\pagestyle{fancy}
+\def\identacion{-2.5mm}%mueve la identacion de la enumeracion de los ejercicios.
+
+
+\usepackage{asypictureB}
+\begin{asyheader}
+settings.outformat="png";
+settings.render=8;
+import graph3;
+import smoothcontour3;
+
+pen bpen = rgb(0.75, 0.07, 0.01);
+//material m = material(diffusepen=0.7bpen, ambientpen=bpen+opacity(0.8), emissivepen=0.3*bpen,specularpen=0.999white, shininess=1.0);      
+\end{asyheader}
+
+
+\usepackage{multicol}
+\setlength{\columnsep}{7mm}
+
+
+
+
+
+\newcommand{\Or}{%
+    \tikz[scale=.17%baseline=-0.75ex, 
+    ]{ % Cambia "scale" para ajustar el tamaño
+        \draw[thick] plot[smooth cycle, tension=1.2] coordinates {(-0.4, 0) (0, -0.6) (0.4, 0) (0, 0.6)};
+        \draw[thick,domain=pi:2*pi,samples=200] 
+        plot ({0.1*\x * cos(\x r)}, {0.07*\x * sin(\x r)+0.45});
+        %\draw[thick,domain=1.5*pi:2*pi,samples=200] plot ({0.08*\x * cos(\x r)-0.9}, {0.09*\x * sin(\x r)-0.1});
+    }%
+    \,\, 
+}
+
+\newcommand{\Noo}{%Es una cruz de que esa solución se descarta
+ \tikz[overlay,remember picture] { 
+  %%%% cruz en (-, 0)
+\draw[red,thick,yshift=2mm] (-.15,\h-.25) -- (+.15,\h+.25); % Línea diagonal ascendente
+\draw[red,thick,yshift=2mm] (-.15,\h+.25) -- (+.15,\h-.25); % Línea diagonal descendente
+}
+}
+
+\begin{document}
+
+
+\setlength{\headheight}{15pt}
+
+\vspace*{-2.5cm}
+%--------------------logodpto------------------
+\begin{figure}[htbp]
+  \begin{minipage}[r][][t]{0.15\textwidth}
+\begin{center} 
+ % Universidad Nacional del Comahue.  
+ \includegraphics[width=2.2cm, height=2.2cm]{imagen/inglogo.jpg}
+\vspace{1.8cm}
+\end{center}  
+\end{minipage}\quad
+% texto central
+\begin{minipage}[r][][t]{0.31\textwidth}
+\begin{center}
+\vspace*{-19mm}
+{\bf Universidad Nacional
+del Comahue} \\
+Facultad de Ingeniería
+\end{center}
+\end{minipage}\quad\begin{minipage}[r][][t]{0.31\textwidth}
+\begin{center}
+\vspace*{-20mm}
+{\bf  Álgebra y Geometría I}
+Ingeniería en Petróleo.
+Segundo Cuatrimestre 2026.
+\end{center}
+\end{minipage}\quad
+%----------------------logouni-------------------------
+\begin{minipage}[r][][t]{0.15\textwidth}
+  \begin{center} 
+     \includegraphics[width=2.2cm, height=2.2cm]{imagen/Logo_UNco.jpg}
+     \vspace{1.8cm}
+  \end{center}  
+\end{minipage}
+%-----------------------------------------------------
+\end{figure}
+
+\vspace*{-20mm}
+\medskip
+\hrule
+\medskip
+
+
+
+
+
+%===============================================================================
+% CUERPO DEL APUNTE: CÓNICAS
+% Este código utiliza únicamente paquetes y entornos cargados en el preámbulo
+% proporcionado por el docente.
+%===============================================================================
+
+\setlength{\headheight}{15pt}
+\fancyfoot[L]{\vspace*{-3.5mm}\color{gray}{\small Cónicas: teoría y práctica.}}
+\fancyfoot[C]{\color{gray}{\sc \footnotesize Ingeniería en Petróleo}}
+
+\definecolor{conicaAzul}{RGB}{28,91,145}
+\definecolor{conicaRojo}{RGB}{185,45,55}
+\definecolor{conicaVerde}{RGB}{38,126,96}
+\definecolor{conicaGris}{RGB}{95,95,95}
+\definecolor{conicaNaranja}{RGB}{210,120,20}
+
+
+\begin{center}
+{\Large\bfseries Ecuaciones de segundo grado en el plano}\\[1mm]
+{\LARGE\bfseries Cónicas}\\[2mm]
+{\large Teoría, ejemplos y actividades de práctica}
+\end{center}
+
+\begin{comment}
+    
+
+\begin{mdframed}[style=teoSty,frametitle={Propósitos de esta unidad}]
+Al finalizar el recorrido se espera que el estudiante pueda:
+\begin{itemize}
+    \item interpretar una cónica como un \textbf{lugar geométrico};
+    \item reconocer circunferencias, parábolas, elipses e hipérbolas a partir de sus ecuaciones;
+    \item reducir ecuaciones desarrolladas a sus formas ordinarias mediante \textbf{completamiento de cuadrados};
+    \item identificar centros, vértices, focos, ejes, directrices y asíntotas;
+    \item representar las cónicas en un sistema de coordenadas cartesianas;
+    \item plantear ecuaciones a partir de datos geométricos y de situaciones de aplicación.
+\end{itemize}
+\end{mdframed}
+\end{comment}
+
+%===============================================================================
+\section*{Lugares geométricos y cónicas}
+%===============================================================================
+\begin{mdframed}[style=teoSty,frametitle={Lugar geométrico}]
+Un \textbf{lugar geométrico} es el conjunto de todos los puntos del plano que satisfacen una propiedad geométrica determinada.
+
+Si $P=(x,y)$ es un punto genérico del plano y $\mathcal L$ es un lugar geométrico, escribimos
+\[
+P\in\mathcal L
+\quad\Longleftrightarrow\quad
+P \text{ satisface la propiedad que define a }\mathcal L.
+\]
+\end{mdframed}
+
+Por ejemplo, la mediatriz de un segmento es el lugar geométrico de los puntos del plano que equidistan de sus extremos. Del mismo modo, las cónicas se describen mediante condiciones de distancia que involucran puntos o rectas fijas.
+
+\subsection*{Las secciones cónicas}
+
+Las curvas llamadas \textbf{circunferencia}, \textbf{elipse}, \textbf{parábola} e \textbf{hipérbola} pueden obtenerse al intersectar un cono circular doble con distintos planos. Por este motivo se denominan \textbf{secciones cónicas}. 
+
+\begin{minipage}{.23\textwidth} 
+
+\begin{figure}[H]
+    \centering 
+\begin{asypicture}{name=Surfconica}  
+settings.render=8; 
+import three; 
+import solids; 
+size(95);
+currentprojection = perspective(2,3,1.3);
+
+// Colores para las caras
+    pen color1 = rgb(0.6, 0.6, 1); // Azul claro
+    pen color2 = rgb(0.6, 1, 0.6); // Verde claro
+    pen color3 = rgb(1, 0.6, 0.6); // Rojo claro
+    pen color4 = rgb(1, 1, 0.6);   // Amarillo claro
+    pen color5 = rgb(0.6, 1, 1);   // Celeste
+    pen color6 = rgb(1, 0.6, 1);   // Rosa
+	pen colorGris = rgb(0.9, 0.9, 0.9);   // Gris
+
+
+// Crear un solo cono
+revolution cone = cone(2, 3); // Crear un cono con radio 2 y altura 3
+draw(surface(shift(0,0,-3)*cone), colorGris+opacity(0.6));
+// Dibuja los planos de interseccion
+revolution cone = cone(2,-3); // Crear un cono con radio 2 y altura 3
+draw(surface(shift(0,0,3)*cone), colorGris+opacity(0.6));
+// Dibuja los planos de intersecci0n
+
+
+// Plano para circunferencia (plano perpendicular al eje del cono)
+    triple A = (2,-2,1);
+    triple B = (-2,-2,1);
+    triple C = (-2,2,1);
+    triple D = (2,2,1);
+                   
+  // Dibujar un plano 
+    draw(surface(A--B--C--D--cycle), color1 ); // plano               
+// Dibujo de la circunferencia de interseccion
+draw(circle(O+(0,0,1),2/3),blue+1.2bp); 
+
+\end{asypicture}
+\end{figure}
+
+
+\end{minipage}\begin{minipage}{.23\textwidth}
+
+
+\begin{figure}[H]
+    \centering 
+\begin{asypicture}{name=Surfconicados}  
+settings.render=8; 
+import three; 
+import solids; 
+    size(95);
+    currentprojection = perspective(2,3,2);
+
+// Colores para las caras
+    pen color1 = rgb(0.6, 0.6, 1); // Azul claro
+    pen color2 = rgb(0.6, 1, 0.6); // Verde claro
+    pen color3 = rgb(1, 0.6, 0.6); // Rojo claro
+    pen color4 = rgb(1, 1, 0.6);   // Amarillo claro
+    pen color5 = rgb(0.6, 1, 1);   // Celeste
+    pen color6 = rgb(1, 0.6, 1);   // Rosa
+	pen colorGris = rgb(0.9, 0.9, 0.9);   // Gris
+
+
+// Crear un solo cono
+revolution cone = cone(2,3); // Crear un cono con radio 2 y altura 3
+draw(surface(shift(0,0,-3)*cone), colorGris+opacity(0.6));
+// Dibuja los planos de interseccion
+revolution cone = cone(2,-3); // Crear un cono con radio 2 y altura 3
+draw(surface(shift(0,0,3)*cone), colorGris+opacity(0.6));
+// Dibuja los planos de interseccion
+
+
+// Plano para elipse  
+	triple A = (2,-2,2.5);
+    triple B = (-2,-2,2.5);
+    triple C =  (-2,2,0);
+    triple D = (2,2,0);
+
+                   
+  // Dibujar un plano 
+    draw(surface(A--B--C--D--cycle), color2); // plano 
+  // Ecuaciones parametricas ajustadas para la elipse
+real a = 1; // Semieje mayor
+real b =.9; // Semieje menor
+real c = 0.4; // centro
+
+real x(real t) { return b* sin(t); }
+real y(real t) { return a* cos(t)-c; }
+real z(real t) { return -.65*a*cos(t)-.65*a*c+7/4; }
+
+// Dibujar la elipse ajustada
+path3 g = graph(x, y, z, 0, 2*pi, operator ..);
+draw(g, 1.3bp + blue); 
+\end{asypicture}
+\end{figure}
+
+
+
+\end{minipage}\begin{minipage}{.23\textwidth}
+
+\begin{figure}[H]
+    \centering 
+\begin{asypicture}{name=Surfconicatres}   
+settings.render=8; 
+import three; 
+import solids; 
+    size(95);
+    currentprojection = perspective(1.3,3,2);
+
+// Colores para las caras
+    pen color1 = rgb(0.6, 0.6, 1); // Azul claro
+    pen color2 = rgb(0.6, 1, 0.6); // Verde claro
+    pen color3 = rgb(1, 0.6, 0.6); // Rojo claro
+    pen color4 = rgb(1, 1, 0.6);   // Amarillo claro
+    pen color5 = rgb(0.6, 1, 1);   // Celeste
+    pen color6 = rgb(1, 0.6, 1);   // Rosa
+	pen colorGris = rgb(0.9, 0.9, 0.9);   // Gris
+
+
+// Crear un solo cono
+revolution cone = cone(2, 3); // Crear un cono con radio 2 y altura 3
+draw(surface(shift(0,0,-3)*cone), colorGris+opacity(0.6));
+// Dibuja los planos de interseccion
+
+// Crear un solo cono
+revolution cone = cone(2, -3); // Crear un cono con radio 2 y altura 3
+draw(surface(shift(0,0,3)*cone), colorGris+opacity(0.6));
+// Dibuja los planos de interseccion
+
+
+// Plano para parábola (plano paralelo a una generatriz)
+
+	triple A = (2,-1,3);
+    triple B = (-2,-1,3);
+    triple C =  (-2,1,0);
+    triple D = (2,1,0);
+
+                   
+  // Dibujar un plano 
+    draw(surface(A--B--C--D--cycle), color3 ); // plano 
+    
+    // Ecuaciones parametricas ajustadas para la parabola
+real a = .5; // amplitud
+real c = -.5; // sube
+real d= 1.73; // extremo de t
+
+
+
+real x(real t) {return t;}
+real y(real t) {return -a*t^2-c;}
+real z(real t) {return 3/2*(a*t^2+c)+3/2;}
+
+
+// Dibujar la parabola
+path3 g=graph(x,y,z,-d,d,operator ..); 
+
+draw(g, 1.5 bp+blue );
+\end{asypicture}
+\end{figure}
+
+
+\end{minipage}\begin{minipage}{.23\textwidth}
+
+
+\begin{figure}[H]
+    \centering 
+\begin{asypicture}{name=Surfconicatres}   
+settings.render=8; 
+import three; 
+import solids; 
+    size(95);
+    currentprojection = perspective(1,3,2);
+
+// Colores para las caras
+    pen color1 = rgb(0.6, 0.6, 1); // Azul claro
+    pen color2 = rgb(0.6, 1, 0.6); // Verde claro
+    pen color3 = rgb(1, 0.6, 0.6); // Rojo claro
+    pen color4 = rgb(1, 1, 0.6);   // Amarillo claro
+    pen color5 = rgb(0.6, 1, 1);   // Celeste
+    pen color6 = rgb(1, 0.6, 1);   // Rosa
+	pen colorGris = rgb(0.9, 0.9, 0.9);   // Gris
+
+
+// Crear un solo cono
+revolution cone = cone(2, 3); // Crear un cono con radio 2 y altura 3
+draw(surface(shift(0,0,-3)*cone), colorGris+opacity(0.6));
+// Dibuja los planos de interseccion
+
+// Crear un solo cono
+revolution cone = cone(2, -3); // Crear un cono con radio 2 y altura 3
+draw(surface(shift(0,0,3)*cone), colorGris+opacity(0.6));
+// Dibuja los planos de interseccion
+
+
+// Plano para hipérbola (plano que corta ambas ramas del cono) 
+
+	triple A = (2,.3,3);
+    triple B = (-2,.3,3);
+    triple C =  (-2,.3,-3);
+    triple D = (2,.3,-3);
+
+                   
+  // Dibujar un plano 
+    draw(surface(A--B--C--D--cycle), color4 ); // plano 
+  
+  
+  // Ecuaciones paramétricas ajustadas para la hiperbola
+
+real d= 2.56; // extremo de t 
+
+real x(real t) {return -0.3*sinh(t);}
+real y(real t) {return 0.3;}
+real z(real t) {return -0.45*cosh(t);}
+
+// Dibujar la hiperbola
+path3 g=graph(x,y,z,-d,d,operator ..);
+draw(g, 1.5 bp+blue );
+
+  // Ecuaciones paramétricas ajustadas para la hiperbola 
+
+real x(real t) {return -0.3*sinh(t);}
+real y(real t) {return 0.3;}
+real z(real t) {return 0.45*cosh(t);}
+
+
+// Dibujar la hiperbola
+path3 g=graph(x,y,z,-d,d,operator ..);
+
+draw(g, 1.5 bp+blue );
+
+
+\end{asypicture}
+
+\end{figure}
+
+
+
+\end{minipage}
+
+
+
+
+
+
+
+
+\begin{mdframed}[style=ObsSty,frametitle={Cónicas degeneradas}]
+Cuando el plano pasa por el vértice del cono, la intersección puede reducirse a un punto, una recta o un par de rectas. En esos casos se habla de \textbf{cónicas degeneradas}.
+\end{mdframed}
+
+
+
+
+\begin{figure}[H]
+    \centering 
+\begin{asypicture}{name=Surfconica}  
+settings.render=8;
+
+import three;
+import solids;
+
+size(290);
+currentprojection = perspective(0,3,1.2);
+
+//----------------------------------------------------------
+// COLORES
+//----------------------------------------------------------
+
+pen colorPlano = rgb(0.65,0.88,0.95)+opacity(0.55);
+pen colorCono  = rgb(0.85,0.85,0.85)+opacity(1);
+pen colorCurva = blue+1.6bp;
+
+//----------------------------------------------------------
+// POSICIONES DE CADA CASO
+//----------------------------------------------------------
+
+real xPunto   = -8;
+real xRecta   =  0;
+real xDosRect =  8;
+
+//----------------------------------------------------------
+// DOBLE CONO BASE
+//----------------------------------------------------------
+
+revolution conoSuperior = cone(2,3);
+revolution conoInferior = cone(2,-3);
+
+void dobleCono(real dx)
+{
+  draw(surface(shift(dx,0,-3)*conoSuperior), colorCono);
+  draw(surface(shift(dx,0, 3)*conoInferior), colorCono);
+}
+
+//==========================================================
+// 1. PUNTO
+//==========================================================
+
+dobleCono(xPunto);
+
+// Plano horizontal que pasa por el vertice
+triple A1 = (xPunto+2.4,-1.8,0);
+triple B1 = (xPunto-2.4,-1.8,0);
+triple C1 = (xPunto-2.4, 1.8,0);
+triple D1 = (xPunto+2.4, 1.8,0);
+
+draw(surface(A1--B1--C1--D1--cycle), colorPlano);
+
+// Interseccion: un punto (el vertice)
+dot((xPunto,0,0), colorCurva+5bp);
+
+label("Punto",(xPunto,0,-4),S);
+
+//==========================================================
+// 2. UNA RECTA
+//==========================================================
+
+dobleCono(xRecta);
+
+// Plano tangente al cono a lo largo de una generatriz
+// Ecuación del plano: x = (2/3) z
+triple A2 = (xRecta-2.2,-2.0,-3.3);
+triple B2 = (xRecta-2.2, 2.0,-3.3);
+triple C2 = (xRecta+2.2, 2.0, 3.3);
+triple D2 = (xRecta+2.2,-2.0, 3.3);
+
+draw(surface(A2--B2--C2--D2--cycle), colorPlano);
+
+// Interseccion: una generatriz
+path3 rectaTangente = (xRecta-2,0,-3)--(xRecta+2,0,3);
+draw(rectaTangente, colorCurva);
+
+label("Una recta",(xRecta,0,-4),S);
+
+//==========================================================
+// 3. DOS RECTAS
+//==========================================================
+
+dobleCono(xDosRect);
+
+// Plano que contiene al eje del cono: y = 0
+triple A3 = (xDosRect+2.6,0, 3.3);
+triple B3 = (xDosRect-2.6,0, 3.3);
+triple C3 = (xDosRect-2.6,0,-3.3);
+triple D3 = (xDosRect+2.6,0,-3.3);
+
+draw(surface(A3--B3--C3--D3--cycle), colorPlano);
+
+// Interseccion: dos generatrices
+path3 recta1 = (xDosRect-2,0,-3)--(xDosRect+2,0,3);
+path3 recta2 = (xDosRect+2,0,-3)--(xDosRect-2,0,3);
+
+draw(recta1, colorCurva);
+draw(recta2, colorCurva);
+
+label("Dos rectas",(xDosRect,0,-4),S);
+\end{asypicture}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+\subsection*{Ecuación general de segundo grado}
+
+Una ecuación de segundo grado en dos variables tiene la forma
+\[
+Ax^2+Bxy+Cy^2+Dx+Ey+F=0,
+\]
+donde $A,B,C,D,E,F\in\R$ y al menos uno de los coeficientes $A$, $B$ o $C$ es distinto de cero.
+
+En este apunte trabajaremos principalmente con ecuaciones \textbf{sin término cruzado} $xy$:
+\[
+Ax^2+Cy^2+Dx+Ey+F=0.
+\]
+Estas ecuaciones pueden reducirse mediante traslaciones del sistema de coordenadas y completamiento de cuadrados.
+\begin{comment}
+    
+\begin{mdframed}[style=teoSty,frametitle={Clasificación rápida mediante el discriminante}]
+Para la ecuación general
+\[
+Ax^2+Bxy+Cy^2+Dx+Ey+F=0,
+\]
+se define
+\[
+\Delta=B^2-4AC.
+\]
+En los casos no degenerados:
+\begin{center}
+\begin{tabular}{c|c}
+\toprule
+Valor de $\Delta$ & Tipo de cónica \\
+\midrule
+$\Delta<0$ & elipse; es circunferencia si $A=C$ y $B=0$ \\
+$\Delta=0$ & parábola \\
+$\Delta>0$ & hipérbola \\
+\bottomrule
+\end{tabular}
+\end{center}
+El discriminante permite anticipar el tipo, pero todavía es necesario reducir la ecuación para determinar si la cónica es real, imaginaria o degenerada.
+\end{mdframed}
+
+\end{comment}
+%===============================================================================
+\section*{Herramienta algebraica: completar cuadrados}
+%===============================================================================
+
+La identidad fundamental es
+\[
+x^2+mx
+=\left(x+\frac{m}{2}\right)^2-\left(\frac{m}{2}\right)^2.
+\]
+En particular, $x^2-2hx=(x-h)^2-h^2,\ 
+y^2-2ky=(y-k)^2-k^2.$ 
+
+\begin{mdframed}[style=EjerSty,frametitle={Ejemplo resuelto: reducción a forma ordinaria}]
+Reducir y representar la ecuación
+\[
+4x^2+9y^2-8x+36y+4=0.
+\]
+Agrupamos los términos de cada variable:
+\begin{align*}
+4(x^2-2x)+9(y^2+4y)+4&=0,\\
+4\big[(x-1)^2-1\big]+9\big[(y+2)^2-4\big]+4&=0,\\
+4(x-1)^2+9(y+2)^2&=36.
+\end{align*}
+Dividiendo por $36$:
+\[
+\boxed{\frac{(x-1)^2}{9}+\frac{(y+2)^2}{4}=1.}
+\]
+Se trata de una elipse con centro $(1,-2)$, semieje mayor $3$ paralelo al eje $x$ y semieje menor $2$ paralelo al eje $y$.
+
+
+\begin{center}
+\begin{tikzpicture}[scale=.68,line cap=round,line join=round]
+  \draw[->] (-3.7,0)--(6,0) node[right] {$x$};
+  \draw[->] (0,-5.5)--(0,2) node[above] {$y$};
+  \draw[conicaAzul,very thick,domain=0:360,samples=180,variable=\t]
+      plot ({1+3*cos(\t)},{-2+2*sin(\t)});
+  \draw[dashed,conicaGris] (-2,-2)--(4,-2);
+  \draw[dashed,conicaGris] (1,-4)--(1,0);
+  \fill (1,-2) circle (2.2pt) node[below right] {$C=(1,-2)$};
+  \fill (-2,-2) circle (2pt);
+  \fill (4,-2) circle (2pt);
+  \fill (1,-4) circle (2pt);
+  \fill (1,0) circle (2pt);
+\end{tikzpicture}
+\end{center}
+\end{mdframed}
+
+\begin{mdframed}[style=teoSty,frametitle={Procedimiento general de análisis}]
+Dada una ecuación de segundo grado sin término $xy$:
+\begin{enumerate}
+    \item ordenar y agrupar los términos en $x$ y en $y$;
+    \item sacar factor común de los coeficientes cuadráticos cuando sea necesario;
+    \item completar cuadrados;
+    \item trasladar las constantes al segundo miembro;
+    \item dividir para obtener $1$ en el segundo miembro, cuando corresponda;
+    \item identificar la cónica y todos sus elementos;
+    \item realizar un gráfico coherente con la información obtenida.
+\end{enumerate}
+\end{mdframed}
+
+%===============================================================================
+\section*{3. Circunferencia}
+%===============================================================================
+\begin{mdframed}[style=teoSty,frametitle={Definición de circunferencia}]
+La \textbf{circunferencia} de centro $C=(h,k)$ y radio $r>0$ es el lugar geométrico de los puntos $P=(x,y)$ cuya distancia a $C$ es igual a $r$:
+\[
+P\in\mathcal C
+\quad\Longleftrightarrow\quad
+\operatorname{dist}(P,C)=r.
+\]
+Aplicando la fórmula de distancia se obtiene: \quad $\displaystyle \boxed{(x-h)^2+(y-k)^2=r^2.}$ 
+\end{mdframed}
+ 
+\subsection*{3.1. Formas de la ecuación}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{>{\bfseries}m{48mm}|m{83mm}}
+Forma ordinaria & $(x-h)^2+(y-k)^2=r^2$ \\
+\hline
+Forma canónica & $x^2+y^2=r^2$, cuando el centro es el origen \\
+\hline
+Forma desarrollada & $x^2+y^2+Dx+Ey+F=0$ \\
+\end{tabular}
+\end{center}
+
+Al desarrollar la forma ordinaria:
+\[
+(x-h)^2+(y-k)^2=r^2
+\]
+se obtiene
+\[
+x^2+y^2-2hx-2ky+h^2+k^2-r^2=0.
+\]
+Por lo tanto, en una ecuación desarrollada de circunferencia, los coeficientes de $x^2$ e $y^2$ son iguales y no aparece el término $xy$.
+
+\begin{center}
+\begin{tikzpicture}[scale=.78,line cap=round,line join=round]
+  \def\h{1}
+  \def\k{-1}
+  \def\r{3}
+  \draw[->] (-3.4,0)--(5.2,0) node[right] {$x$};
+  \draw[->] (0,-4.8)--(0,3.2) node[above] {$y$};
+  \draw[conicaAzul,very thick] (\h,\k) circle (\r);
+  \fill (\h,\k) circle (2.3pt) node[below left] {$C=(h,k)$};
+  \coordinate (P) at ({\h+\r*cos(35)},{\k+\r*sin(35)});
+  \draw[conicaRojo,thick] (\h,\k)--(P) node[midway,above] {$r$};
+  \fill (P) circle (2.2pt) node[above right] {$P=(x,y)$};
+  \draw[dashed,conicaGris] (P)--({\h+\r*cos(35)},\k);
+  \draw[dashed,conicaGris] (P)--(\h,{\k+\r*sin(35)});
+\end{tikzpicture}
+\end{center}
+
+\begin{mdframed}[style=EjerSty,frametitle={Ejemplo resuelto}]
+Identificar y graficar
+\[
+x^2+y^2-6x+4y-12=0.
+\]
+Completamos cuadrados:
+\begin{align*}
+(x^2-6x)+(y^2+4y)&=12,\\
+(x-3)^2-9+(y+2)^2-4&=12,\\
+(x-3)^2+(y+2)^2&=25.
+\end{align*}
+Por lo tanto,
+\[
+\boxed{C=(3,-2),\qquad r=5.}
+\]
+\end{mdframed}
+
+\subsection*{3.2. Posición relativa de una recta y una circunferencia}
+
+Sea la circunferencia de centro $C$ y radio $r$, y sea una recta $L$. Si $d=\operatorname{dist}(C,L)$, entonces:
+\begin{center}
+\begin{tabular}{c|c}
+\toprule
+Condición & Posición relativa \\
+\midrule
+$d>r$ & recta exterior \\
+$d=r$ & recta tangente \\
+$d<r$ & recta secante \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%===============================================================================
+\section*{4. Parábola}
+%===============================================================================
+
+\begin{mdframed}[style=teoSty,frametitle={Definición de parábola}]
+Una \textbf{parábola} es el lugar geométrico de los puntos del plano que equidistan de un punto fijo $F$, llamado \textbf{foco}, y de una recta fija $L$, llamada \textbf{directriz}:
+\[
+P\in\mathcal P
+\quad\Longleftrightarrow\quad
+\operatorname{dist}(P,F)=\operatorname{dist}(P,L).
+\]
+\end{mdframed}
+
+El punto medio entre el foco y la directriz, medido sobre el eje de simetría, es el \textbf{vértice}. El número $p$ representa la distancia dirigida desde el vértice al foco.
+
+\subsection*{4.1. Formas ordinarias}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{m{50mm}|m{50mm}|m{50mm}}
+\toprule
+Ecuación & Elementos & Apertura \\
+\midrule
+$\displaystyle (x-h)^2=4p(y-k)$
+& $V=(h,k)$, $F=(h,k+p)$, directriz $y=k-p$, eje $x=h$
+& hacia arriba si $p>0$; hacia abajo si $p<0$ \\
+\midrule
+$\displaystyle (y-k)^2=4p(x-h)$
+& $V=(h,k)$, $F=(h+p,k)$, directriz $x=h-p$, eje $y=k$
+& hacia la derecha si $p>0$; hacia la izquierda si $p<0$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+La longitud del \textbf{lado recto} es $|4p|$. Sus extremos pertenecen a la parábola y están sobre la recta perpendicular al eje que pasa por el foco.
+
+\begin{center}
+\begin{tikzpicture}[scale=.65,line cap=round,line join=round]
+  \def\h{1}
+  \def\k{-1}
+  \def\p{1.5}
+  \draw[->] (-4,0)--(6,0) node[right] {$x$};
+  \draw[->] (0,-4)--(0,5) node[above] {$y$};
+  \draw[dashed,conicaGris] (-3,{\k-\p})--(5.5,{\k-\p}) node[right] {directriz};
+  \draw[dashed,conicaGris] (\h,-3.7)--(\h,4.6) node[above] {$x=h$};
+  \draw[conicaNaranja,very thick,domain=-3.5:3.5,samples=130,variable=\t]
+       plot ({\h+\t},{\k+(\t)^2/(4*\p)});
+  \fill (\h,\k) circle (2.3pt) node[below right] {$V$};
+  \fill (\h,{\k+\p}) circle (2.3pt) node[right] {$F$};
+  \draw[conicaRojo,thick] (\h,\k)--(\h,{\k+\p}) node[midway,right] {$p$};
+\end{tikzpicture}
+\end{center}
+
+\begin{mdframed}[style=EjerSty,frametitle={Ejemplo resuelto}]
+Analizar y graficar
+\[
+y^2-6y-8x+17=0.
+\]
+Completamos cuadrados en $y$:
+\begin{align*}
+y^2-6y&=8x-17,\\
+(y-3)^2-9&=8x-17,\\
+(y-3)^2&=8(x-1).
+\end{align*}
+Comparando con $(y-k)^2=4p(x-h)$:
+\[
+4p=8\quad\Longrightarrow\quad p=2.
+\]
+Entonces:
+\[
+\boxed{V=(1,3),\quad F=(3,3),\quad \text{directriz }x=-1,\quad \text{eje }y=3.}
+\]
+La parábola abre hacia la derecha.
+\end{mdframed}
+
+\begin{center}
+\begin{tikzpicture}[scale=.65,line cap=round,line join=round]
+  \draw[->] (-3.5,0)--(8,0) node[right] {$x$};
+  \draw[->] (0,-2.3)--(0,8.2) node[above] {$y$};
+  \draw[dashed,conicaGris] (-1,-2)--(-1,8) node[above left] {$x=-1$};
+  \draw[dashed,conicaGris] (-3.3,3)--(7.5,3) node[right] {$y=3$};
+  \draw[conicaNaranja,very thick,domain=-4.5:4.5,samples=130,variable=\t]
+       plot ({1+(\t)^2/8},{3+\t});
+  \fill (1,3) circle (2.3pt) node[below left] {$V=(1,3)$};
+  \fill (3,3) circle (2.3pt) node[below right] {$F=(3,3)$};
+\end{tikzpicture}
+\end{center}
+
+%===============================================================================
+\section*{5. Elipse}
+%===============================================================================
+
+\begin{mdframed}[style=teoSty,frametitle={Definición de elipse}]
+Dados dos puntos fijos $F_1$ y $F_2$, llamados \textbf{focos}, una \textbf{elipse} es el lugar geométrico de los puntos $P$ del plano para los cuales la suma de las distancias a los focos es constante:
+\[
+P\in\mathcal E
+\quad\Longleftrightarrow\quad
+\operatorname{dist}(P,F_1)+\operatorname{dist}(P,F_2)=2a.
+\]
+La constante $2a$ es mayor que la distancia entre los focos.
+\end{mdframed}
+
+Toda elipse posee un centro $C=(h,k)$, un eje mayor, un eje menor, cuatro vértices y dos focos. Tomaremos siempre $a>b>0$, donde $a$ es el semieje mayor y $b$ el semieje menor.
+
+\subsection*{5.1. Formas ordinarias y elementos}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{m{64mm}|m{84mm}}
+\toprule
+Ecuación & Elementos \\
+\midrule
+$\displaystyle \frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1$, $a>b$
+& eje mayor horizontal; vértices principales $(h\pm a,k)$; vértices secundarios $(h,k\pm b)$; focos $(h\pm c,k)$ \\
+\midrule
+$\displaystyle \frac{(x-h)^2}{b^2}+\frac{(y-k)^2}{a^2}=1$, $a>b$
+& eje mayor vertical; vértices principales $(h,k\pm a)$; vértices secundarios $(h\pm b,k)$; focos $(h,k\pm c)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+En ambos casos:
+\[
+\boxed{c^2=a^2-b^2},
+\qquad
+\boxed{e=\frac{c}{a}},
+\qquad 0<e<1.
+\]
+El número $e$ es la \textbf{excentricidad}: cuanto más cercano a $1$ es su valor, más alargada es la elipse. La circunferencia puede considerarse el caso particular $a=b$ y $e=0$.
+
+\begin{center}
+\begin{tikzpicture}[scale=.68,line cap=round,line join=round]
+  \def\h{0}
+  \def\k{0}
+  \def\a{5}
+  \def\b{3}
+  \def\c{4}
+  \draw[->] (-6,0)--(6,0) node[right] {$x$};
+  \draw[->] (0,-4.2)--(0,4.2) node[above] {$y$};
+  \draw[conicaVerde,very thick] (\h,\k) ellipse ({\a} and {\b});
+  \draw[dashed,conicaGris] (-\a,0)--(\a,0);
+  \draw[dashed,conicaGris] (0,-\b)--(0,\b);
+  \fill (0,0) circle (2.2pt) node[below right] {$C$};
+  \fill (-\c,0) circle (2.2pt) node[below] {$F_1$};
+  \fill (\c,0) circle (2.2pt) node[below] {$F_2$};
+  \fill (-\a,0) circle (2.2pt) node[left] {$V_1$};
+  \fill (\a,0) circle (2.2pt) node[right] {$V_2$};
+  \fill (0,\b) circle (2.2pt) node[above right] {$V_3$};
+  \fill (0,-\b) circle (2.2pt) node[below right] {$V_4$};
+  \coordinate (P) at ({\a*cos(48)},{\b*sin(48)});
+  \fill (P) circle (2pt) node[above right] {$P$};
+  \draw[conicaRojo,thick] (-\c,0)--(P);
+  \draw[conicaRojo,thick] (\c,0)--(P);
+\end{tikzpicture}
+\end{center}
+
+\begin{mdframed}[style=EjerSty,frametitle={Ejemplo resuelto}]
+Analizar
+\[
+9x^2+4y^2-18x+16y-11=0.
+\]
+Completamos cuadrados:
+\begin{align*}
+9(x^2-2x)+4(y^2+4y)&=11,\\
+9\big[(x-1)^2-1\big]+4\big[(y+2)^2-4\big]&=11,\\
+9(x-1)^2+4(y+2)^2&=36,\\
+\frac{(x-1)^2}{4}+\frac{(y+2)^2}{9}&=1.
+\end{align*}
+La elipse tiene eje mayor vertical:
+\[
+C=(1,-2),\qquad a=3,\qquad b=2,\qquad c=\sqrt{5}.
+\]
+Sus vértices principales son $(1,1)$ y $(1,-5)$; sus vértices secundarios son $(3,-2)$ y $(-1,-2)$; sus focos son
+\[
+(1,-2+\sqrt5)\quad\text{y}\quad(1,-2-\sqrt5).
+\]
+\end{mdframed}
+
+\begin{center}
+\begin{tikzpicture}[scale=.70,line cap=round,line join=round]
+  \draw[->] (-3.2,0)--(5.2,0) node[right] {$x$};
+  \draw[->] (0,-6)--(0,2.2) node[above] {$y$};
+  \draw[conicaVerde,very thick] (1,-2) ellipse (2 and 3);
+  \draw[dashed,conicaGris] (-1,-2)--(3,-2);
+  \draw[dashed,conicaGris] (1,-5)--(1,1);
+  \fill (1,-2) circle (2.2pt) node[below right] {$C$};
+  \fill (1,1) circle (2.1pt);
+  \fill (1,-5) circle (2.1pt);
+  \fill (-1,-2) circle (2.1pt);
+  \fill (3,-2) circle (2.1pt);
+  \fill (1,{-2+sqrt(5)}) circle (2.1pt) node[right] {$F_1$};
+  \fill (1,{-2-sqrt(5)}) circle (2.1pt) node[right] {$F_2$};
+\end{tikzpicture}
+\end{center}
+
+%===============================================================================
+\section*{6. Hipérbola}
+%===============================================================================
+
+\begin{mdframed}[style=teoSty,frametitle={Definición de hipérbola}]
+Dados dos puntos fijos $F_1$ y $F_2$, llamados \textbf{focos}, una \textbf{hipérbola} es el lugar geométrico de los puntos $P$ del plano para los cuales el valor absoluto de la diferencia de las distancias a los focos es constante:
+\[
+P\in\mathcal H
+\quad\Longleftrightarrow\quad
+\left|\operatorname{dist}(P,F_1)-\operatorname{dist}(P,F_2)\right|=2a.
+\]
+La constante $2a$ es menor que la distancia entre los focos.
+\end{mdframed}
+
+La hipérbola posee dos ramas, un centro, un eje real o transversal, un eje imaginario o conjugado, dos vértices, dos focos y dos asíntotas.
+
+\subsection*{6.1. Formas ordinarias y elementos}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{m{64mm}|m{84mm}}
+\toprule
+Ecuación & Elementos \\
+\midrule
+$\displaystyle \frac{(x-h)^2}{a^2}-\frac{(y-k)^2}{b^2}=1$
+& eje real horizontal; vértices $(h\pm a,k)$; focos $(h\pm c,k)$; asíntotas $y-k=\pm\dfrac{b}{a}(x-h)$ \\
+\midrule
+$\displaystyle \frac{(y-k)^2}{a^2}-\frac{(x-h)^2}{b^2}=1$
+& eje real vertical; vértices $(h,k\pm a)$; focos $(h,k\pm c)$; asíntotas $y-k=\pm\dfrac{a}{b}(x-h)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+En ambos casos:
+\[
+\boxed{c^2=a^2+b^2},
+\qquad
+\boxed{e=\frac{c}{a}},
+\qquad e>1.
+\]
+
+\begin{center}
+\begin{tikzpicture}[scale=.64,line cap=round,line join=round]
+  \def\h{0}
+  \def\k{0}
+  \def\a{3}
+  \def\b{2}
+  \def\c{3.6055}
+  \draw[->] (-7,0)--(7,0) node[right] {$x$};
+  \draw[->] (0,-5)--(0,5) node[above] {$y$};
+  \draw[dashed,conicaGris] (-7,{-7*\b/\a})--(7,{7*\b/\a});
+  \draw[dashed,conicaGris] (-7,{7*\b/\a})--(7,{-7*\b/\a});
+  \draw[dashed,conicaGris] (-\a,-\b) rectangle (\a,\b);
+  \draw[conicaRojo,very thick,domain=\a:6.6,samples=120,variable=\x]
+       plot (\x,{\b*sqrt((\x/\a)^2-1)});
+  \draw[conicaRojo,very thick,domain=\a:6.6,samples=120,variable=\x]
+       plot (\x,{-\b*sqrt((\x/\a)^2-1)});
+  \draw[conicaRojo,very thick,domain=-6.6:-\a,samples=120,variable=\x]
+       plot (\x,{\b*sqrt((\x/\a)^2-1)});
+  \draw[conicaRojo,very thick,domain=-6.6:-\a,samples=120,variable=\x]
+       plot (\x,{-\b*sqrt((\x/\a)^2-1)});
+  \fill (0,0) circle (2.2pt) node[below right] {$C$};
+  \fill (-\a,0) circle (2.2pt) node[above left] {$V_1$};
+  \fill (\a,0) circle (2.2pt) node[above right] {$V_2$};
+  \fill (-\c,0) circle (2.2pt) node[below] {$F_1$};
+  \fill (\c,0) circle (2.2pt) node[below] {$F_2$};
+\end{tikzpicture}
+\end{center}
+
+\begin{mdframed}[style=EjerSty,frametitle={Ejemplo resuelto}]
+Analizar
+\[
+4x^2-9y^2+8x+18y-41=0.
+\]
+Completamos cuadrados:
+\begin{align*}
+4(x^2+2x)-9(y^2-2y)&=41,\\
+4\big[(x+1)^2-1\big]-9\big[(y-1)^2-1\big]&=41,\\
+4(x+1)^2-9(y-1)^2&=36,\\
+\frac{(x+1)^2}{9}-\frac{(y-1)^2}{4}&=1.
+\end{align*}
+Entonces:
+\[
+C=(-1,1),\qquad a=3,\qquad b=2,\qquad c=\sqrt{13}.
+\]
+Los vértices son $(-4,1)$ y $(2,1)$, los focos son
+\[
+(-1-\sqrt{13},1)\quad\text{y}\quad(-1+\sqrt{13},1),
+\]
+y las asíntotas son
+\[
+\boxed{y-1=\pm\frac{2}{3}(x+1).}
+\]
+\end{mdframed}
+
+\begin{center}
+\begin{tikzpicture}[scale=.64,line cap=round,line join=round]
+  \draw[->] (-8,0)--(6.5,0) node[right] {$x$};
+  \draw[->] (0,-5)--(0,7) node[above] {$y$};
+  \draw[dashed,conicaGris] (-8,{1+(2/3)*(-8+1)})--(6,{1+(2/3)*(6+1)});
+  \draw[dashed,conicaGris] (-8,{1-(2/3)*(-8+1)})--(6,{1-(2/3)*(6+1)});
+  \draw[dashed,conicaGris] (-4,-1) rectangle (2,3);
+  \draw[conicaRojo,very thick,domain=2:6,samples=110,variable=\x]
+       plot (\x,{1+2*sqrt(((\x+1)/3)^2-1)});
+  \draw[conicaRojo,very thick,domain=2:6,samples=110,variable=\x]
+       plot (\x,{1-2*sqrt(((\x+1)/3)^2-1)});
+  \draw[conicaRojo,very thick,domain=-8:-4,samples=110,variable=\x]
+       plot (\x,{1+2*sqrt(((\x+1)/3)^2-1)});
+  \draw[conicaRojo,very thick,domain=-8:-4,samples=110,variable=\x]
+       plot (\x,{1-2*sqrt(((\x+1)/3)^2-1)});
+  \fill (-1,1) circle (2.2pt) node[below right] {$C=(-1,1)$};
+  \fill (-4,1) circle (2.2pt) node[above left] {$V_1$};
+  \fill (2,1) circle (2.2pt) node[above right] {$V_2$};
+\end{tikzpicture}
+\end{center}
+
+%===============================================================================
+\section*{7. Cuadro comparativo}
+%===============================================================================
+
+\begin{center}
+\renewcommand{\arraystretch}{1.55}
+\begin{tabular}{|>{\centering\arraybackslash}m{26mm}|>{\centering\arraybackslash}m{57mm}|>{\centering\arraybackslash}m{54mm}|}
+\hline
+\textbf{Cónica} & \textbf{Forma ordinaria típica} & \textbf{Propiedad geométrica} \\
+\hline
+Circunferencia & $(x-h)^2+(y-k)^2=r^2$ & distancia a un centro fija \\
+\hline
+Parábola & $(x-h)^2=4p(y-k)$ o $(y-k)^2=4p(x-h)$ & igual distancia a un foco y a una directriz \\
+\hline
+Elipse & $\dfrac{(x-h)^2}{a^2}+\dfrac{(y-k)^2}{b^2}=1$ & suma de distancias a dos focos constante \\
+\hline
+Hipérbola & $\dfrac{(x-h)^2}{a^2}-\dfrac{(y-k)^2}{b^2}=1$ & valor absoluto de la diferencia de distancias a dos focos constante \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{mdframed}[style=ObsSty,frametitle={Atención con los denominadores}]
+En una elipse, el mayor denominador indica la dirección del eje mayor. En una hipérbola, el término positivo indica la dirección del eje real y, por lo tanto, la dirección en la que se abren sus ramas.
+\end{mdframed}
+
+%===============================================================================
+
+\section*{8. Actividades de práctica}
+%===============================================================================
+
+\begin{mdframed}[style=EjerSty,frametitle={Actividad 1: reconocer, reducir y graficar}]
+Para cada ecuación:
+\begin{enumerate}[a)]
+    \item clasificar la cónica;
+    \item escribir su forma ordinaria;
+    \item indicar sus elementos principales;
+    \item realizar un gráfico en un sistema de coordenadas.
+\end{enumerate}
+\end{mdframed}
+
+\begin{enumerate}[\hspace*{\identacion}1)]
+\begin{multicols}{2}
+\item $x^2+y^2-4x+6y-12=0$.
+\item $4x^2+9y^2+16x-18y-11=0$.
+\item $9x^2+4y^2-54x+8y+49=0$.
+\item $y^2-4y-12x+16=0$.
+\item $x^2+6x+8y+1=0$.
+\item $16x^2-9y^2-64x-18y-89=0$.
+\item $9y^2-4x^2+36y+16x-16=0$.
+\item $4x^2+4y^2+16x-8y+4=0$.
+\item $x^2+y^2+4x-6y+20=0$.
+\item $x^2+y^2-2x+4y+5=0$.
+\item $x^2-y^2-2x-2y=0$.
+\item $x^2-6x+9=0$.
+\end{multicols}
+\end{enumerate}
+
+\bigskip
+
+\begin{mdframed}[style=EjerSty,frametitle={Actividad 2: construir la ecuación}]
+En cada caso, escribir la ecuación ordinaria de la cónica y realizar un gráfico aproximado.
+\end{mdframed}
+
+\begin{enumerate}[\hspace*{\identacion}1)]
+\item Circunferencia de centro $C=(-2,3)$ que pasa por $P=(1,7)$.
+
+\item Circunferencia cuyo diámetro tiene extremos $A=(-4,1)$ y $B=(2,5)$.
+
+\item Parábola de vértice $V=(2,-1)$ y foco $F=(2,2)$.
+
+\item Parábola de vértice $V=(-3,4)$ y directriz $x=1$.
+
+\item Elipse de centro $C=(1,-2)$, eje mayor horizontal, semieje mayor $5$ y semieje menor $3$.
+
+\item Elipse con focos $F_1=(-4,1)$ y $F_2=(4,1)$, cuyo eje mayor mide $10$ unidades.
+
+\item Hipérbola de centro $C=(-1,2)$, vértices $(-4,2)$ y $(2,2)$, y asíntotas
+\[
+y-2=\pm\frac{4}{3}(x+1).
+\]
+
+\item Hipérbola con focos $(0,-5)$ y $(0,5)$ y vértices $(0,-3)$ y $(0,3)$.
+\end{enumerate}
+
+\bigskip
+
+\begin{mdframed}[style=EjerSty,frametitle={Actividad 3: intersecciones y posición relativa}]
+Resolver analíticamente y justificar cada respuesta.
+\end{mdframed}
+
+\begin{enumerate}[\hspace*{\identacion}1)]
+\item Determinar la posición relativa de la recta
+\[
+3x+4y-25=0
+\]
+respecto de la circunferencia
+\[
+(x-1)^2+(y+2)^2=9.
+\]
+
+\item Hallar los valores de $k\in\R$ para que la recta
+\[
+3x+4y+k=0
+\]
+sea tangente a la circunferencia
+\[
+(x-1)^2+(y+2)^2=9.
+\]
+
+\item Hallar los puntos de intersección entre
+\[
+x^2+y^2=25
+\qquad\text{e}\qquad
+y=3.
+\]
+
+\item Hallar los puntos de intersección de la parábola
+\[
+(y-1)^2=8(x+2)
+\]
+con el eje $y$.
+
+\item Determinar los valores de $m$ para que el punto $P=(m,2)$ pertenezca a la elipse
+\[
+\frac{x^2}{16}+\frac{y^2}{9}=1.
+\]
+
+\item Para la hipérbola
+\[
+\frac{(x-2)^2}{9}-\frac{(y+1)^2}{4}=1,
+\]
+hallar centro, vértices, focos y ecuaciones de las asíntotas.
+\end{enumerate}
+
+\bigskip
+
+\begin{mdframed}[style=EjerSty,frametitle={Actividad 4: situaciones de aplicación}]
+En cada problema, indicar las unidades y explicar el significado geométrico de la respuesta.
+\end{mdframed}
+
+\begin{enumerate}[\hspace*{\identacion}1)]
+\item La sección transversal circular de un pozo se modela, en cierto sistema de coordenadas, mediante
+\[
+x^2+y^2-8x+6y-75=0.
+\]
+Determinar el centro, el radio y el diámetro de la sección.
+
+\item El perfil de una antena parabólica está dado por
+\[
+x^2=12y,
+\]
+donde las longitudes se miden en centímetros.
+\begin{enumerate}[a)]
+    \item ¿Dónde debe colocarse el receptor?
+    \item ¿Cuál es el ancho de la antena a una profundidad de $12\,\text{cm}$ medida desde el vértice?
+\end{enumerate}
+
+\item Una sección horizontal idealizada de un reservorio tiene forma elíptica y está dada por
+\[
+\frac{(x-2)^2}{100}+\frac{(y+1)^2}{36}=1,
+\]
+donde $x$ e $y$ se miden en metros.
+\begin{enumerate}[a)]
+    \item Determinar las longitudes de los ejes mayor y menor.
+    \item Hallar las coordenadas de los focos.
+    \item Calcular la excentricidad.
+\end{enumerate}
+
+\item Dos estaciones de medición están ubicadas en $F_1=(-5,0)$ y $F_2=(5,0)$. Un evento se localiza en los puntos para los cuales el valor absoluto de la diferencia de distancias a las estaciones es $6$ unidades.
+\begin{enumerate}[a)]
+    \item Identificar el lugar geométrico.
+    \item Hallar su ecuación.
+    \item Determinar sus asíntotas.
+\end{enumerate}
+\end{enumerate}
+
+\bigskip
+
+\begin{mdframed}[style=EjerSty,frametitle={Actividad 5: parámetros y clasificación}]
+\begin{enumerate}
+\item Determinar los valores de $t\in\R$ para que
+\[
+\frac{(x-1)^2}{t+2}+\frac{(y+3)^2}{5-t}=1
+\]
+represente una elipse real. ¿Para qué valor de $t$ representa una circunferencia?
+
+\item Clasificar, según los valores de $\lambda$, la ecuación
+\[
+x^2+(\lambda-1)y^2=4.
+\]
+Considerar los casos de elipse, circunferencia, hipérbola y cónica degenerada.
+
+\item Determinar $q$ para que la parábola
+\[
+(y-2)^2=4q(x+1)
+\]
+pase por el punto $(3,6)$. Luego hallar el foco y la directriz.
+\end{enumerate}
+\end{mdframed}
+
+%===============================================================================
+ 
+\section*{9. Respuestas breves para control}
+%===============================================================================
+
+\begin{mdframed}[style=ObsSty,frametitle={Uso sugerido}]
+Esta sección contiene resultados finales para facilitar la autocorrección. Los desarrollos algebraicos y las justificaciones deben realizarse en la carpeta.
+\end{mdframed}
+
+\subsection*{Actividad 1}
+
+\begin{enumerate}[\hspace*{\identacion}1)]
+\item $(x-2)^2+(y+3)^2=25$. Circunferencia, $C=(2,-3)$, $r=5$.
+
+\item $\dfrac{(x+2)^2}{9}+\dfrac{(y-1)^2}{4}=1$. Elipse horizontal.
+
+\item $\dfrac{(x-3)^2}{4}+\dfrac{(y+1)^2}{9}=1$. Elipse vertical.
+
+\item $(y-2)^2=12(x-1)$. Parábola hacia la derecha, $p=3$.
+
+\item $(x+3)^2=-8(y-1)$. Parábola hacia abajo, $p=-2$.
+
+\item $\dfrac{(x-2)^2}{9}-\dfrac{(y+1)^2}{16}=1$. Hipérbola horizontal.
+
+\item $\dfrac{(y+2)^2}{4}-\dfrac{(x-2)^2}{9}=1$. Hipérbola vertical.
+
+\item $(x+2)^2+(y-1)^2=4$. Circunferencia, $C=(-2,1)$, $r=2$.
+
+\item $(x+2)^2+(y-3)^2=-7$. Conjunto vacío.
+
+\item $(x-1)^2+(y+2)^2=0$. Cónica degenerada: punto $(1,-2)$.
+
+\item $(x-1)^2-(y+1)^2=0$. Cónica degenerada: $y=x-2$ o $y=-x$.
+
+\item $(x-3)^2=0$. Cónica degenerada: recta doble $x=3$.
+\end{enumerate}
+
+\subsection*{Actividad 2}
+
+\begin{enumerate}[\hspace*{\identacion}1)]
+\item $(x+2)^2+(y-3)^2=25$.
+\item $(x+1)^2+(y-3)^2=13$.
+\item $(x-2)^2=12(y+1)$.
+\item $(y-4)^2=-16(x+3)$.
+\item $\dfrac{(x-1)^2}{25}+\dfrac{(y+2)^2}{9}=1$.
+\item $\dfrac{x^2}{25}+\dfrac{(y-1)^2}{9}=1$.
+\item $\dfrac{(x+1)^2}{9}-\dfrac{(y-2)^2}{16}=1$.
+\item $\dfrac{y^2}{9}-\dfrac{x^2}{16}=1$.
+\end{enumerate}
+
+\subsection*{Actividad 3}
+
+\begin{enumerate}[\hspace*{\identacion}1)]
+\item Exterior, porque $\operatorname{dist}(C,L)=6>3$.
+\item $k=20$ o $k=-10$.
+\item $(4,3)$ y $(-4,3)$.
+\item $(0,5)$ y $(0,-3)$.
+\item $m=\pm\dfrac{4\sqrt5}{3}$.
+\item $C=(2,-1)$; vértices $(-1,-1)$ y $(5,-1)$; focos $(2\pm\sqrt{13},-1)$; asíntotas $y+1=\pm\dfrac23(x-2)$.
+\end{enumerate}
+
+\subsection*{Actividad 4}
+
+\begin{enumerate}[\hspace*{\identacion}1)]
+\item $(x-4)^2+(y+3)^2=100$: centro $(4,-3)$, radio $10$, diámetro $20$.
+\item Foco $(0,3)$. A la profundidad $y=12$, $x=\pm12$; ancho $24\,\text{cm}$.
+\item Eje mayor $20\,\text{m}$, eje menor $12\,\text{m}$; $c=8$; focos $(-6,-1)$ y $(10,-1)$; $e=\dfrac45$.
+\item Hipérbola $\dfrac{x^2}{9}-\dfrac{y^2}{16}=1$; asíntotas $y=\pm\dfrac43x$.
+\end{enumerate}
+
+\subsection*{Actividad 5}
+
+\begin{enumerate}[\hspace*{\identacion}1)]
+\item Elipse real para $-2<t<5$. Circunferencia para $t=\dfrac32$.
+\item Si $\lambda>1$ y $\lambda\neq2$, elipse no circular; si $\lambda=2$, circunferencia; si $\lambda<1$, hipérbola; si $\lambda=1$, dos rectas paralelas $x=\pm2$.
+\item $q=1$. Foco $(0,2)$ y directriz $x=-2$.
+\end{enumerate}
+
+\bigskip
+\begin{center}
+\rule{.72\textwidth}{.4pt}\\[2mm]
+\textit{Las formas ordinarias permiten leer la geometría de una ecuación; completar cuadrados construye el puente entre el álgebra y el gráfico.}
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\vspace*{-12mm}
+\begin{center}
+{\bf \Large{ Las superficies cuádricas. }}
+\end{center}
+
+
+\section*{Superficies}
+
+En la Ingeniería en Petróleo, numerosos fenómenos y dispositivos se describen naturalmente mediante modelos geométricos en el espacio tridimensional. La forma de los reservorios, la geometría de los pozos, la propagación de presiones, la distribución de temperaturas y los frentes de avance de fluidos en medios porosos son solo algunos ejemplos donde las superficies juegan un papel central.
+
+Desde el punto de vista matemático, muchas de estas situaciones pueden modelarse mediante funciones de varias variables y, en particular, mediante ecuaciones que describen superficies en $\mathbb{R}^3$. El estudio de estas superficies permite analizar propiedades geométricas relevantes, como simetrías, curvaturas, zonas de máximo o mínimo, y relaciones espaciales entre distintas magnitudes físicas.
+
+\subsection*{Ejemplo de aplicación: modelos de reservorios}
+
+En un modelo simplificado, un reservorio de hidrocarburos puede idealizarse como un volumen delimitado por capas geológicas cuya geometría se aproxima mediante superficies matemáticas. Por ejemplo, ciertas capas pueden modelarse como superficies casi planas, mientras que otras presentan curvaturas que pueden aproximarse mediante paraboloides o superficies elipsoidales.
+
+Si la presión en el reservorio depende de la posición espacial, puede describirse mediante una función
+\[
+p = p(x,y,z),
+\]
+donde $x$, $y$ y $z$ representan coordenadas espaciales. Las superficies de nivel de esta función,
+\[
+p(x,y,z)=\text{constante},
+\]
+describen superficies isobáricas, cuyo análisis geométrico resulta fundamental para comprender el comportamiento del fluido en el medio poroso. En esta unidad nos sentreremos en el analisis geometrico y analitico para en caso en que $p$ sea una función polinomica de segundo grado.
+
+\subsection*{Ejemplo de aplicación: geometría de pozos y equipos}
+
+En la práctica petrolera, muchos dispositivos y configuraciones geométricas presentan simetrías bien definidas. Los pozos verticales y desviados, los tanques de almacenamiento, las tuberías y ciertos equipos pueden aproximarse mediante cilindros, conos o superficies de revolución.
+
+Un ejemplo típico es el modelado geométrico de un pozo perforado con sección aproximadamente cilíndrica, o el estudio de un ducto cuyo eje sigue una trayectoria espacial. La descripción matemática de estas configuraciones conduce naturalmente al estudio de superficies cilíndricas y cuádricas.
+
+\medskip
+
+En este contexto, el objetivo de esta sección es introducir el estudio de las superficies desde una perspectiva geométrica y analítica, poniendo especial énfasis en las \textbf{superficies cuádricas}, ya que estas aparecen de manera recurrente como modelos ideales en problemas de la Ingeniería en Petróleo.
+
+A lo largo de las secciones siguientes se estudiarán sus ecuaciones canónicas, sus propiedades geométricas y sus representaciones gráficas, estableciendo vínculos entre la teoría matemática y las situaciones físicas que motivan su uso.
+
+ \section*{Superficies cuádricas.}
+Las superficies cuádricas son lugares geométricos del espacio tridimensional que se definen como el conjunto de puntos $(x, y, z) \in \mathbb{R}^3$ que satisfacen una ecuación polinómica de segundo grado en tres variables:
+
+$$
+Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gx + Hy + Iz + J = 0,
+$$
+
+donde $A, B, C, D, E, F, G, H, I, J \in \mathbb{R}$ son coeficientes reales. Esta expresión general puede incluir términos cuadráticos puros ($x^2, y^2, z^2$), productos cruzados ($xy, xz, yz$), términos lineales y constantes.
+
+En este momento introductorio al tema y en este apunte, nos centraremos únicamente en las {\bf formas canónicas}, que resultan de una adecuada elección del sistema de coordenadas (mediante traslaciones y rotaciones) y en las cuales {\bf no aparecen productos cruzados}. Es decir, trabajaremos con ecuaciones del tipo:
+
+$$
+Ax^2 + By^2 + Cz^2 + Gx + Hy + Iz + J = 0,
+$$
+
+lo que permite un análisis geométrico más claro y una representación gráfica directa. Este tipo de superficies incluye casos clásicos como la esfera, el elipsoide, los paraboloides y los hiperboloides, entre otros.
+
+
+
+\section*{Superficies cuádricas reales}
+
+Dada una ecuación cuádrica del tipo
+
+\[
+Ax^2 + By^2 + Cz^2 + Gx + Hy + Iz + J = 0,
+\]
+
+una primera cuestión fundamental es determinar si la ecuación posee \emph{alguna} solución en $\mathbb{R}^3$. 
+
+\begin{itemize}
+    \item Si la ecuación no admite ningún punto del espacio tridimensional real, la cuádrica se denomina \textbf{imaginaria} y el conjunto solución es vacío.
+    \item Si existen puntos reales que satisfacen la ecuación, se trata de una \textbf{cuádrica real}.
+\end{itemize}
+
+Mediante traslaciones y completamiento de cuadrados, se puede llegar a formas más simples de la ecuación tales como:
+
+\[
+Ax^2 + By^2 + Cz^2 = R, 
+\qquad\text{o}\qquad 
+Ax^2 + By^2 + Iz = 0,
+\]
+
+donde la existencia de soluciones reales depende del signo y el valor de los coeficientes y el término independiente.
+
+
+
+
+\begin{ejem}[cuádrica real (no vacía)]
+Consideremos la ecuación:
+
+\[
+x^2 + y^2 + z^2 - 4x + 2y - 6z + 9 = 0.
+\]
+
+Completamos cuadrados:
+
+\begin{align*}
+(x^2 - 4x) + (y^2 + 2y) + (z^2 - 6z) + 9 &= 0,\\
+(x-2)^2 - 4 + (y+1)^2 - 1 + (z-3)^2 - 9 + 9 &= 0.
+\end{align*}
+
+Entonces obtenemos la forma canónica:
+
+\[
+(x-2)^2 + (y+1)^2 + (z-3)^2 = 5.
+\]
+
+Como $5 > 0$, la ecuación describe una \textbf{esfera} de centro $(2,-1,3)$ y radio $\sqrt{5}$. Si bien en este caso ya sabemos que el conjunto solución no es vacío, es importante recordar que, en otros contextos, una forma sencilla de justificar la existencia de puntos reales consiste en exhibir explícitamente un punto que verifique la ecuación.
+\end{ejem}
+
+
+\begin{ejem}[cuádrica imaginaria (conjunto vacío)]
+Consideremos la ecuación:
+
+\[
+x^2 + y^2 + z^2 + 4x - 6y + 2z + 30 = 0.
+\]
+
+Completamos cuadrados:
+
+\begin{align*}
+(x+2)^2 - 4 + (y-3)^2 - 9 + (z+1)^2 - 1 + 30 &= 0,\\
+(x+2)^2 + (y-3)^2 + (z+1)^2 &= -16.
+\end{align*}
+
+Como el lado derecho es negativo, no existe ningún punto real que satisfaga la ecuación. Por lo tanto su conjunto solución es vacío.
+\end{ejem}
+
+
+
+\subsection*{Superficies cuádricas reales no degeneradas, cilindros y cuádricas degeneradas}
+
+En lo que sigue nos concentraremos principalmente en las \textbf{cuádricas reales no degeneradas}, es decir, aquellas que:
+
+\begin{itemize}
+    \item poseen puntos en $\mathbb{R}^3$ que satisfacen la ecuación,
+    \item no se reducen a un punto, una recta o un plano,
+    \item y presentan una estructura geométrica tridimensional propiamente dicha.
+\end{itemize}
+
+Estas superficies constituyen los ejemplos más representativos dentro del estudio de las cuádricas, ya que conservan toda la riqueza geométrica asociada a las ecuaciones cuadráticas en el espacio.
+
+Desde el punto de vista geométrico, las cuádricas reales no degeneradas pueden clasificarse en dos grandes familias:
+
+\begin{enumerate}
+    \item \textbf{Cuádricas con centro}: aquellas que admiten un punto de simetría central.  
+    En esta clase se encuentran, entre otras, el elipsoide y los distintos tipos de hiperboloides.
+
+    \item \textbf{Cuádricas sin centro}: no poseen un punto de simetría central, pero sí presentan al menos un \textbf{eje de simetría}.  
+    A esta familia pertenecen los paraboloides y los conos.
+\end{enumerate}
+
+Junto a estas superficies  también estudiaremos  los \textbf{cilindros}, que pueden interpretarse como cuádricas obtenidas al extender indefinidamente una cónica plana en una dirección fija. Si bien su ecuación es cuadrática, su estructura geométrica presenta una invariancia direccional que los distingue de las cuádricas emencionadas primero.
+
+Por último, es necesario considerar las llamadas \textbf{cuádricas degeneradas}. En estos casos, la ecuación cuadrática no describe una superficie tridimensional, sino que el conjunto solución se reduce a objetos de menor dimensión, como:
+\begin{itemize}
+\begin{multicols}{3}
+    \item un plano,
+    \item un par de planos,
+    \item una recta,
+    \item un punto,
+    \item o incluso el conjunto vacío.
+\end{multicols}
+\end{itemize}
+
+Estas situaciones surgen cuando la ecuación se factoriza o cuando, tras una adecuada reducción, se pierde una o más direcciones geométricas.
+
+\medskip
+
+En la sección siguiente presentaremos un \textbf{resumen de los principales tipos de cuádricas estudiadas}, organizado en tablas que incluyen:
+\begin{itemize}
+    \item la ecuación canónica de cada caso,
+    \item su clasificación geométrica,
+    \item y una representación gráfica que permita visualizar sus características principales.
+\end{itemize}
+
+Este repaso global permitirá comparar las distintas superficies, identificar similitudes y diferencias, y consolidar una visión unificada del estudio de las cuádricas en el espacio.
+
+
+
+
+
+\subsection{Resumen y graficos}
+\xdef\t{3mm}
+ \begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|
+>{\centering\arraybackslash}m{35mm}|
+>{\centering\arraybackslash}m{45mm}|
+>{\centering\arraybackslash}m{55mm}|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Cuádricas reales no degeneradas}}\\
+\hline
+\textbf{Tipo} & \textbf{Ejemplo} & \textbf{Gráfico}\\
+\hline
+\hline
+Elipsoide &
+$\displaystyle \frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$ & 
+$\vcenter{\hbox{\begin{asypicture}{name=ejemParaboloideHipebolico}
+settings.render=8;
+import graph3;
+size(33mm);
+currentprojection=orthographic(1,2,1);
+
+real a=1.5, b=1, c=0.8;
+
+triple F(pair A) {
+  return (a*cos(A.x)*cos(A.y),
+          b*sin(A.x)*cos(A.y),
+          c*sin(A.y));
+}
+
+surface s = surface(F,( 0,-pi/2), (2pi, pi/2), 40, 20);
+draw(s, red+opacity(0.8));
+
+xaxis3(Label("$x$",1), -.5-a, .7+a, black, Arrow3); 
+yaxis3(Label("$y$",1), -.5-b, .7+b, black, Arrow3); 
+zaxis3(Label("$z$",1), -.5-c, .7+c, black, Arrow3);
+\end{asypicture}
+}}$ \,  \vspace{\t}
+\rule{0mm}{14mm} \\  
+\hline
+\multicolumn{3}{|c|}{En el caso que $a= b= c$ estamos frente al caso la esfera.}\\
+\hline 
+\hline
+Paraboloide elíptico 
+&
+$\displaystyle \frac{x^2}{a^2}+\frac{y^2}{b^2}-z=0$ & 
+$\vcenter{\hbox{\begin{asypicture}{name=ejemParaboloideeliptico}
+settings.render=8;
+import graph3;
+size(32mm);
+currentprojection=orthographic(1,2,1);
+
+real a=1.2, b=0.8 ,R=1.8;
+
+triple F(pair A){
+  real r = A.x;
+  real t = A.y;
+  real x= a*r*cos(t);
+  real y= b*r*sin(t);
+  real z = r^2;
+  return (x,y,z);
+}
+
+surface s = surface(F, (0, 0), (R, 2*pi), 40, 40); 
+draw(s, red+opacity(0.8));
+
+xaxis3(Label("$x$",1), -.5-a, .7+a, black, Arrow3); 
+yaxis3(Label("$y$",1), -.5-b, .7+b, black, Arrow3); 
+zaxis3(Label("$z$",1), -.5-0, .7+R^2, black, Arrow3);
+\end{asypicture}
+}}$ \,
+\vspace{\t}
+\rule{0mm}{20mm} \\ 
+\hline 
+\multicolumn{3}{|c|}{En el caso que $a= b$ estamos frente al caso la paraboloide circular.}\\
+\hline
+\hline 
+Paraboloide hiperbólico &
+$\displaystyle \frac{x^2}{a^2}-\frac{y^2}{b^2}-z=0$ & 
+$\vcenter{\hbox{\begin{asypicture}{name=ejemPH}
+settings.render=8;
+import graph3;
+size(28mm);
+currentprojection=orthographic(1,2,1);
+
+real a=1, b=1 ,c=1.1;
+
+triple F(pair A){
+  real x = A.x;
+  real y = A.y; 
+  real l= (x/a)^2;
+  real k= (y/b)^2;
+  real z = l- k;
+  return (x,y,z);
+}
+
+surface s = surface(F, ( -c, -c), (c, c), 40, 40); 
+draw(s, red+opacity(0.8));
+
+xaxis3(Label("$x$",1), -.5-a, .7+a, black, Arrow3); 
+yaxis3(Label("$y$",1), -.5-b, .7+b, black, Arrow3); 
+zaxis3(Label("$z$",1), -.1-c^2, .1+c^2, black, Arrow3);
+\end{asypicture}
+}}$
+\vspace{\t}
+\rule{0mm}{18mm} \\
+\hline
+\hline
+Hiperboloide de una hoja 
+{\small (o hiperboloide hiperbólico)} &
+$\displaystyle \frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1$ &
+$\vcenter{\hbox{\begin{asypicture}{name=ejemHunaH}
+settings.render=8;
+import graph3;
+size(27mm);
+currentprojection=orthographic(1,2,1);
+
+real a=1, b=1, c=1.2;
+
+triple F(pair A){
+  real u=A.x;
+  real v=A.y;
+  real x = a*cosh(v)*cos(u);
+  real y = b*cosh(v)*sin(u);
+  real z = c*sinh(v);
+  return (x,y,z);
+}
+
+// v controla "qué tan alto" llega el hiperboloide
+surface s = surface(F,(0,-1),( 2pi, 1), 40, 30);
+draw(s, red+opacity(0.8));
+
+xaxis3(Label("$x$",1), -.5-a, .7+a, black, Arrow3); 
+yaxis3(Label("$y$",1), -.5-b, .7+b, black, Arrow3); 
+zaxis3(Label("$z$",1), -.1-c^2, .1+c^2, black, Arrow3);
+\end{asypicture}
+}}$
+\vspace{\t}
+\rule{0mm}{17mm} \\
+\hline
+\hline
+Hiperboloide de dos hojas {
+\small (o hiperboloide elíptico)} &
+$\displaystyle -\frac{x^2}{a^2}-\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$ &
+$\vcenter{\hbox{\begin{asypicture}{name=ejemHdosH}
+settings.render=8;
+import graph3;
+size(30mm);
+currentprojection=orthographic(1,2,1);
+
+real a=1.2, b=2, c=1.8, T=1.5;
+
+triple Fplus(pair A){
+  real u=A.x;
+  real v=A.y;
+  real x = a*sinh(v)*cos(u);
+  real y = b*sinh(v)*sin(u);
+  real z = c*cosh(v);   // hoja superior
+  return (x,y,z);
+}
+
+triple Fminus(pair A){
+  real u=A.x;
+  real v=A.y;
+  real x = a*sinh(v)*cos(u);
+  real y = b*sinh(v)*sin(u);
+  real z = -c*cosh(v);  // hoja inferior
+  return (x,y,z);
+}
+
+// v>=0 para evitar solapamientos en el vértice
+surface s1 = surface(Fplus, (0,0),( 2pi, T), 40, 30);
+surface s2 = surface(Fminus, (0,0),( 2pi, T), 40, 30);
+
+draw(s1, red+opacity(0.8));
+draw(s2, red+opacity(0.8));
+
+xaxis3(Label("$x$",1), -.5-a*T, .7+a*T, black, Arrow3); 
+yaxis3(Label("$y$",1), -.5-b*T, .7+b*T, black, Arrow3); 
+zaxis3(Label("$z$",1), -.5-c*cosh(T), .7+c*cosh(T), black, Arrow3);
+\end{asypicture}
+}}$
+\vspace{\t}
+\rule{0mm}{20mm} \\
+\hline  
+\hline 
+Cono elíptico &
+$\displaystyle \frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=0$ &
+$\vcenter{\hbox{
+\begin{asypicture}{name=conoEliptico}
+settings.render=8;
+import graph3;
+import smoothcontour3;
+size(25mm);
+currentprojection=orthographic(2,4,2);
+currentlight=light(1,1,1);
+
+real a=1.2, b=0.8, c=1, T=1.1;
+
+real f(real x, real y, real z){
+    real A= (x/a)^2 ;
+    real B= (y/b)^2;
+    real C= (z/c)^2;
+  return  A + B - C ;
+}
+
+draw(implicitsurface(f,(-T*a,-T*b,-T*c),(T*a,T*b,T*c)),
+     red+opacity(0.8));  
+
+xaxis3(Label("$x$",1), -.1-a*T, .3+a*T, black, Arrow3); 
+yaxis3(Label("$y$",1), -.1-b*T, .3+b*T, black, Arrow3); 
+zaxis3(Label("$z$",1), -.1-c*T, .3+c*T, black, Arrow3);
+\end{asypicture}
+}}$  
+\vspace{\t}
+\rule{0mm}{17mm} \\
+\hline
+\multicolumn{3}{|c|}{En el caso que $a= b= c$ estamos frente al caso de un cono circular recto.}\\
+\hline 
+\end{tabular}
+\end{table}
+
+
+\xdef\t{0mm}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|
+>{\centering\arraybackslash}m{35mm}|
+>{\centering\arraybackslash}m{55mm}|
+c|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Cuádricas reales cilíndricas}}\\
+\hline
+\textbf{Tipo} & \textbf{Ecuación canónica de ejemplo} & \textbf{Gráfico}\\
+\hline 
+Cilindro elíptico &
+$\displaystyle \frac{x^2}{a^2}+\frac{y^2}{b^2}=1$ &
+$\vcenter{\hbox{
+\begin{asypicture}{name=cilindroEliptico}
+settings.render=8;
+import graph3;
+import smoothcontour3;
+size(25mm);
+currentprojection=orthographic(2,4,2);
+currentlight=light(1,1,1);
+
+real a=1.2, b=0.8, c=1, T=1.5;
+
+real f(real x, real y, real z){
+    real A=  (x/a)^2;
+    real B=  (y/b)^2;
+  return A + B - 1;
+}
+
+draw(implicitsurface(f,(-T*a,-T*b,-T*c+1),(T*a,T*b,T*c+1)),
+     red+opacity(0.8));    
+
+xaxis3(Label("$x$",1), -.1-a*T, .4+a*T, black, Arrow3); 
+yaxis3(Label("$y$",1), -.1-b*T, .4+b*T, black, Arrow3); 
+zaxis3(Label("$z$",1), -.1-c*T+1, 1.3+c*T, black, Arrow3);
+\end{asypicture}
+}}$  \vspace{\t}
+\rule{0mm}{18mm} \\
+\hline 
+Cilindro hiperbólico &
+$\displaystyle \frac{x^2}{a^2}-\frac{y^2}{b^2}=1$ &
+$\vcenter{\hbox{
+\begin{asypicture}{name=cilindroHiperbolico}
+settings.render=8;
+import graph3;
+import smoothcontour3;
+size(25mm);
+currentprojection=orthographic(4,2,2);
+currentlight=light(1,1,1);
+
+real a=.8, b=1.1, c=1, T=1.5;
+
+real f(real x, real y, real z){
+    real A=  (x/a)^2;
+    real B=  (y/b)^2;
+  return A - B - 1;
+}
+
+draw(implicitsurface(f,(-T*a,-T*b,-T*c+1),(T*a,T*b,T*c+1)),
+     red+opacity(0.8));    
+
+xaxis3(Label("$x$",1), -.1-a*T, .4+a*T, black, Arrow3); 
+yaxis3(Label("$y$",1), -.1-b*T, .4+b*T, black, Arrow3); 
+zaxis3(Label("$z$",1), -.1-c*T+1, 1.3+c*T, black, Arrow3);
+\end{asypicture}
+}}$ \vspace{\t}
+\rule{0mm}{16mm} \\
+\hline 
+Cilindro parabólico &
+$\displaystyle x^2+2ay=0$ &
+$\vcenter{\hbox{
+\begin{asypicture}{name=cilindroParabolico}
+settings.render=8;
+import graph3;
+import smoothcontour3;
+size(25mm);
+currentprojection=orthographic(2,4,2);
+currentlight=light(1,1,1);
+
+real a=-.5, b=1.1, c=1.4, T=2;
+
+real f(real x, real y, real z){
+  return x^2 + 2*a*y;
+}
+
+draw(implicitsurface(f,(a*T*2,-b*T,-c+1),(-a*T*2,b*T,c+1)),
+     red+opacity(0.8));   
+
+xaxis3(Label("$x$",1), -.1+a*T, .4-a*T, black, Arrow3); 
+yaxis3(Label("$y$",1), -.1-b, .4+b*T, black, Arrow3); 
+zaxis3(Label("$z$",1), .9-c, .3+c+1, black, Arrow3);
+\end{asypicture}
+}}$ \vspace{\t}
+\rule{0mm}{15mm} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|
+>{\centering\arraybackslash}m{35mm}|
+>{\centering\arraybackslash}m{55mm}|
+c|}
+\hline
+\multicolumn{3}{|c|}{\textbf{Cuádricas degeneradas}}\\
+\hline
+\textbf{Tipo} & \textbf{Ecuación canónica de ejemplo} & \textbf{Gráfico}\\
+\hline 
+punto  &
+$\displaystyle x^2+y^2+ z^2=0$ &
+$\vcenter{\hbox{
+\begin{asypicture}{name=cilindroEliptico}
+settings.render=8;
+import graph3;
+import smoothcontour3;
+size(22mm);
+currentprojection=orthographic(2,4,2);
+currentlight=light(1,1,1);
+
+dot(" ",(0,0,0), 4.5 bp+ red);   
+
+xaxis3(Label("$x$",1), -1,1, black, Arrow3); 
+yaxis3(Label("$y$",1), -1,1, black, Arrow3); 
+zaxis3(Label("$z$",1), -.5,.5, black, Arrow3);
+\end{asypicture}
+}}$\,
+\vspace{\t}
+\rule{0mm}{13mm} \\
+\hline 
+recta &
+$\displaystyle  (x-2)^2 + (z-1)^2 = 0$ &
+$\vcenter{\hbox{
+\begin{asypicture}{name=cilindroHiperbolico}
+settings.render=8;
+import graph3;
+import smoothcontour3;
+size(25mm);
+currentprojection=orthographic(1,3,2);
+currentlight=light(1,1,1);
+
+real a=2, b=1, c=2, T=2.1;
+
+// Definición de la recta (eje z)
+triple A = (a,-c,b);
+triple B = (a,c*T,b);
+
+// Dibujo de la recta
+draw(A--B, red+linewidth(2.3));  
+
+xaxis3(Label("$x$",1), -.1-a*T, .4+a*T, black, Arrow3); 
+yaxis3(Label("$y$",1),-.1-c , 1.3+c*T , black, Arrow3); 
+zaxis3(Label("$z$",1),-.1-b*T, .4+b*T , black, Arrow3);
+\end{asypicture}
+}}$\,
+\vspace{\t}
+\rule{0mm}{15mm} \\
+\hline 
+dos planos paralelos &
+$\displaystyle (z-1)^2=2$ &
+$\vcenter{\hbox{
+\begin{asypicture}{name=cilindroParabolico}
+settings.render=8;
+import graph3;
+import smoothcontour3;
+size(23mm);
+currentprojection=orthographic(2,4,1);
+currentlight=light(1,1,1);
+
+real a=-.5, b=1.1, c=2, T=2;
+
+real f(real x, real y, real z){
+  return (z-1)^2 -2;
+}
+
+draw(implicitsurface(f,(a*T*2-1,-b*T-1,-c+1),(-a*T*2,b*T,c+1)),
+     red+opacity(0.8));   
+
+xaxis3(Label("$x$",1), -.1+a*T*2, .4-a*T*2, black, Arrow3); 
+yaxis3(Label("$y$",1), -.1-b, .4+b*T, black, Arrow3); 
+zaxis3(Label("$z$",1), .9-c, .3+c+1, black, Arrow3);
+\end{asypicture}
+}}$\,
+\vspace{\t}
+\rule{0mm}{13mm} \\
+\hline 
+dos planos que se cortan &
+$\displaystyle x^2 - z^2=0$ &
+$\vcenter{\hbox{
+\begin{asypicture}{name=cilindroParabolico}
+settings.render=8;
+import graph3;
+import smoothcontour3;
+size(25mm);
+currentprojection=orthographic(1,3,3);
+
+real a=1.1, b=1.1, c=1.1, T=2;
+
+real f(real x, real y, real z){ 
+  return x+z;
+}
+real h(real x, real y, real z){ 
+  return z-x;
+}
+
+draw(implicitsurface(h,(-a*T,-b*T,-c*T),(a*T,b*T,c*T)),
+     red+opacity(0.8));
+draw(implicitsurface(f,(-a*T,-b*T,-c*T),(a*T,b*T,c*T)),
+     red+opacity(0.8)); 
+
+xaxis3(Label("$x$",1), -.1-a*T, .1+a*T*2, black, Arrow3); 
+yaxis3(Label("$y$",1), -.1-b*T, .1+b*T, black, Arrow3); 
+zaxis3(Label("$z$",1), -.1-c*T, .3+c*T, black, Arrow3);
+\end{asypicture}
+}}$\,
+\vspace{\t}
+\rule{0mm}{15mm} \\
+\hline 
+un planos  &
+$\displaystyle (x-1)^2=0$ &
+$\vcenter{\hbox{
+\begin{asypicture}{name=cilindroParabolico}
+settings.render=8;
+import graph3;
+import smoothcontour3;
+size(25mm);
+currentprojection=orthographic(1,1,1);
+
+real a=1.1, b=1.1, c=1.1, T=2;
+
+real f(real x, real y, real z){ 
+  return x-1 ;
+}
+
+draw(implicitsurface(f,(-a*T,-b*T,-c*T),(a*T,b*T,c*T)),
+     red+opacity(0.8));   
+
+xaxis3(Label("$x$",1), -.1-a*T, .4+a*T*2, black, Arrow3); 
+yaxis3(Label("$y$",1), -.1-b*T, .4+b*T, black, Arrow3); 
+zaxis3(Label("$z$",1), .1-c*T, .3+c*T, black, Arrow3);
+\end{asypicture}
+}}$\,
+\vspace{\t}
+\rule{0mm}{15mm} \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Esfera}
+
+\textbf{Ecuación:} La ecuación general de una esfera es:
+\[
+(x - x_0)^2 + (y - y_0)^2 + (z - z_0)^2 = r^2
+\]
+
+Esta ecuación describe el conjunto de todos los puntos del espacio que se encuentran a una distancia $ r $ de un punto fijo $ (x_0, y_0, z_0) $. Dicho punto es el \textbf{centro} de la esfera, y $ r $ es su \textbf{radio}.
+
+
+
+\begin{figure}[H]
+    \centering
+    \begin{asypicture}{name=Surfejemesfera} 
+        size(5cm);
+        currentprojection=orthographic(8,4,6);
+
+        //superficie 
+
+        triple f(pair uv) {
+          real u = uv.x, v = uv.y;
+          return (cos(u)*cos(v), sin(u)*cos(v), sin(v));
+        }
+
+        surface esfera = surface(f, (0, -pi/2), (2pi, pi/2), 30, 30);
+        draw(esfera, surfacepen= blue+opacity(0.7));
+
+        xaxis3(Label("$x$",1),-2,2,black,OutTicks(1,2, NoZero),Arrow3);
+        yaxis3(Label("$y$",1),-2,2,black,OutTicks(1,2, NoZero),Arrow3);
+        zaxis3(Label("$z$",1),-2,2,black,OutTicks(1,2, NoZero),Arrow3);
+    \end{asypicture}
+    
+    \parbox{8cm}{\, \ \,\caption{Representación de la esfera unitaria  definida por la ecuación $x^2 + y^2 + z^2 = 1$.}}
+    \label{fig:esfera}
+\end{figure}
+
+
+\subsection*{Ejemplo: Reducción a la forma canónica de una esfera}
+
+Partimos de una ecuación general de segundo grado en tres variables, sin productos cruzados, pero con términos lineales:
+
+\begin{align*}
+x^2 + y^2 + z^2 - 4x + 6y + 2z - 11 &= 0
+\intertext{Agrupamos los términos según la variable:}  
+(x^2 - 4x) + (y^2 + 6y) + (z^2 + 2z) &= 11
+\intertext{Completamos cuadrados en cada grupo:} 
+(x^2 - 4x + 4) - 4 + (y^2 + 6y + 9) - 9 + (z^2 + 2z + 1) - 1 &= 11
+\\
+(x - 2)^2 - 4 + (y + 3)^2 - 9 + (z + 1)^2 - 1 &= 11
+\intertext{ Reorganizando la ecuación:} 
+(x - 2)^2 + (y + 3)^2 + (z + 1)^2 &= 11 + 4 + 9 + 1 \, = 25
+\intertext{ Entonces, la ecuación en forma canónica es:}
+(x - 2)^2 + (y + 3)^2 + (z + 1)^2 &= 25 
+\end{align*} 
+
+\noindent Esta es la ecuación de una esfera con:
+
+\begin{itemize}
+\begin{multicols}{2}
+    \item \textbf{Centro:} $ C = (2, -3, -1) $
+    \item \textbf{Radio:} $ r = \sqrt{25} = 5 $
+\end{multicols}
+\end{itemize}
+
+\subsection*{Representación gráfica}
+
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=circunferencia}
+import three;
+size(6cm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = sqrt(12);
+real b = sqrt(27);
+real c = 3*sqrt(3)/2;
+
+// Centro
+triple centro = (2,-3,-1);
+real h(real x, real y, real z) {return x^2+ y^2 + z^2 -4*x+6*y+2*z-11 ;
+}
+
+draw(implicitsurface(h,(-8,-8,-8),(8,8,8)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -7+centro.x, 7+centro.x, black, Arrow3);
+yaxis3(Label("$y$",1), -7+centro.y, 7+centro.y, black, Arrow3);
+zaxis3(Label("$z$",1), -5+centro.z, 7+centro.z, black, Arrow3);
+\end{asypicture}
+   
+\parbox{9cm}{\, \ \,\caption{Esfera correspondiente  a la \\  ecuación  
+$ (x - 2)^2 + (y + 3)^2 + (z + 1)^2 = 25 $.
+}}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\
+
+
+
+
+
+
+\section{Elipsoide}
+
+\textbf{Ecuación:} La ecuación general de un elipsoide centrado en el punto $(x_0, y_0, z_0)$ es:
+
+$$
+\frac{(x - x_0)^2}{a^2} + \frac{(y - y_0)^2}{b^2} + \frac{(z - z_0)^2}{c^2} = 1
+$$
+
+Esta ecuación define una superficie de segundo orden cerrada y suavemente curvada, simétrica con respecto a los planos coordenados. Los parámetros $a$, $b$ y $c$ corresponden a los semiejes del elipsoide a lo largo de los ejes $x$, $y$ y $z$, respectivamente.
+
+Las secciones ortogonales del elipsoide —es decir, los cortes obtenidos al fijar una de las coordenadas— son elipses en el caso general, o circunferencias cuando dos de los semiejes son iguales. Si los tres semiejes son iguales ($a = b = c$), la ecuación representa una esfera, que es un caso particular de elipsoide con simetría completa. En general, los coeficientes determinan los semiejes del elipsoide en cada dirección.
+
+\begin{figure}[H]
+    \centering
+    \begin{asypicture}{name=Surfejemploelipsoide} 
+        size(9cm);
+        currentprojection=orthographic(8,4,6);
+
+        triple f(pair uv) {
+          real u = uv.x, v = uv.y;
+          return (.5*cos(u)*cos(v), 2* cos(u)*sin(v), sin(u));
+        }
+
+        surface elipsoide = surface(f, (0, -pi/2), (2pi, pi/2), 30, 30);
+        draw(elipsoide, surfacepen= blue+opacity(0.7));
+
+        xaxis3(Label("$x$",1),-2,2,black,OutTicks(1,2, NoZero),Arrow3);
+        yaxis3(Label("$y$",1),-3,3,black,OutTicks(1,3, NoZero),Arrow3);
+        zaxis3(Label("$z$",1),-2,2,black,OutTicks(1,2, NoZero),Arrow3);
+    \end{asypicture}
+    
+    \parbox{10cm}{\, \ \,\caption{Representación de un elipsoide definido por la ecuación $\frac{x^2}{\left(\tfrac{1}{2}\right)^2} + \frac{y^2}{1} + \frac{z^2}{2^2} = 1.$}}
+    \label{fig:elipsoide}
+\end{figure}
+
+\subsection*{Ejemplo: Reducción a la forma canónica de un elipsoide}
+
+Partimos de una ecuación general de segundo grado en tres variables, sin productos cruzados, pero con coeficientes distintos:
+
+
+
+
+
+Dada la ecuación general de segundo grado:
+
+\begin{align*}
+36x^2 + 16y^2 + 9z^2 - 72x + 64y - 54z + 37 &= 0
+\intertext{ Agrupar términos por variable} 
+(36x^2 - 72x) + (16y^2 + 64y) + (9z^2 - 54z) &= -37
+\intertext{  Sacar factor común para completar cuadrados} 
+36(x^2 - 2x) + 16(y^2 + 4y) + 9(z^2 - 6z) = -37
+\intertext{ Completar cuadrados dentro de cada grupo} 
+36[(x^2 - 2x + 1) - 1] + 16[(y^2 + 4y + 4) - 4] + 9[(z^2 - 6z + 9) - 9]& = -37 \\
+36(x - 1)^2 - 36 + 16(y + 2)^2 - 64 + 9(z - 3)^2 - 81 &= -37
+\intertext{ Reorganizar la ecuación}
+36(x - 1)^2 + 16(y + 2)^2 + 9(z - 3)^2 = -37 + 36 + 64 + 81 &= 144
+\intertext{Dividir ambos miembros por 144}
+\frac{(x - 1)^2}{4} + \frac{(y + 2)^2}{9} + \frac{(z - 3)^2}{16} &= 1
+\intertext{Forma canónica del elipsoide:}
+\frac{(x - 1)^2}{4} + \frac{(y + 2)^2}{9} + \frac{(z - 3)^2}{16} &= 1
+\end{align*}
+
+
+\noindent Esta es la ecuación de un elipsoide con:
+
+\begin{itemize}
+\begin{multicols}{2}
+    \item \textbf{Centro:} $ C = (1, -2, 3) $
+    \item \textbf{Semiejes:} $ a = 2 $, $ b = 3 $, $ c = 4 $
+\end{multicols}
+\end{itemize}
+
+\subsection*{Representación gráfica}
+
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=circunferencia}
+import three;
+size(65mm);
+currentprojection = orthographic(4,2,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 2;//sqrt(12);
+real b = 3;//sqrt(27);
+real c = 4;//3*sqrt(3)/2;
+
+// Centro
+triple centro = (1,-2,3);
+real h(real x, real y, real z) {return 36*x^2+ 16*y^2 + 9*z^2 - 72*x + 64*y - 54*z +37 ;
+}
+
+draw(implicitsurface(h,(-8,-8,-8),(8,8,8)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -4+centro.x, 4+centro.x, black, Arrow3);
+yaxis3(Label("$y$",1), -7+centro.y, 7+centro.y, black, Arrow3);
+zaxis3(Label("$z$",1), -5+centro.z, 5+centro.z, black, Arrow3);
+\end{asypicture}
+   
+\parbox{8cm}{\, \ \,\caption{Esfera correspondiente  a la   ecuación  
+$\frac{(x - 1)^2}{4} + \frac{(y + 2)^2}{9} + \frac{(z - 3)^2}{16} = 1 $.
+}}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\
+
+
+
+
+
+
+\
+
+
+\section{Paraboloide Elíptico}
+
+
+
+
+\textbf{Ecuación:} La forma canónica de un paraboloide elíptico con vértice en $ (x_0, y_0, z_0) $ y eje paralelo al eje $z$ es:
+
+\[
+\frac{(x - x_0)^2}{a^2} + \frac{(y - y_0)^2}{b^2} = z - z_0 
+\qquad\quad
+o
+\quad\quad
+\frac{(x - x_0)^2}{a^2} + \frac{(y - y_0)^2}{b^2} = - (z - z_0)
+\]
+
+donde $a>0$ y $b>0$. Si el coeficiente del lado derecho es positivo, el paraboloide ``abre'' en la dirección del eje $z$ positivo; si fuera negativo, abriría hacia el eje $z$ negativo.
+
+El paraboloide elíptico tiene las siguientes propiedades:
+
+\begin{itemize}
+    \item Es una superficie \textbf{conexa} (una sola pieza).
+    \item Es una superficie \textbf{abierta} que se extiende infinitamente en la dirección del eje de simetría.
+    \item Sus secciones con planos $z = k$ (paralelos al plano $xy$) son \textbf{elipses}.
+    \item Sus secciones con planos que contienen al eje $z$ son \textbf{parábolas}.
+\end{itemize}
+
+\subsection*{Algunas de las formas particulares  hiperboloide de una hoja y su gráfico}
+
+
+
+
+
+
+\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideEliptico}
+import three;
+size(30mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto vertice
+triple Pvertice = (0,0,0);
+real h(real x, real y, real z) {return x^2+ y^2-z ;
+}
+
+draw(implicitsurface(h,(-4,-4,0),(4,4,2)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -2+Pvertice.x, 2+Pvertice.x, black, Arrow3);
+yaxis3(Label("$y$",1), -2+Pvertice.y, 2+Pvertice.y, black, Arrow3);
+zaxis3(Label("$z$",1), -1+Pvertice.z, 2+Pvertice.z, black, Arrow3);
+\end{asypicture}
+   
+{\, \ \,\caption{Paraboloide Elíptico  correspondiente a la ecuación reducida \\
+\,\qquad $x^2+ y^2 = z.$
+}}
+\end{figure}
+
+\end{minipage}\qquad\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideEliptico2}
+import three;
+size(30mm);
+currentprojection = orthographic(4,2,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto vertice
+triple Pvertice = (0,0,0);
+real h(real x, real y, real z) {return +x^2-y+z^2;
+}
+
+draw(implicitsurface(h,(-4,0,-4),(4,2,4)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -2+Pvertice.x, 2+Pvertice.x, black, Arrow3);
+yaxis3(Label("$y$",1), -1+Pvertice.y, 2+Pvertice.y, black, Arrow3);
+zaxis3(Label("$z$",1), -2+Pvertice.z, 2+Pvertice.z, black, Arrow3);
+\end{asypicture}
+   
+{\, \ \,\caption{Paraboloide Elíptico  correspondiente a la ecuación reducida  \\
+\,\qquad $x^2 +z^2 = y $.
+}}
+\end{figure}
+\end{minipage}\qquad\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloiEliptico3}
+import three;
+size(30mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto vertice
+triple Pvertice = (0,0,0);
+real h(real x, real y, real z) {return -x+y^2+z^2  ;
+}
+
+draw(implicitsurface(h,(0,-4,-4),(2,4,4)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -1+Pvertice.x, 2+Pvertice.x, black, Arrow3);
+yaxis3(Label("$y$",1), -2+Pvertice.y, 2+Pvertice.y, black, Arrow3);
+zaxis3(Label("$z$",1), -2+Pvertice.z, 2+Pvertice.z, black, Arrow3);
+\end{asypicture}
+   
+ \caption{Paraboloide Hiperbólico  correspondiente a la ecuación reducida  \\
+\,\qquad $y^2+z^2 = x$.
+} \label{ABB}
+\end{figure}
+
+\end{minipage}
+
+
+
+
+\begin{act}
+\begin{itemize}
+    \item Cuales serian su formas canónica con eje $x$?
+    \item Cuales serian su formas canónica con eje $y$?
+    \item Cuales serian su formas con punto de silla  desplazado y  eje $x$?
+    \item Cuales serian su formas con punto de silla  desplazado y  eje $y$? 
+\end{itemize}
+\end{act}
+
+
+
+
+
+
+
+\subsection*{Ejemplo: Reducción a la forma canónica de un paraboloide elíptico}
+
+Dada la siguiente ecuación general:
+
+\begin{align*}
+9x^2 + 4y^2 - 18x + 16y - 36z + 133 &= 0 
+\intertext{Agrupamos términos semejantes en $x$, $y$ y dejamos $z$ separado:}
+(9x^2 - 18x) + (4y^2 + 16y) - 36z + 133 &= 0 \\
+9(x^2 - 2x) + 4(y^2 + 4y) - 36z + 133 &= 0
+\intertext{Completamos cuadrados en $x$ y $y$:}
+9\big[(x^2 - 2x + 1) - 1\big] 
++ 4\big[(y^2 + 4y + 4) - 4\big] - 36z + 133 &= 0 \\
+9(x - 1)^2 - 9 + 4(y + 2)^2 - 16 - 36z + 133 &= 0
+\intertext{Reorganizamos los términos constantes:}
+9(x - 1)^2 + 4(y + 2)^2 - 36z + ( -9 -16 +133 ) &= 0 \\
+9(x - 1)^2 + 4(y + 2)^2 - 36z + 108 &= 0
+\intertext{Pasamos el término constante al otro lado:}
+9(x - 1)^2 + 4(y + 2)^2 &= 36z - 108 \\
+9(x - 1)^2 + 4(y + 2)^2 &= 36(z - 3)
+\intertext{Dividimos por 36 para obtener la forma canónica:}
+\frac{(x - 1)^2}{4} + \frac{(y + 2)^2}{9} &= z - 3
+\end{align*}
+
+\noindent Esta es la ecuación de un paraboloide elíptico con:
+
+\begin{itemize}
+\begin{multicols}{2}
+    \item \textbf{Vértice:} $ (1, -2, 3) $
+    \item \textbf{Eje de simetría:} paralelo al eje $z$
+    \item \textbf{Parámetros:} $ a = 2 $, $ b = 3 $
+\end{multicols}
+\end{itemize}
+
+Las secciones con planos $z = k > 3$ son elipses,%dadas por \[frac{(x - 1)^2}{4} + \frac{(y + 2)^2}{9} = k - 3,\]
+mientras que las secciones con planos que contienen al eje $z$ son parábolas.
+
+\subsection*{Representación gráfica}
+
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideElipticoDesplazado}
+import three;
+size(5.5cm);
+currentprojection = orthographic(6,4,4);
+currentlight = light(1,1,1);
+
+// Parámetros de la forma canónica
+real a = 2;
+real b = 3;
+
+// Vértice del paraboloide
+triple vertice = (1, -2, 3);
+
+// Parametrización del paraboloide elíptico
+// Ecuación: (x-1)^2/4 + (y+2)^2/9 = z - 3
+// Tomamos una parametrización en coordenadas elípticas:
+triple f(pair uv) {
+  real r = uv.x;
+  real t = uv.y;
+  real x = vertice.x + a * r * cos(t);
+  real y = vertice.y + b * r * sin(t);
+  real z = vertice.z + r^2;   // porque z - 3 = r^2
+  return (x, y, z);
+}
+
+// Dominio de la parametrización
+real R = 2.5;
+surface S = surface(f, (0, 0), (R, 2pi), 30, 60);
+draw(S, surfacepen = blue + opacity(0.7));
+
+// Ejes con etiquetas
+xaxis3(Label("$x$",1), -5+vertice.x, 5+vertice.x, black, Arrow3);
+yaxis3(Label("$y$",1), -6+vertice.y, 6+vertice.y, black, Arrow3);
+zaxis3(Label("$z$",1), -3+vertice.z, 7.8+vertice.z, black, Arrow3);
+\end{asypicture}
+
+    \parbox{9cm}{\, \ \,\caption{Representación de un paraboloide elíptico definido por la ecuación
+    $\frac{(x - 1)^2}{4} + \frac{(y + 2)^2}{9} = z - 3$.}}
+    \label{fig:paraboloide}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\section{Hiperboloide de una hoja}
+
+El \textbf{Hiperboloide de una hoja} es una superficie cuádrica caracterizada por la presencia de tres términos cuadráticos con signos opuestos y un término lineal en la tercera variable.
+
+ La forma canónica de un hiperboloide de una hoja con centro en $ (x_0, y_0, z_0) $ es:
+
+\[
+\frac{(x - x_0)^2}{a^2} + \frac{(y - y_0)^2}{b^2} - \frac{(z - z_0)^2}{c^2} = 1
+\]
+
+Esta superficie cuádrica es abierta y continua. Se caracteriza por tener dos secciones cónicas elípticas (en planos perpendiculares al eje de la variable con signo negativo) y una sección hiperbólica.
+
+El hiperboloide de una hoja tiene las siguientes propiedades:
+
+\begin{itemize}
+    \item Es una superficie \textbf{conexa} (una sola pieza).
+    \item Se extiende infinitamente en las tres direcciones.
+    \item Puede visualizarse como el resultado de rotar una hipérbola en el espacio.
+\end{itemize}
+
+
+
+\begin{act}
+\begin{itemize}
+    \item Cual seria su forma canónica desplazada y  eje $x$?
+    \item Cual seria su forma canónica desplazada y  eje $y$? 
+\end{itemize}
+\end{act}
+
+
+
+
+\subsection*{Algunas de las formas particulares  hiperboloide de una hoja y su gráfico}
+
+
+
+
+
+
+\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico}
+import three;
+size(30mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto de silla
+triple Psilla = (0,0,0);
+real h(real x, real y, real z) {return x^2+ y^2-z^2-1;
+}
+
+draw(implicitsurface(h,(-4,-4,-2),(4,4,2)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -3+Psilla.x, 3+Psilla.x, black, Arrow3);
+yaxis3(Label("$y$",1), -3+Psilla.y, 3+Psilla.y, black, Arrow3);
+zaxis3(Label("$z$",1), -2+Psilla.z, 2+Psilla.z, black, Arrow3);
+\end{asypicture}
+   
+{\, \ \,\caption{Hiperboloide de una hoja correspondiente a la ecuación reducida \\
+\qquad $x^2+ y^2-z^2=1.$
+}}
+\end{figure}
+
+\end{minipage}\qquad\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico2}
+import three;
+size(30mm);
+currentprojection = orthographic(4,2,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto Centro
+triple Centro = (0,0,0);
+real h(real x, real y, real z) {return +x^2-y^2+z^2 -1 ;
+}
+
+draw(implicitsurface(h,(-4,-2,-4),(4,2,4)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -3+Centro.x, 3+Centro.x, black, Arrow3);
+yaxis3(Label("$y$",1), -3+Centro.y, 3+Centro.y, black, Arrow3);
+zaxis3(Label("$z$",1), -2+Centro.z, 2+Centro.z, black, Arrow3);
+\end{asypicture}
+   
+{\, \ \,\caption{Hiperboloide de una hoja correspondiente a la ecuación reducida  \\
+\qquad $x^2-y^2+z^2 = 1$.
+}}
+\end{figure}
+\end{minipage}\qquad\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico3}
+import three;
+size(30mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto Centro
+triple Centro = (0,0,0);
+real h(real x, real y, real z) {return -x^2+y^2+z^2 -1 ;
+}
+
+draw(implicitsurface(h,(-2,-4,-4),(2,4,4)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -3+Centro.x, 3+Centro.x, black, Arrow3);
+yaxis3(Label("$y$",1), -2+Centro.y, 2+Centro.y, black, Arrow3);
+zaxis3(Label("$z$",1), -3+Centro.z, 3+Centro.z, black, Arrow3);
+\end{asypicture}
+   
+ \caption{Hiperboloide de una hoja correspondiente a la ecuación reducida  \\
+\qquad $-x^2+y^2+z^2 =1$.
+} \label{ABB}
+\end{figure}
+
+\end{minipage}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection*{Ejemplo: Reducción a la forma canónica}
+
+Consideremos la ecuación general:
+
+Dada la ecuación
+\[
+9x^2 + 36y^2 - 4z^2 - 18x + 288y + 24z + 513 = 0,
+\]
+procedemos a completar cuadrados agrupando por variable:
+
+\begin{align*}
+(9x^2 - 18x) + (36y^2 + 288y) + (-4z^2 + 24z) + 513 &= 0 \\[4pt]
+9(x^2 - 2x) + 36(y^2 + 8y) - 4(z^2 - 6z) + 513 &= 0.
+\intertext{Completamos cuadrados en cada término:} 
+9[(x^2 - 2x + 1) - 1]
++ 36[(y^2 + 8y + 16) - 16] - 4[(z^2 - 6z + 9) - 9]
++ 513 &= 0,
+\intertext{lo que da:}
+9(x-1)^2 - 9
++ 36(y+4)^2 - 576
+- 4(z-3)^2 + 36
++ 513 &= 0.
+\intertext{Agrupamos las constantes, $-9 - 576 + 36 + 513 = -36.$
+Por lo tanto:}  
+9(x-1)^2 + 36(y+4)^2 - 4(z-3)^2 - 36 &= 0
+\\
+9(x-1)^2 + 36(y+4)^2 - 4(z-3)^2 &= 36.
+\intertext{Dividiendo entre 36 obtenemos la forma canónica:
+}
+\frac{(x-1)^2}{4}
++ \frac{(y+4)^2}{1}
+- \frac{(z-3)^2}{9}
+&= 1.
+\end{align*} 
+
+
+Como el signo negativo está en $z$, se trata de un \textbf{hiperboloide de dos hojas} cuyo eje de apertura es el eje $z$.
+
+\begin{itemize}
+\begin{multicols}{2}
+    \item \textbf{Centro:} $ (1, -4, 3) $
+    \item \textbf{Semiejes:} $ a = 2$, $ b = 1 $, $ c = 3.$
+\end{multicols}
+\end{itemize}
+
+\subsection*{Representación gráfica}
+
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemHiperboloiDeUnaHojas}
+import three;
+size(6cm);
+currentprojection = orthographic(4,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = sqrt(12);
+real b = sqrt(27);
+real c = 3*sqrt(3)/2;
+
+// Centro
+triple centro = (1, -4, 3);
+real h(real x, real y, real z) {return 9*x^2 + 36*y^2 - 4z^2 -18*x+288*y+24*z+513;
+}
+
+draw(implicitsurface(h,(-15,-15,-1),(10,9,7)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -5+centro.x, 5+centro.x, black, Arrow3);
+yaxis3(Label("$y$",1), -5+centro.y, 7+centro.y, black, Arrow3);
+zaxis3(Label("$z$",1), -5+centro.z, 5+centro.z, black, Arrow3);
+\end{asypicture}
+
+\parbox{10cm}{\, \ \,\caption{Hiperboloide de una hojas correspondiente \\ a la ecuación reducida \quad
+$\frac{(x - 1)^2}{12} + \frac{(y + 4)^2}{27} - \frac{(z - 3)^2}{\frac{108}{16}} = 1$.
+} }
+\end{figure}
+
+
+
+
+\section{Hiperboloide de dos hojas}
+
+\textbf{Ecuación:} La forma canónica de un hiperboloide de dos hojas con centro en 
+$ (x_0, y_0, z_0) $ y eje paralelo al eje $x$ es:
+
+\[
+\frac{(x - x_0)^2}{a^2}
+-\,\frac{(y - y_0)^2}{b^2}
+-\,\frac{(z - z_0)^2}{c^2}
+= 1 
+\]
+
+donde el signo positivo se encuentra únicamente en la variable asociada al eje que “abre” la superficie. El hiperboloide de dos hojas está formado por \textbf{dos componentes desconectadas} y simétricas respecto del punto centro.
+
+\begin{act}
+\begin{itemize} 
+    \item Cual seria su forma canónica desplazada y  eje $x$?
+    \item Cual seria su forma canónica desplazada y  eje $y$? 
+\end{itemize}
+\end{act}
+
+
+\begin{itemize}
+    \item Consta de \textbf{dos piezas separadas}, una en $z > z_0 + c$ y otra en $z < z_0 - c$.
+    \item Cada pieza es abierta y se extiende infinitamente.
+    \item Las secciones con planos $z = k$ suficientemente alejados son \textbf{elipses}.
+    \item Las secciones con planos verticales son \textbf{hipérbolas}
+\end{itemize}
+
+\subsection*{Algunas de las formas particulares  hiperboloide de una hoja y su gráfico}
+
+
+
+
+
+
+\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico}
+import three;
+size(35mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto de silla
+triple Psilla = (0,0,0);
+real h(real x, real y, real z) {return x^2+ -y^2-z^2-1;
+}
+
+draw(implicitsurface(h,(-3,-4,-4),(3,4,4)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -3+Psilla.x, 3+Psilla.x, black, Arrow3);
+yaxis3(Label("$y$",1), -3+Psilla.y, 3+Psilla.y, black, Arrow3);
+zaxis3(Label("$z$",1), -2+Psilla.z, 2+Psilla.z, black, Arrow3);
+\end{asypicture}
+   
+{\, \ \,\caption{Hiperboloide de dos hojas correspondiente a la ecuación reducida \\
+\qquad $x^2- y^2-z^2=1.$
+}}
+\end{figure}
+
+\end{minipage}\qquad\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico2}
+import three;
+size(35mm);
+currentprojection = orthographic(4,2,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto Centro
+triple Centro = (0,0,0);
+real h(real x, real y, real z) {return -x^2+y^2-z^2 -1 ;
+}
+
+draw(implicitsurface(h,(-4,-3,-4),(4,3,4)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -3+Centro.x, 3+Centro.x, black, Arrow3);
+yaxis3(Label("$y$",1), -3+Centro.y, 3+Centro.y, black, Arrow3);
+zaxis3(Label("$z$",1), -2+Centro.z, 2+Centro.z, black, Arrow3);
+\end{asypicture}
+   
+{\, \ \,\caption{Hiperboloide de dos hojas correspondiente a la ecuación reducida  \\
+\qquad $-x^2+y^2-z^2 = 1$.
+}}
+\end{figure}
+\end{minipage}\qquad\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico3}
+import three;
+size(35mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto Centro
+triple Centro = (0,0,0);
+real h(real x, real y, real z) {return -x^2-y^2+z^2 -1 ;
+}
+
+draw(implicitsurface(h,(-4,-4,-3),(4,4,3)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -3+Centro.x, 3+Centro.x, black, Arrow3);
+yaxis3(Label("$y$",1), -2+Centro.y, 2+Centro.y, black, Arrow3);
+zaxis3(Label("$z$",1), -3+Centro.z, 3+Centro.z, black, Arrow3);
+\end{asypicture}
+   
+ \caption{Hiperboloide de dos hojas correspondiente a la ecuación reducida  \\
+\qquad $-x^2-y^2+z^2 =1$.
+} \label{ABB}
+\end{figure}
+
+\end{minipage}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection*{Ejemplo: Reducción a la forma canónica de un hiperboloide de dos hojas}
+
+Dada la ecuación general:
+
+\begin{align*}
+9z^2 + 36z - 36y^2+ 144y - 4x^2 - 8x - 148 &= 0,
+\intertext{agrupamos términos según la variable:}
+(-4x^{2} - 8x) + (-36y^{2} + 144y) + (9z^{2} + 36z) - 148 &= 0 
+\\
+-4(x^{2} + 2x) - 36(y^{2} - 4y) + 9(z^{2} + 4z) - 148 &= 0.
+\intertext{Completamos cuadrados en cada paréntesis: }
+-4\big[(x^{2} + 2x + 1) - 1\big]
+-36\big[(y^{2} - 4y + 4) - 4\big] 
++9\big[(z^{2} + 4z + 4) - 4\big]
+-148 &= 0
+\\
+-4(x+1)^{2} + 4
+-36(y-2)^{2} + 144
++9(z+2)^{2} - 36
+-148 &= 0.
+\\
+-4(x+1)^{2} - 36(y-2)^{2} + 9(z+2)^{2} - 36& = 0,
+\intertext{esto es,} 
+-4(x+1)^{2} - 36(y-2)^{2} + 9(z+2)^{2} &= 36. 
+\intertext{Dividiendo toda la ecuación entre $36$, llegamos a la forma canónica:}
+-\frac{(x+1)^{2}}{9}
+-\frac{(y-2)^{2}}{1}
++\frac{(z+2)^{2}}{4}
+&= 1.
+\end{align*}
+
+\noindent Esta es la ecuación de un \textbf{hiperboloide de dos hojas}, con:
+
+\begin{itemize}
+\begin{multicols}{2}
+    \item \textbf{Centro:} $ (-1,\, 2,\, -2) $
+    \item \textbf{Eje de simetría:} paralelo al eje $z$
+    \item \textbf{Semiejes:} 
+          $ a = 3 $ (en la dirección $x$),\\
+          $ b = 1 $ (en la dirección $y$),\\
+          $ c = 2 $ (en la dirección $z$)
+\end{multicols}
+\end{itemize}
+
+Como el término positivo está asociado a la variable $z$, el hiperboloide
+consta de dos hojas, una para $z > -2 + 2$ y otra para $z < -2 - 2$,
+simétricas respecto del plano que pasa por el centro.
+
+\begin{itemize}
+\begin{multicols}{2}
+    \item \textbf{Centro:} $ (-1, 2, 3) $
+    \item \textbf{Semiejes:} $ a = 3$, $ b = 1 $, $ c = 2.$
+\end{multicols}
+\end{itemize}
+
+\subsection*{Representación gráfica}
+
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemHiperboloideDosHojas}
+import three;
+size(6cm);
+currentprojection = orthographic(4,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = sqrt(12);
+real b = sqrt(27);
+real c = 3*sqrt(3)/2;
+
+// Centro
+triple centro = (-1,2,-2);
+real h(real x, real y, real z) {return -4*x^2 - 36*y^2 + 9*z^2 - 8*x + 144*y + 36*z - 148;
+}
+
+draw(implicitsurface(h,(-15,-15,-6),(10,10,2)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -5+centro.x, 5+centro.x, black, Arrow3);
+yaxis3(Label("$y$",1), -6+centro.y, 6+centro.y, black, Arrow3);
+zaxis3(Label("$z$",1), -4+centro.z, 4+centro.z, black, Arrow3);
+\end{asypicture}
+   
+\parbox{9cm}{\, \ \,\caption{Hiperboloide de dos hojas correspondiente \\ a la ecuación reducida:  
+$-\frac{(x+1)^{2}}{9}
+-\frac{(y-2)^{2}}{1}
++\frac{(z+2)^{2}}{4}
+= 1$.
+}}
+\end{figure}
+
+
+
+
+
+
+
+\section{Paraboloide hiperbólico}
+
+El \textbf{paraboloide hiperbólico} es una superficie cuádrica caracterizada por la presencia de dos
+términos cuadráticos con signos opuestos y un término lineal en la tercera variable.  
+Su forma canónica, con eje paralelo al eje $z$, es:
+
+\[
+\frac{x^{2}}{a^{2}} - \frac{y^{2}}{b^{2}} = z,
+\quad o \quad 
+-\frac{x^{2}}{a^{2}} + \frac{y^{2}}{b^{2}} = z,
+\qquad a>0,\; b>0.
+\]
+
+En su forma desplazada y manteniendo eje $z$, el paraboloide hiperbólico con punto de silla en
+$(x_0,y_0,z_0)$ se escribe como:
+
+\[
+\frac{(x - x_0)^{2}}{a^{2}} - \frac{(y - y_0)^{2}}{b^{2}} = z - z_0
+\quad o \quad 
+-\frac{(x - x_0)^{2}}{a^{2}} + \frac{(y - y_0)^{2}}{b^{2}} = z - z_0.
+\]
+
+
+
+
+
+
+
+\begin{act}
+\begin{itemize}
+    \item Cuales serian su formas canónica con eje $x$?
+    \item Cuales serian su formas canónica con eje $y$?
+    \item Cuales serian su formas con punto de silla  desplazado y  eje $x$?
+    \item Cuales serian su formas con punto de silla  desplazado y  eje $y$? 
+\end{itemize}
+\end{act}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsection*{Propiedades}
+
+\begin{itemize}
+    \item Es una superficie \textbf{de curvatura negativa}, ya que se curva hacia arriba en una dirección  y hacia abajo en la dirección perpendicular, formando la conocida \emph{silla de montar}.
+    
+    \item El punto $(x_0,y_0,z_0)$ es un \textbf{punto de silla} de la superficie (no máximo ni mínimo local).
+
+    \item Las secciones con planos del tipo $z = k$ son:
+    \[
+    \frac{x^{2}}{a^{2}} - \frac{y^{2}}{b^{2}} = k,
+    \]
+    que representan:
+    \begin{itemize}
+        \item hipérbolas si $k\neq 0$;
+        \item dos rectas que se cruzan si $k=0$.
+    \end{itemize}
+
+    \item Las secciones con planos que contienen al eje $z$ (por ejemplo, $x=\text{cte}$ o $y=\text{cte}$)
+    son \textbf{parábolas}.
+
+    \item Es una superficie \textbf{doblemente reglada}: puede describirse como la unión de dos familias
+    distintas de rectas generatrices.
+
+    \item El signo positivo en el término cuadrático con $x$ indica la dirección en la que la superficie
+    se abre ``hacia arriba'', mientras que el signo negativo en el término cuadrático con $y$
+    indica la dirección en la que se abre ``hacia abajo''.
+\end{itemize}
+
+
+
+
+
+
+
+
+\subsection*{Algunas de las formas particulares del paraboloide hiperbólico y su gráfico}
+
+
+
+
+
+
+\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico}
+import three;
+size(35mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto de silla
+triple Psilla = (0,0,0);
+real h(real x, real y, real z) {return x^2- y^2-z ;
+}
+
+draw(implicitsurface(h,(-3,-3,-2),(3,3,2)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -3+Psilla.x, 3+Psilla.x, black, Arrow3);
+yaxis3(Label("$y$",1), -3+Psilla.y, 3+Psilla.y, black, Arrow3);
+zaxis3(Label("$z$",1), -2+Psilla.z, 2+Psilla.z, black, Arrow3);
+\end{asypicture}
+   
+{\, \ \,\caption{Paraboloide Hiperbolico  correspondiente a la ecuación reducida \\
+\qquad $x^2- y^2=z.$
+}}
+\end{figure}
+
+\end{minipage}\qquad\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico2}
+import three;
+size(35mm);
+currentprojection = orthographic(4,2,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto de silla
+triple Psilla = (0,0,0);
+real h(real x, real y, real z) {return -x^2+y^2-z ;
+}
+
+draw(implicitsurface(h,(-3,-3,-2),(3,3,2)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -3+Psilla.x, 3+Psilla.x, black, Arrow3);
+yaxis3(Label("$y$",1), -3+Psilla.y, 3+Psilla.y, black, Arrow3);
+zaxis3(Label("$z$",1), -2+Psilla.z, 2+Psilla.z, black, Arrow3);
+\end{asypicture}
+   
+{\, \ \,\caption{Paraboloide Hiperbolico  correspondiente a la ecuación reducida  \\
+\qquad $x^2- y^2=z$.
+}}
+\end{figure}
+\end{minipage}\qquad\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico3}
+import three;
+size(35mm);
+currentprojection = orthographic(4,2,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto de silla
+triple Psilla = (0,0,0);
+real h(real x, real y, real z) {return -x^2-y+z^2 ;
+}
+
+draw(implicitsurface(h,(-3,-2,-3),(3,2,3)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -3+Psilla.x, 3+Psilla.x, black, Arrow3);
+yaxis3(Label("$y$",1), -2+Psilla.y, 2+Psilla.y, black, Arrow3);
+zaxis3(Label("$z$",1), -3+Psilla.z, 3+Psilla.z, black, Arrow3);
+\end{asypicture}
+   
+ \caption{Paraboloide Hiperbólico  correspondiente a la ecuación reducida  \\
+\qquad $x^2- z^2= y$.
+} \label{ABC}
+\end{figure}
+
+\end{minipage}
+
+
+
+\begin{obs}
+Generalmente cuando el eje del paraboloide hiperbólico es distinto al eje $z$ (como en el figura~\ref{ABC}) se realiza el gráfico con los ejes cartesianos rotados, de tal forma que el eje del paraboloide hiperbólico quede de forma vertical. Siguiendo esta generalidad el grafico de la figur~\ref{ABC} nos queda: 
+
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemPH}
+import three;
+size(35mm);
+currentprojection = orthographic(4,2,2, up=Y);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto de silla
+triple Psilla = (0,0,0);
+real h(real x, real y, real z) {return -x^2-y+z^2 ;
+}
+
+draw(implicitsurface(h,(-3,-2,-3),(3,2,3)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -3+Psilla.x, 3+Psilla.x, black, Arrow3);
+yaxis3(Label("$y$",1), -2+Psilla.y, 2+Psilla.y, black, Arrow3);
+zaxis3(Label("$z$",1), -3+Psilla.z, 3+Psilla.z, black, Arrow3);
+\end{asypicture}
+   
+ \caption*{Paraboloide Hiperbólico  correspondiente a la ecuación reducida  \\
+\qquad $x^2- z^2= y$.
+} 
+\end{figure}
+\end{obs}
+
+
+
+
+
+\subsection*{Forma canónica y desplazamientos}
+
+Para identificar un paraboloide hiperbólico a partir de una ecuación general,
+buscamos una expresión de la forma
+
+\[
+\frac{(x - x_0)^{2}} {a^2}- \frac{(y - y_0)^{2}}{b^2} = z - z_0,
+\qquad a>0,\; b>0,
+\]
+
+que surge de completar cuadrados en $x$ y $y$, y despejar el término lineal en $z$.
+
+
+
+
+\subsection*{Ejemplo: Reducción a la forma canónica de un paraboloide hiperbolico}
+
+
+Partimos de la ecuación
+\begin{align*}
+x^2 + 2x - 9y^2 + 36y - 9z - 53 &= 0.
+\intertext{Agrupamos por variable:}
+\vspace{-9mm}(x^2 + 2x) + (-9y^2 + 36y) - 9z - 53 &= 0.
+\intertext{Completamos cuadrados:} 
+(x^2 + 2x + 1 -1)  -9(y^2 - 4y + 2^2 -2^2 ) - 9z - 53 &= 0,
+\\
+(x+1)^2 - 1 - 9(y-2)^2 + 36 - 9z - 53 &= 0.  
+\intertext{Agrupando constantes,} 
+(x+1)^2 - 9(y-2)^2 - 9z - 18 &= 0.
+\\%\intertext{Pasando términos al otro lado:}
+(x+1)^2 - 9(y-2)^2 &= 9z + 18 = 9(z+2).
+\intertext{Dividiendo entre $9$,}
+\frac{(x+1)^2}{9} - (y-2)^2 &= z + 2.
+\end{align*}
+
+
+
+
+\subsection*{Representación gráfica}
+
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHiperbolico}
+import three;
+size(55mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = sqrt(12);
+real b = sqrt(27);
+real c = 3*sqrt(3)/2;
+
+// Punto de silla
+triple Psilla = (-1,2,-2);
+real h(real x, real y, real z) {return x^2+ 2x - 9*y^2 + 36 *y  -9*z -53 ;
+}
+
+draw(implicitsurface(h,(-8,-15,-6),(6,10,2)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -5+Psilla.x, 5+Psilla.x, black, Arrow3);
+yaxis3(Label("$y$",1), -6+Psilla.y, 6+Psilla.y, black, Arrow3);
+zaxis3(Label("$z$",1), -4+Psilla.z, 4+Psilla.z, black, Arrow3);
+\end{asypicture}
+   
+\parbox{9cm}{\, \ \,\caption{Paraboloide Hiperbolico  correspondiente \\ a la ecuación reducida: \quad$\frac{(x+1)^2}{9} - (y-2)^2 = z + 2.$
+}}
+\end{figure}
+
+
+\section{Cono elíptico}
+
+\textbf{Ecuación:} La forma canónica de un \textbf{cono elíptico} con vértice en
+$V=(x_0,y_0,z_0)$ y eje paralelo al eje $z$ puede escribirse como
+
+\[
+\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}-\frac{(z-z_0)^2}{c^2}=0,
+\qquad a,b,c>0.
+\]
+
+Equivalentemente,
+\[
+\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}
+=\frac{(z-z_0)^2}{c^2}.
+\]
+
+\medskip
+
+A diferencia de las cuádricas con centro, el cono elíptico \textbf{no tiene centro}:
+su punto notable es el \textbf{vértice} $V$, y la superficie está formada por
+\textbf{dos hojas} (dos ``nappes'') simétricas respecto del plano $z=z_0$.
+
+\begin{itemize}
+    \item Consta de \textbf{dos piezas}:
+    una para $z>z_0$ y otra para $z<z_0$ (simétricas respecto del plano $z=z_0$).
+    \item Es una superficie \textbf{abierta} y se extiende infinitamente.
+    \item Las secciones con planos $z=k$ (con $k\neq z_0$) son \textbf{elipses}.
+    \item Las secciones con planos que \textbf{contienen el eje} (por ejemplo, $x=x_0$ o $y=y_0$)
+    son \textbf{pares de rectas} que pasan por el vértice.
+    \item Las secciones con planos paralelos al eje pero que \textbf{no pasan por el vértice}
+    suelen ser \textbf{hipérbolas}.
+\end{itemize}
+
+\subsection*{Algunas formas particulares del cono elíptico y su gráfico}
+
+\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+\centering
+\begin{asypicture}{name=ejemConoEliptico1}
+import three;
+size(35mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Cono elíptico: x^2/4 + y^2 - z^2 = 0
+real h(real x, real y, real z){
+  return x^2/4 + y^2 - z^2;
+}
+
+draw(implicitsurface(h,(-4,-3,-2),(4,3,2)), blue + opacity(0.5));
+
+// Ejes
+xaxis3(Label("$x$",1), -3, 3, black, Arrow3);
+yaxis3(Label("$y$",1), -3, 3, black, Arrow3);
+zaxis3(Label("$z$",1), -3, 3, black, Arrow3);
+\end{asypicture}
+
+\caption{Cono elíptico: $\dfrac{x^2}{4}+y^2=z^2$.}
+\end{figure}
+\end{minipage}\qquad
+\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+\centering
+\begin{asypicture}{name=ejemConoEliptico2}
+import three;
+size(35mm);
+currentprojection = orthographic(4,2,2);
+currentlight = light(1,1,1);
+
+// Cono elíptico: x^2 + y^2/9 - z^2 = 0
+real h(real x, real y, real z){
+  return x^2 - y^2+ z^2;
+}
+
+draw(implicitsurface(h,(-4,-2,-4),(4,2,4)), blue + opacity(0.5));
+
+// Ejes
+xaxis3(Label("$x$",1), -3, 3, black, Arrow3);
+yaxis3(Label("$y$",1), -3, 3, black, Arrow3);
+zaxis3(Label("$z$",1), -3, 3, black, Arrow3);
+\end{asypicture}
+
+\caption{Cono elíptico: $x^2+z^2=y^2$.}
+\end{figure}
+\end{minipage}\qquad
+\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+\centering
+\begin{asypicture}{name=ejemConoEliptico3}
+import three;
+size(35mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Cono (misma familia): -x^2 - y^2 + z^2 = 0  <=>  z^2 = x^2 + y^2
+real h(real x, real y, real z){
+  return -x^2 - y^2 + z^2;
+}
+
+draw(implicitsurface(h,(-4,-4,-1.7),(4,4,1.7)), blue + opacity(0.5));
+
+// Ejes
+xaxis3(Label("$x$",1), -2, 2, black, Arrow3);
+yaxis3(Label("$y$",1), -2, 2, black, Arrow3);
+zaxis3(Label("$z$",1), -2, 2, black, Arrow3);
+\end{asypicture}
+
+\caption{Cono (circular): $z^2=x^2+y^2$.}
+\end{figure}
+\end{minipage}
+
+\subsection*{Ejemplo: Reducción a la forma canónica de un cono elíptico}
+
+Dada la ecuación general:
+\begin{align*}
+4x^2+8x+9y^2-18y-36z^2+72z-23 &= 0,
+\intertext{agrupamos términos según la variable:}
+(4x^2+8x) + (9y^2-18y) + (-36z^2+72z) - 23 &= 0,
+\\
+4(x^2+2x)+9(y^2-2y)-36(z^2-2z)-23 &= 0.
+\intertext{Completamos cuadrados en cada paréntesis:}
+4\big[(x^2+2x+1)-1\big]
++9\big[(y^2-2y+1)-1\big]
+-36\big[(z^2-2z+1)-1\big]-23 &= 0,
+\intertext{es decir,}
+4(x+1)^2-4 + 9(y-1)^2-9 -36(z-1)^2+36 -23 &= 0.
+\intertext{Agrupamos los términos constantes:}
+4(x+1)^2 + 9(y-1)^2 -36(z-1)^2 +(-4-9+36-23) &= 0,
+\intertext{y como $-4-9+36-23=0$, queda:}
+4(x+1)^2 + 9(y-1)^2 -36(z-1)^2 &= 0.
+\intertext{Dividiendo toda la ecuación entre $36$, obtenemos la forma canónica:}
+\frac{(x+1)^2}{9}+\frac{(y-1)^2}{4}- (z-1)^2 &= 0,
+\end{align*}
+o equivalentemente,
+\[
+\frac{(x+1)^2}{9}+\frac{(y-1)^2}{4}=(z-1)^2.
+\]
+
+\noindent Esta es la ecuación de un \textbf{cono elíptico}, con:
+\begin{itemize}
+\begin{multicols}{2}
+    \item \textbf{Vértice:} $V=(-1,\,1,\,1)$
+    \item \textbf{Eje de simetría:} paralelo al eje $z$
+    \item \textbf{Parámetros:} $a=3$ (dirección $x$), $b=2$ (dirección $y$), $c=1$ (dirección $z$)
+\end{multicols}
+\end{itemize}
+
+\subsection*{Representación gráfica}
+
+\begin{figure}[H]
+\centering
+\begin{asypicture}{name=ejemConoElipticoEjemplo}
+import three;
+size(10cm);
+currentprojection = orthographic(2,4,1);
+currentlight = light(1,1,1);
+
+// Vértice
+triple V = (-1,1,1);
+real a=3, b=2, c=1, T=2; 
+// Ecuación original (implícita): 4x^2+8x+9y^2-18y-36z^2+72z-23 = 0
+real h(real x, real y, real z){
+  return 4*x^2+8*x+9*y^2-18*y-36*z^2+72*z-23;
+}
+
+draw(implicitsurface(h,(-16,-16,-.5),(14,14,2.5)), blue + opacity(0.5));
+
+// Ejes (centrados visualmente cerca del vértice)
+xaxis3(Label("$x$",1), V.x-a*T, V.x+a*T, black, Arrow3);
+yaxis3(Label("$y$",1), V.y-b*T, V.y+b*T, black, Arrow3);
+zaxis3(Label("$z$",1), V.z-c*T, V.z+c*T, black, Arrow3);
+\end{asypicture}
+
+\parbox{8cm}{\caption{Cono elíptico correspondiente a \\ 
+$\dfrac{(x+1)^2}{9}+\dfrac{(y-1)^2}{4}=(z-1)^2$.}}
+\end{figure}
+
+
+
+\section{Cilindros}
+
+\subsection*{Superficies cilíndricas}
+
+Se denomina \textbf{superficie cilíndrica} a aquella superficie generada por una recta que se desplaza en el espacio de modo tal que permanece siempre paralela a una recta fija, llamada \textbf{dirección generatriz}, y pasa por todos los puntos de una curva fija dada, denominada \textbf{directriz}.
+
+En este contexto:
+\begin{itemize}
+    \item la recta móvil se denomina \textbf{generatriz},
+    \item la curva fija sobre la cual se apoya el movimiento se denomina \textbf{directriz},
+    \item el conjunto de todas las posiciones de la generatriz define la superficie cilíndrica.
+\end{itemize}
+
+Desde el punto de vista geométrico, una superficie cilíndrica puede pensarse como la \emph{traslación paralela} de una curva plana a lo largo de una dirección fija del espacio.
+
+
+
+
+
+
+
+
+
+\subsection*{Ejemplos y sus gráficas}
+
+A continuación se presentan algunos ejemplos de superficies cilíndricas, junto con sus representaciones gráficas, que ilustran distintas elecciones de la curva directriz y de la dirección generatriz.
+
+
+\hspace{-5mm}\begin{minipage}{.25\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico}
+settings.render=8;
+import graph3;
+import smoothcontour3;
+size(45mm);
+currentprojection = orthographic(6,4,4);
+currentlight = light(1,1,1);
+
+// Parámetros de la forma canónica
+real j=-5, T=7, a=2;  
+
+// Parametrización del paraboloide elíptico
+// Ecuación: (x-1)^2/4 + (y+2)^2/9 = z - 3
+// Tomamos una parametrización en coordenadas elípticas:
+triple f(pair A) {
+  real t = A.x;
+  real u = A.y;
+  real x =t;
+  real y = u;
+  real z = sin(t) ;   // porque z - 3 = r^2
+  return (x, y, z);
+}
+
+// Dominio de la parametrización
+real R = 2.5;
+surface S = surface(f, (-a*2pi,j), (a*2pi, T), 60, 30);
+draw(S, surfacepen = blue + opacity(0.7));
+
+// Ejes con etiquetas
+xaxis3(Label("$x$",1),-a*2pi , a*2pi+.4, black, Arrow3);
+yaxis3(Label("$y$",1),j, T+.4, black, Arrow3);
+zaxis3(Label("$z$",1), -6 , 6, black, Arrow3);
+\end{asypicture}
+   
+{\, \ \,\caption{Cilindro senoidal, con dirección generatriz paralela al eje $y$ y curva directriz \\
+\qquad $z=\sen (x)$
+}}
+\end{figure}
+
+\end{minipage}\qquad\begin{minipage}{.35\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico2}
+size(45mm);
+currentprojection = orthographic(6,4,4);
+currentlight = light(1,1,1);
+
+// Parámetros de la forma canónica
+real j=-1.6, T=1.6, a=2;  
+
+// Parametrización del paraboloide elíptico
+// Ecuación: (x-1)^2/4 + (y+2)^2/9 = z - 3
+// Tomamos una parametrización en coordenadas elípticas:
+triple f(pair A) {
+  real t = A.x;
+  real u = A.y;
+  real x =t;
+  real y = u;
+  real z = t^2 -u;   // porque z - 3 = r^2
+  return (x, y, z);
+}
+
+// Dominio de la parametrización
+real R = 2.5;
+surface S = surface(f, (j,-a), ( T,a), 60, 30);
+draw(S, surfacepen = blue + opacity(0.7));
+
+// Ejes con etiquetas
+xaxis3(Label("$x$",1),-a , a, black, Arrow3);
+yaxis3(Label("$y$",1),j, T+.4, black, Arrow3);
+zaxis3(Label("$z$",1), -2 , 4, black, Arrow3);
+\end{asypicture}
+   
+{\, \ \,\caption{Cilindro parabólico, con dirección generatriz paralela a la recta \\ 
+$L:\ (x,y,z)=\lambda(0,1,-1)$, $\lambda\in\mathbb{R}$, \\ 
+y curva directriz la parábola $z=x^2$ en el plano $z=0$.
+}}
+\end{figure}
+\end{minipage}\qquad\begin{minipage}{.3\textwidth}
+\begin{figure}[H]
+    \centering
+\begin{asypicture}{name=ejemParaboloideHipebolico3}
+import three;
+size(45mm);
+currentprojection = orthographic(2,4,2);
+currentlight = light(1,1,1);
+
+// Parámetros
+real a = 1;
+real b = 1;
+real c = 1;
+
+// Punto Centro
+triple Centro = (0,0,0);
+real h(real x, real y, real z) {return x^2+y^2-1 ;
+}
+
+draw(implicitsurface(h,(-2,-4,-2),(2,4,2)), blue + opacity(0.5));
+ 
+
+// Ejes
+xaxis3(Label("$x$",1), -2+Centro.x, 2+Centro.x, black, Arrow3);
+yaxis3(Label("$y$",1), -2+Centro.y, 2+Centro.y, black, Arrow3);
+zaxis3(Label("$z$",1), -2+Centro.z, 2+Centro.z, black, Arrow3);
+\end{asypicture}
+   
+ \caption{ Cilindro circular, con dirección generatriz paralela al eje $z$ y curva directriz es la circunferencia $x^2+ y^2 =1$ en el plano $z$.  
+}  
+\end{figure}
+
+\end{minipage}
+
+
+
+
+
+
+
+
+\begin{obs}
+En este apunte nos centraremos en el estudio de superficies cilíndricas cuya curva directriz es una cónica contenida en alguno de los planos coordenados, y cuya dirección generatriz es paralela a uno de los ejes coordenados. Cabe señalar que dicho eje  no debe pertenece al plano que contiene a la directriz.
+\end{obs}
+
+
+
+
+
+\subsection*{Descripción analítica de los cilindros con generatriz paralela a uno de los ejes coordenados}
+
+La característica fundamental de una superficie cilíndrica paralela a algunos de los ejes coordenados, es que su ecuación \textbf{no depende de una de las variables}. Esta variable ausente corresponde a la \textbf{dirección generatriz} del cilindro.
+
+Por ejemplo, una ecuación del tipo
+\[
+F(x,y)=0
+\]
+define una superficie cilíndrica cuya dirección generatriz es paralela al eje $z$, ya que para cada punto $(x,y)$ que satisface la ecuación, el punto $(x,y,z)$ pertenece a la superficie para cualquier valor de $z\in\mathbb{R}$.
+
+De manera análoga:
+\begin{itemize}
+    \item una ecuación de la forma $F(x,z)=0$ genera un cilindro con generatrices paralelas al eje $y$,
+    \item una ecuación de la forma $F(y,z)=0$ genera un cilindro con generatrices paralelas al eje $x$.
+\end{itemize}
+
+En todos los casos, la \textbf{directriz} del cilindro es la curva definida por la ecuación en el plano correspondiente.
+
+\subsection*{Cilindros cuádricos}
+
+Cuando la directriz es una \textbf{cónica} y la ecuación que la define es de segundo grado, la superficie cilíndrica resultante se denomina \textbf{cilindro cuádrico}.
+
+Algunos ejemplos típicos son:
+\begin{itemize}
+    \item \textbf{Cilindro elíptico}:
+    \[
+    \frac{x^2}{a^2}+\frac{y^2}{b^2}=1,
+    \]
+    cuya directriz es una elipse en el plano $xy$ y cuyas generatrices son paralelas al eje $z$.
+
+    \item \textbf{Cilindro hiperbólico}:
+    \[
+    \frac{x^2}{a^2}-\frac{y^2}{b^2}=1,
+    \]
+    cuya directriz es una hipérbola en el plano $xy$.
+
+    \item \textbf{Cilindro parabólico}:
+    \[
+    x^2+2ay=0,
+    \]
+    cuya directriz es una parábola en el plano $xy$.
+\end{itemize}
+
+En todos estos casos, la superficie se obtiene al trasladar la curva directriz en la dirección del eje $z$.
+
+\subsection*{Cómo graficar un cilindro a partir de su ecuación}
+
+Para representar gráficamente una superficie cilíndrica definida por una ecuación implícita, es útil seguir el siguiente procedimiento:
+
+\begin{enumerate}
+    \item \textbf{Identificar la variable ausente} en la ecuación.  
+    Esta variable indica la dirección de las generatrices del cilindro.
+
+    \item \textbf{Graficar la curva directriz} en el plano correspondiente, utilizando la ecuación que depende de las otras dos variables.
+
+    \item \textbf{Extender la curva directriz} a lo largo de la dirección generatriz, es decir, trasladarla paralelamente para todos los valores reales de la variable ausente.
+\end{enumerate}
+
+Este enfoque permite comprender la estructura geométrica del cilindro sin necesidad de recurrir directamente a herramientas de visualización tridimensional, y resulta especialmente útil para interpretar y construir gráficos de cilindros cuádricos.
+
+\subsection*{Ejemplos de cilindros cuádricos}
+
+A continuación se presentan ejemplos representativos de los distintos tipos de cilindros cuádricos. En cada caso, la curva directriz se encuentra contenida en un plano coordenado diferente, mientras que la dirección generatriz queda determinada por la variable ausente en la ecuación.
+
+\medskip
+
+\subsubsection*{Cilindro elíptico}
+
+Consideremos la ecuación:
+\[
+\frac{x^2}{4}+\frac{y^2}{9}=1.
+\]
+
+La ecuación no depende de la variable $z$, por lo que la dirección generatriz es paralela al eje $z$. La curva directriz es la elipse $\frac{x^2}{4}+\frac{y^2}{9}=1,$ contenida en el plano coordenado $xy$ (es decir, en el plano dibujada en rojo). El cilindro se obtiene al trasladar dicha elipse paralelamente al eje $z$.
+
+
+
+\begin{figure}[H]
+    \centering 
+
+
+\begin{asypicture}{name=Surf2ejer3c} 
+settings.render=8;
+import graph3;
+import smoothcontour3;
+
+import three;
+
+//import math;
+size(50mm);
+currentprojection=orthographic(3,2,1.5);
+
+// Parámetros de la forma canónica
+real a=2, b= 3;
+import graph3;
+//tapita
+triple F(pair rt) {
+real t = rt.x;
+real r = rt.y;
+return ((r)*a*sin(pi*t) -a*(1-r)* sin(pi*t),-5,b*cos(pi*t));
+}
+ 
+surface s=surface(F,(0,0),(1,1), Spline);
+
+draw(s, surfacepen=blue + opacity(0.5));
+
+//Cilindro1
+real h(real x, real y, real z) {return (b*x)^2 + (a*z)^2 - (a*b)^2;
+}
+
+draw(implicitsurface(h,(-5,-5,-5),(5,5,5)), blue + opacity(0.5));
+
+//circunferencia1
+real x(real t) {return a*cos(pi*t);}
+real y(real t) {return 0;}
+real z(real t) {return b*sin(pi*t);}
+path3 g=graph(x,y,z,0,2,operator ..);
+draw(g,red+dashed+ opacity(0.6));
+
+
+//circunferencia2
+real x(real t) {return a*cos(pi*t);}
+real y(real t) {return -5;}
+real z(real t) {return b*sin(pi*t);}
+path3 g=graph(x,y,z,0,2,operator ..);
+draw(g,blue+dashed+ opacity(0.6));
+
+//circunferencia3
+real x(real t) {return a*cos(pi*t);}
+real y(real t) {return 5;}
+real z(real t) {return b*sin(pi*t);}
+path3 g=graph(x,y,z,0,2,operator ..);
+draw(g,blue+dashed+ opacity(0.8));
+
+//lieneas en cilindro 
+draw((0,-5,3)--(0,5,3),blue+dashed+opacity(0.8));
+
+// lieneas en los ejes
+real T=.2;
+draw((1,0,-T)--(1,0,T),white+opacity(0.8));
+draw((0,1,-T)--(0,1,T),white+opacity(0.8));
+draw((-T,0,1)--(T,0,1),white+opacity(0.8)); 
+
+xaxis3(Label("$x$",1),-4,5,black,Arrow3);
+yaxis3(Label("$y$",1),-4,5,black,Arrow3);
+zaxis3(Label("$z$",1),-4,4,black,Arrow3);
+dot(" ",(0,0,b),align=Z+X,1.5bp+white);
+\end{asypicture}
+
+
+\end{figure}
+
+
+
+\medskip
+
+\subsubsection*{Cilindro hiperbólico}
+
+Consideremos la ecuación:
+\[
+\frac{x^2}{4}-\frac{z^2}{1}=1.
+\]
+
+En este caso, la ecuación no depende de la variable $y$, por lo que la dirección generatriz es paralela al eje $y$. La curva directriz es la hipérbola $\frac{x^2}{4}-z^2=1,$ contenida en el plano coordenado $xz$ (es decir, en el plano $y=0$). El cilindro se obtiene al trasladar dicha hipérbola paralelamente al eje $y$.
+
+
+
+
+\begin{figure}[H]
+    \centering 
+\begin{asypicture}{name=Surf2ejer3a} 
+size(65mm); 
+settings.render=8;
+import graph3;
+import smoothcontour3;
+import three;
+
+// Parámetros de la forma canónica
+real a=2, b= 1, k=.56;
+
+//import math;
+currentprojection=orthographic(1.3,2.5,1.3);
+//import graph3;
+xaxis3(Label("$x$",1),-6,6,black,Arrow3);
+yaxis3(Label("$y$",1),-5,5,black,Arrow3);
+zaxis3(Label("$z$",1),-4,4,black,Arrow3);
+dot(" ",(a,0,0),align=Z+X,1.5 bp+white);
+dot(" ",(-a,0,0),align=Z+X,1.5 bp+white);
+
+//Cilindro hiperbolico
+real h(real x, real y, real z) {return b*x^2 - (a*z)^2 - (a*b)^2;
+}
+
+draw(implicitsurface(h,(-6,-4,-5),(6,4,5)), blue + opacity(0.8));
+
+//hiperbola1
+real x(real t) {return a*cosh(pi*t);}
+real y(real t) {return 0;}
+real z(real t) {return b*sinh(pi*t);}
+path3 g=graph(x,y,z,-k,k,operator ..);
+draw(g,red+dashed+ opacity(0.6));
+
+real x(real t) {return -a*cosh(pi*t);}
+real y(real t) {return 0;}
+real z(real t) {return b*sinh(pi*t);}
+path3 g=graph(x,y,z,-k,k,operator ..);
+draw(g,red+dashed+ opacity(0.6));
+
+//hiperbola2
+real x(real t) {return a*cosh(pi*t);}
+real y(real t) {return -4;}
+real z(real t) {return b*sinh(pi*t);}
+path3 g=graph(x,y,z,-k,k,operator ..);
+draw(g,blue+dashed+ opacity(0.6));
+
+real x(real t) {return -a*cosh(pi*t);}
+real y(real t) {return -4;}
+real z(real t) {return b*sinh(pi*t);}
+path3 g=graph(x,y,z,-k,k,operator ..);
+draw(g,blue+dashed+ opacity(0.6));
+
+//hiperbola3
+real x(real t) {return a*cosh(pi*t);}
+real y(real t) {return 4;}
+real z(real t) {return b*sinh(pi*t);}
+path3 g=graph(x,y,z,-k,k,operator ..);
+draw(g,blue+dashed+ opacity(0.6));
+
+real x(real t) {return -a*cosh(pi*t);}
+real y(real t) {return 4;}
+real z(real t) {return b*sinh(pi*t);}
+path3 g=graph(x,y,z,-k,k,operator ..);
+draw(g,blue+dashed+ opacity(0.6));
+
+// lieneas en los ejes
+real T=.3;
+draw((1,-T,0)--(1,T,0),blue+opacity(0.8));
+draw((0,1,-T)--(0,1,T),blue+opacity(0.8));
+draw((-T,0,1)--(T,0,1),blue+opacity(0.8));
+
+\end{asypicture}
+\end{figure}
+
+\medskip
+
+\subsubsection*{Cilindro parabólico}
+
+Consideremos la ecuación:
+\[
+y^2- z=0.
+\]
+
+La ecuación no depende de la variable $x$, por lo que la dirección generatriz es paralela al eje $x$. La curva directriz es la parábola $ z= y^2,$ contenida en el plano coordenado $yz$ (es decir, en el plano $x=0$). El cilindro se obtiene al trasladar dicha parábola paralelamente al eje $x$, entonces ese sera el eje que dibujaremos de forma saliente. 
+
+
+\begin{center}
+\begin{asypicture}{name=Surf2ejer3b}
+settings.outformat="png";
+settings.render=8;
+import graph3;
+import smoothcontour3;
+
+import three;
+//import math;
+size(55mm);
+currentprojection=orthographic(3,1.3,1.3,up=Y);
+real l= 3, k= sqrt(l);// limite superior de la superficie
+//Cilindro parabolico
+real h(real x, real y, real z) {return y  - z^2;
+}
+
+draw(implicitsurface(h,(-4,0,-5),(5,l,4)), blue + opacity(0.8));
+
+
+//parabola1
+real x(real t) {return 0;}
+real y(real t) {return t^2;}
+real z(real t) {return t;}
+path3 g=graph(x,y,z,-k,k,operator ..);
+draw(g,blue+dashed+ opacity(0.6));
+
+//parabola2
+real x(real t) {return -4;}
+real y(real t) {return t^2;}
+real z(real t) {return t;}
+path3 g=graph(x,y,z,-k,k,operator ..);
+draw(g,blue+dashed+ opacity(0.6));
+
+//parabola3
+real x(real t) {return 5;}
+real y(real t) {return t^2;}
+real z(real t) {return t;}
+path3 g=graph(x,y,z,-k,k,operator ..);
+draw(g,blue+dashed+ opacity(0.6));
+
+// lieneas en cilindro 
+draw((-4,0,0)--(5,0,0),blue+dashed+opacity(0.8));
+
+// lieneas en los ejes
+draw((1,0,-.1)--(1,0,.1),blue+opacity(0.8));
+draw((0,1,-.1)--(0,1,.1),blue+opacity(0.8));
+draw((-.1,0,1)--(.1,0,1),blue+opacity(0.8));
+
+xaxis3(Label("$x$",1),-4,2,black,Arrow3);
+yaxis3(Label("$y$",1),-2,l+.3,black,Arrow3);
+zaxis3(Label("$z$",1),-k,k+.3,black,Arrow3);
+\end{asypicture}
+\end{center}
+
+
+
+
+
+
+\medskip
+
+\begin{obs}
+En cada uno de los ejemplos anteriores, la identificación de la variable ausente en la ecuación permite reconocer de manera inmediata la dirección generatriz del cilindro, mientras que la ecuación en las otras dos variables describe la curva directriz contenida en un plano coordenado.
+\end{obs} 
+
+
+
+
+\begin{mdframed}[
+    linewidth=0.8pt,
+    roundcorner=6pt,
+    backgroundcolor=gray!5
+]
+\textbf{Cómo graficar una superficie cilíndrica}
+
+\medskip
+
+Para graficar una superficie cilíndrica puede seguirse el siguiente procedimiento:
+
+\begin{enumerate}
+    \item \textbf{Identificar la variable ausente en la ecuación.}  
+    La ecuación de un cilindro involucra solo dos de las tres variables espaciales.
+
+    \item \textbf{Determinar la dirección de la generatriz.}  
+    La variable que no aparece en la ecuación indica la dirección a lo largo de la cual la superficie se extiende indefinidamente.
+
+    \item \textbf{Reconocer la curva directriz.}  
+    La ecuación en las dos variables presentes describe una curva plana, llamada directriz, contenida en un plano coordenado.
+
+    \item \textbf{Construir la superficie.}  
+    El cilindro se obtiene al trasladar paralelamente la curva directriz a lo largo de la dirección generatriz.
+\end{enumerate}
+\end{mdframed}
+
+\section*{El uso del método de las trazas}
+
+El análisis de las cuádricas mediante el método de las trazas no tiene como objetivo principal la memorización de formas o gráficos prefijados, sino la comprensión de las \textbf{propiedades geométricas esenciales} de la superficie a partir de su ecuación.
+
+Este enfoque permite prescindir de la memoria visual como herramienta principal y reemplazarla por un razonamiento sistemático: a partir de las intersecciones de la cuádrica con planos coordenados y planos paralelos a ellos, es posible identificar la naturaleza de las curvas obtenidas, reconocer simetrías, determinar la orientación de la superficie y, en consecuencia, asignarle un nombre.
+
+Por ejemplo, si al analizar las trazas de una cuádrica con los tres planos coordenados (y con planos paralelos a ellos) se obtienen elipses en todos los casos, entonces la superficie corresponde a un \textbf{elipsoide}. De manera análoga, la presencia de hipérbolas en alguna de las direcciones, o de parábolas como trazas características, permite distinguir entre hiperboloides, paraboloides u otros tipos de cuádricas.
+
+Cabe destacar, además, que los gráficos obtenidos mediante este procedimiento deben entenderse siempre como \textbf{representaciones aproximadas} de la superficie real. Dado que el espacio tridimensional se representa en un plano y que el análisis se basa en un número finito de trazas, el dibujo no agota toda la información geométrica de la cuádrica, pero sí proporciona una imagen suficientemente fiel para comprender su estructura y sus propiedades principales.
+
+En este sentido, el método de las trazas constituye una herramienta fundamental para interpretar, clasificar y representar cuádricas reales no degeneradas de manera razonada y conceptualmente fundada.
+
+
+\subsection*{El método de las trazas para graficar cuádricas}
+
+El método fundamental para graficar una \textbf{cuádrica real no degenerada}, también denominada \emph{cuádrica verdadera}, en el espacio tridimensional $\mathbb{R}^3$ consiste en el análisis sistemático de sus \textbf{trazas}.
+
+Desde el punto de vista geométrico, una traza es la intersección de la superficie con un plano. El estudio de estas intersecciones permite comprender la forma global de la cuádrica a partir de curvas planas más simples, cuya naturaleza (elipse, parábola o hipérbola) resulta más fácil de identificar y representar.
+
+En particular, se consideran las trazas de la cuádrica con los planos coordenados y con planos paralelos a ellos, es decir, planos de la forma:
+\[
+x = k, \qquad y = k, \qquad z = k, \qquad k \in \mathbb{R}.
+\]
+
+Cada una de estas intersecciones da lugar a una curva plana que aporta información geométrica relevante sobre la superficie.
+
+\medskip
+
+De manera esquemática, el método de las trazas puede resumirse en los siguientes pasos:
+
+\begin{enumerate}
+    \item \textbf{Trazas con los planos coordenados.}  
+    Se analizan las intersecciones de la cuádrica con los planos $xy$, $xz$ y $yz$. Estas trazas permiten identificar simetrías, ejes principales y la presencia o ausencia de la superficie en determinadas regiones del espacio.
+
+    \item \textbf{Trazas con planos paralelos a los coordenados.}  
+    Se estudian las intersecciones con planos del tipo $x=k$, $y=k$ o $z=k$. Estas secciones muestran cómo varía la forma de la cuádrica al desplazarse a lo largo de cada eje y resultan fundamentales para reconocer el tipo de superficie involucrada.
+
+    \item \textbf{Análisis global de la superficie.}  
+    A partir del conjunto de trazas obtenidas, se reconstruye mentalmente la superficie en el espacio, identificando su tipo, su orientación y su comportamiento asintótico.
+\end{enumerate}
+
+Este procedimiento resulta especialmente adecuado para las cuádricas en forma canónica, ya que las trazas suelen corresponder a cónicas de ecuación sencilla. De este modo, el método de las trazas se convierte en una herramienta central para la interpretación geométrica y la representación gráfica de cuádricas reales no degeneradas en $\mathbb{R}^3$.
+
+
+\subsection*{El método de las trazas para graficar cuádricas}
+
+El método fundamental para graficar una \textbf{cuádrica real no degenerada}, también denominada \emph{cuádrica verdadera}, en el espacio tridimensional $\mathbb{R}^3$ consiste en el análisis sistemático de sus \textbf{trazas}.
+
+Desde el punto de vista geométrico, una traza es la intersección de la superficie con un plano. El estudio de estas intersecciones permite comprender la forma global de la cuádrica a partir de curvas planas más simples, cuya naturaleza (elipse, parábola o hipérbola) resulta más fácil de identificar y representar.
+
+En particular, se consideran las trazas de la cuádrica con los planos coordenados y con planos paralelos a ellos, es decir, planos de la forma:
+\[
+x = k, \qquad y = k, \qquad z = k, \qquad k \in \mathbb{R}.
+\]
+
+Cada una de estas intersecciones da lugar a una curva plana que aporta información geométrica relevante sobre la superficie.
+
+\medskip
+
+De manera esquemática, el método de las trazas puede resumirse en los siguientes pasos:
+
+\begin{enumerate}
+    \item \textbf{Trazas con los planos coordenados.}  
+    Se analizan las intersecciones de la cuádrica con los planos $xy$, $xz$ y $yz$. Estas trazas permiten identificar simetrías, ejes principales y la presencia o ausencia de la superficie en determinadas regiones del espacio.
+
+    \item \textbf{Trazas con planos paralelos a los coordenados.}  
+    Se estudian las intersecciones con planos del tipo $x=k$, $y=k$ o $z=k$. Estas secciones muestran cómo varía la forma de la cuádrica al desplazarse a lo largo de cada eje y resultan fundamentales para reconocer el tipo de superficie involucrada.
+
+    \item \textbf{Análisis global de la superficie.}  
+    A partir del conjunto de trazas obtenidas, se reconstruye mentalmente la superficie en el espacio, identificando su tipo, su orientación y su comportamiento asintótico.
+\end{enumerate}
+
+Este procedimiento resulta especialmente adecuado para las cuádricas en forma canónica, ya que las trazas suelen corresponder a cónicas de ecuación sencilla. De este modo, el método de las trazas se convierte en una herramienta central para la interpretación geométrica y la representación gráfica de cuádricas reales no degeneradas en $\mathbb{R}^3$.
+
+
+\end{document}
