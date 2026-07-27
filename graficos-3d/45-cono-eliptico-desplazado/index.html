@@ -8,7 +8,7 @@
   <script defer src="js/app.js"></script>
   </head>
   <body>
-    <main class="viewer-shell"><header class="viewer-head"><h1>Cono elíptico desplazado</h1><p><span class="equation">(x+1)²/9+(y-1)²/4=(z-1)²</span> · Vértice (-1,1,1).</p></header>
+    <main class="viewer-shell"><header class="viewer-head"><h1>Cono elíptico desplazado</h1><p><span class="equation">\(\dfrac{(x+1)^2}{9}+\dfrac{(y-1)^2}{4}=(z-1)^2\)</span> · Vértice (-1,1,1).</p></header>
       <div id="stage"></div>
       <div class="adaptation">Arrastrá para rotar · rueda para zoom · botón derecho para desplazar.</div>
       <div class="controls"><button id="reset-camera">Restablecer cámara</button><button id="export-png">Exportar PNG</button>
@@ -22,6 +22,6 @@
         <label>Transparencia <input id="opacity" type="range" min="0.15" max="1" step="0.05" value="0.66"></label>
         <label class="trace-controls">Traza z=<span id="trace-value"></span><input id="trace-slider" type="range"></label>
       </div>
-    </main><script>window.GRAPH_CONFIG={"title": "Cono elíptico desplazado", "equation": "\(\dfrac{(x+1)^2}{9}+\dfrac{(y-1)^2}{4}=(z-1)^2\)", "description": "Vértice en (-1,1,1).", "type": "ellipticCone", "axis": "z", "a": 3, "b": 2, "c": 1, "T": 1.8, "center": [-1, 1, 1], "camera": [12, 9, 14], "target": [-1, 1, 1], "axisSize": 8, "gridSize": 18, "enableTrace": true, "traceMin": -1, "traceMax": 3, "traceInitial": 2, "traceRangeXY": [-8, 6, -5, 7], "slug": "45-cono-eliptico-desplazado"};</script><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script><script type="module" src="../../common/three-viewer.js"></script>
+    </main><script>window.GRAPH_CONFIG={"title": "Cono elíptico desplazado", "equation": "(x+1)²/9+(y-1)²/4=(z-1)²", "description": "Vértice en (-1,1,1).", "type": "ellipticCone", "axis": "z", "a": 3, "b": 2, "c": 1, "T": 1.8, "center": [-1, 1, 1], "camera": [12, 9, 14], "target": [-1, 1, 1], "axisSize": 8, "gridSize": 18, "enableTrace": true, "traceMin": -1, "traceMax": 3, "traceInitial": 2, "traceRangeXY": [-8, 6, -5, 7], "slug": "45-cono-eliptico-desplazado"};</script><script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script><script type="module" src="../../common/three-viewer.js"></script>
   </body>
 </html>
