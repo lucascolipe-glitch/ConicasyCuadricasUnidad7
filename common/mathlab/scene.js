@@ -7,7 +7,7 @@ import {
 
 export function mathToThree(point) {
   const [x, y, z] = point;
-  return new THREE.Vector3(x, z, y);
+  return new THREE.Vector3(y, z, x);
 }
 
 export class MathScene {
