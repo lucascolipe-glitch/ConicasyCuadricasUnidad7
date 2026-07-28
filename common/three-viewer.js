@@ -36,7 +36,7 @@ const primary = cfg.color || '#2563eb';
 function material(color=primary, opacity=cfg.opacity ?? .66, wireframe=false){
   const m=new THREE.MeshStandardMaterial({color,side:THREE.DoubleSide,transparent:opacity<1,opacity,roughness:.42,metalness:.03,wireframe}); materials.push(m); return m;
 }
-function mathToThree(x,y,z){ return new THREE.Vector3(x,z,y); }
+function mathToThree(x,y,z){ return new THREE.Vector3(y,z,x); }
 function addMesh(geometry, color=primary, opacity=cfg.opacity ?? .66, parent=surfaceGroup){ const mesh=new THREE.Mesh(geometry,material(color,opacity)); mesh.castShadow=true; mesh.receiveShadow=true; parent.add(mesh); return mesh; }
 function parametric(fn, su=72, sv=44){
   return new ParametricGeometry((u,v,target)=>{ const p=fn(u,v); const q=mathToThree(p[0],p[1],p[2]); target.set(q.x,q.y,q.z); },su,sv);
