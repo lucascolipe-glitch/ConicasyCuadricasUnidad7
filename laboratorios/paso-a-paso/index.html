@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Completar cuadrados paso a paso</title>
+    <link rel="stylesheet" href="../../common/mathlab/base.css">
+    <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+  <body>
+    <main class="lab-shell">
+      <header class="lab-header">
+        <h1>Modo paso a paso: completar cuadrados</h1>
+        <p>Avanzá desde la ecuación general hasta la forma reducida, la identificación y la representación interactiva.</p>
+      </header>
+      <section class="lab-controls" style="margin-bottom:16px">
+        <label class="lab-control">Ejemplo
+          <select id="example"><option value="circle">Circunferencia</option><option value="ellipse">Elipse</option><option value="hyperbola">Hipérbola</option><option value="sphere">Esfera</option></select>
+        </label>
+      </section>
+      <div class="stepper">
+        <section>
+          <div id="step-progress" class="step-progress"></div>
+          <div id="steps" class="step-list"></div>
+          <div class="lab-buttons" style="margin-top:14px"><button id="previous" class="lab-button">Paso anterior</button><button id="next" class="lab-button primary">Siguiente paso</button><button id="restart" class="lab-button">Reiniciar</button></div>
+        </section>
+        <aside><iframe id="preview" class="preview-frame" title="Representación interactiva"></iframe><p id="preview-message" class="lab-note">La representación se habilita en el último paso.</p></aside>
+      </div>
+    </main>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

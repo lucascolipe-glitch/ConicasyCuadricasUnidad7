@@ -17,8 +17,15 @@ function pauseVideos(container = document) {
   });
 }
 
+function setInteractiveFramesState(container, state) {
+  container.querySelectorAll('iframe.lab-frame').forEach(frame => {
+    try { frame.contentWindow.postMessage({type: state}, '*'); } catch (_) {}
+  });
+}
+
 function showSection(id, pushHash = true) {
   pauseVideos();
+  sections.forEach(section => setInteractiveFramesState(section, 'pause-animation'));
   sections.forEach(s => s.classList.toggle('active', s.id === id));
   navLinks.forEach(b => b.classList.toggle('active', b.dataset.section === id));
   if (pushHash) history.replaceState(null, '', `#${id}`);
@@ -26,6 +33,7 @@ function showSection(id, pushHash = true) {
   window.scrollTo({top:0, behavior:'smooth'});
   const active = document.getElementById(id);
   loadSectionFrames(active);
+  if (active) setInteractiveFramesState(active, 'resume-animation');
   if (window.MathJax?.typesetPromise && active) MathJax.typesetPromise([active]);
 }
 

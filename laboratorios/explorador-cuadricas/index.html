@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Explorador de superficies cuádricas</title>
+    <link rel="stylesheet" href="../../common/mathlab/base.css">
+    <link rel="stylesheet" href="../../common/three-viewer.css">
+    <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+  <body>
+    <main class="lab-shell">
+      <header class="lab-header">
+        <h1 id="surface-title">Explorador de superficies cuádricas</h1>
+        <p>Cambiá la familia, el eje principal, los parámetros y el dominio visible. A la derecha aparece la traza producida por un plano móvil.</p>
+        <div id="surface-equation" class="lab-equation"></div>
+      </header>
+      <div class="lab-layout">
+        <aside class="lab-controls">
+          <section class="lab-control-group">
+            <h2>Superficie</h2>
+            <label class="lab-control">Familia<select id="type"><option value="sphere">Esfera</option><option value="ellipsoid" selected>Elipsoide</option><option value="ellipticParaboloid">Paraboloide elíptico</option><option value="hyperbolicParaboloid">Paraboloide hiperbólico</option><option value="oneSheetHyperboloid">Hiperboloide de una hoja</option><option value="twoSheetHyperboloid">Hiperboloide de dos hojas</option><option value="ellipticCone">Cono elíptico</option><option value="circularCylinder">Cilindro circular</option><option value="ellipticCylinder">Cilindro elíptico</option><option value="hyperbolicCylinder">Cilindro hiperbólico</option><option value="parabolicCylinder">Cilindro parabólico</option></select></label>
+            <label id="axis-row" class="lab-control">Eje principal<select id="axis"><option value="x">\(x\)</option><option value="y">\(y\)</option><option value="z" selected>\(z\)</option></select></label>
+            <label id="sign-row" class="lab-control">Sentido<select id="sign"><option value="1">Positivo</option><option value="-1">Negativo</option></select></label>
+          </section>
+          <section class="lab-control-group"><h2>Parámetros</h2>
+            <label class="lab-control">\(a\)<output id="a-output"></output><input id="a" type="range" min="0.5" max="5" step="0.1" value="2.4"></label>
+            <label id="b-row" class="lab-control">\(b\)<output id="b-output"></output><input id="b" type="range" min="0.5" max="5" step="0.1" value="1.8"></label>
+            <label id="c-row" class="lab-control">\(c\)<output id="c-output"></output><input id="c" type="range" min="0.4" max="4" step="0.1" value="1.5"></label>
+            <label class="lab-control">Dominio visible<output id="domain-output"></output><input id="domain" type="range" min="0.6" max="3.5" step="0.1" value="2.2"></label>
+          </section>
+          <section class="lab-control-group"><h2>Traslación</h2>
+            <label class="lab-control">\(h\)<output id="h-output"></output><input id="h" type="range" min="-4" max="4" step="0.25" value="0"></label>
+            <label class="lab-control">\(k\)<output id="k-output"></output><input id="k" type="range" min="-4" max="4" step="0.25" value="0"></label>
+            <label class="lab-control">\(l\)<output id="l-output"></output><input id="l" type="range" min="-4" max="4" step="0.25" value="0"></label>
+          </section>
+          <section class="lab-control-group"><h2>Traza dinámica</h2>
+            <label class="lab-control">Plano<select id="trace-axis"><option value="x">\(x=q\)</option><option value="y">\(y=q\)</option><option value="z" selected>\(z=q\)</option></select></label>
+            <label class="lab-control">Valor \(q\)<output id="trace-value-output"></output><input id="trace-value" type="range" min="-7" max="7" step="0.1" value="0"></label>
+            <label class="lab-control">Ventana<output id="trace-range-output"></output><input id="trace-range" type="range" min="3" max="12" step="0.5" value="7"></label>
+          </section>
+          <section class="lab-control-group"><h2>Vista</h2>
+            <label class="lab-control">Opacidad<output id="opacity-output"></output><input id="opacity" type="range" min="0.15" max="1" step="0.05" value="0.72"></label>
+            <label class="lab-control">Proyección<select id="projection"><option value="perspective">Perspectiva</option><option value="ortho">Ortográfica</option></select></label>
+            <div class="lab-buttons"><button id="reset-camera" class="lab-button">Restablecer</button><button id="toggle-grid" class="lab-button">Malla</button><button id="toggle-axes" class="lab-button">Ejes</button><button id="export-png" class="lab-button primary">PNG</button></div>
+          </section>
+        </aside>
+        <section class="lab-stage-card">
+          <div class="split-view">
+            <article class="split-panel"><header class="split-panel-head"><h2>Superficie y plano</h2><span>Arrastrá para rotar</span></header><div id="stage" class="lab-stage-3d"></div></article>
+            <article class="split-panel"><header class="split-panel-head"><h2>Traza 2D</h2><span id="trace-plane-label"></span></header><svg id="trace-svg" class="trace-svg"></svg></article>
+          </div>
+          <div class="lab-status"><div id="trace-equation"></div><div id="trace-description"></div></div>
+        </section>
+      </div>
+      <p class="lab-note">El dominio visible modifica el recorte de la malla, no el dominio matemático de una superficie no acotada.</p>
+    </main>
+    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Explorador de cónicas</title>
+    <link rel="stylesheet" href="../../common/mathlab/base.css">
+    <script>
+      window.MathJax = {
+        tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']]},
+        svg: {fontCache: 'global'}
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+  <body>
+    <main class="lab-shell">
+      <header class="lab-header">
+        <h1>Explorador de parámetros de las cónicas</h1>
+        <p>Modificá la curva y observá su ecuación, sus focos y la condición de lugar geométrico.</p>
+        <div id="equation" class="lab-equation"></div>
+      </header>
+
+      <div class="lab-layout">
+        <aside class="lab-controls">
+          <section class="lab-control-group">
+            <h2>Familia</h2>
+            <label class="lab-control">Cónica
+              <select id="type">
+                <option value="circle">Circunferencia</option>
+                <option value="parabola">Parábola</option>
+                <option value="ellipse" selected>Elipse</option>
+                <option value="hyperbola">Hipérbola</option>
+              </select>
+            </label>
+            <label id="orientation-row" class="lab-control">Eje principal
+              <select id="orientation">
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+              </select>
+            </label>
+          </section>
+
+          <section class="lab-control-group">
+            <h2>Forma y tamaño</h2>
+            <label data-parameter="a" class="lab-control"><span id="a-label">Semieje \(a\)</span><output id="a-output"></output><input id="a" type="range" min="0.5" max="7" step="0.1" value="4"></label>
+            <label data-parameter="b" class="lab-control">Semieje \(b\)<output id="b-output"></output><input id="b" type="range" min="0.4" max="6" step="0.1" value="2.5"></label>
+            <label data-parameter="p" class="lab-control">Parámetro focal \(p\)<output id="p-output"></output><input id="p" type="range" min="-3" max="3" step="0.1" value="1.5"></label>
+            <label id="branch-row" class="lab-control">Rama
+              <select id="branch"><option value="1">Positiva</option><option value="-1">Negativa</option></select>
+            </label>
+          </section>
+
+          <section class="lab-control-group">
+            <h2>Traslación</h2>
+            <label class="lab-control">\(h\)<output id="h-output"></output><input id="h" type="range" min="-5" max="5" step="0.25" value="0"></label>
+            <label class="lab-control">\(k\)<output id="k-output"></output><input id="k" type="range" min="-5" max="5" step="0.25" value="0"></label>
+          </section>
+
+          <section class="lab-control-group">
+            <h2>Punto móvil</h2>
+            <label class="lab-control">Parámetro<output id="t-output"></output><input id="t" type="range" min="0" max="6.283" step="0.01" value="0"></label>
+            <div class="lab-buttons"><button id="play" class="lab-button primary">Animar</button><button id="reset" class="lab-button">Restablecer</button></div>
+          </section>
+
+          <section class="lab-control-group">
+            <h2>Elementos visibles</h2>
+            <label class="lab-check"><input id="show-helpers" type="checkbox" checked>Focos, centro o directriz</label>
+            <label class="lab-check"><input id="show-distances" type="checkbox" checked>Distancias de la definición</label>
+          </section>
+        </aside>
+
+        <section class="lab-stage-card">
+          <svg id="conic-svg" class="conic-svg" role="img" aria-label="Gráfico interactivo de una cónica"></svg>
+          <div class="lab-status"><strong>Condición métrica:</strong> <span id="invariant-name"></span> = <span id="invariant-value"></span>. <span id="invariant-comment"></span></div>
+        </section>
+      </div>
+      <p class="lab-note">En la elipse se mantiene \(a&gt;b&gt;0\). En la parábola, el signo de \(p\) determina el sentido de apertura.</p>
+    </main>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>

@@ -111,6 +111,11 @@
        </button>
       </li>
       <li>
+       <button class="nav-link" data-section="laboratorio">
+        Laboratorio interactivo
+       </button>
+      </li>
+      <li>
        <button class="nav-link" data-section="practica">
         Práctica y autoevaluación
        </button>
@@ -128,6 +133,9 @@
      </a>
      <a href="graficos-2d/index.html">
       Galería de gráficos 2D
+     </a>
+     <a href="laboratorios/index.html">
+      Laboratorios interactivos
      </a>
      <a href="materiales/teoria-conicas-cuadricas.pdf">
       PDF de teoría
@@ -155,6 +163,9 @@
        </a>
        <a class="btn soft" href="graficos-3d/index.html">
         Explorar la galería 3D
+       </a>
+       <a class="btn soft" data-go-section="laboratorio" href="#laboratorio">
+        Abrir los laboratorios
        </a>
        <a class="btn" href="materiales/tp7-conicas-cuadricas.pdf">
         Abrir el práctico
@@ -289,6 +300,148 @@
        La circunferencia fija una distancia a un centro; la parábola iguala la distancia a un foco y a una directriz; la elipse mantiene constante una suma de distancias y la hipérbola una diferencia absoluta.
       </p>
      </div>
+     <section class="conic-locus-block">
+      <div class="graph-gallery-head">
+       <h3>
+        Las cónicas como lugares geométricos
+       </h3>
+       <p>
+        En cada caso, la curva está formada por todos los puntos \(P\) que verifican una condición de distancia. Lo que cambia de una cónica a otra es qué puntos o rectas se toman como referencia y qué cantidad debe permanecer constante.
+       </p>
+      </div>
+      <div class="conic-definition-grid">
+       <article class="conic-definition-card">
+        <div class="conic-definition-number">
+         1
+        </div>
+        <div>
+         <h4>
+          Circunferencia
+         </h4>
+         <p>
+          Es el lugar geométrico de los puntos \(P\) del plano cuya distancia a un punto fijo \(C\), llamado centro, es igual a un número constante \(r&gt;0\), llamado radio.
+         </p>
+         <div class="conic-definition-formula">
+          \[P\in\mathcal C\quad\Longleftrightarrow\quad \operatorname{dist}(P,C)=r.\]
+         </div>
+        </div>
+       </article>
+       <article class="conic-definition-card">
+        <div class="conic-definition-number">
+         2
+        </div>
+        <div>
+         <h4>
+          Parábola
+         </h4>
+         <p>
+          Es el lugar geométrico de los puntos \(P\) que equidistan de un punto fijo \(F\), llamado foco, y de una recta fija \(L\), llamada directriz.
+         </p>
+         <div class="conic-definition-formula">
+          \[P\in\mathcal P\quad\Longleftrightarrow\quad \operatorname{dist}(P,F)=\operatorname{dist}(P,L).\]
+         </div>
+        </div>
+       </article>
+       <article class="conic-definition-card">
+        <div class="conic-definition-number">
+         3
+        </div>
+        <div>
+         <h4>
+          Elipse
+         </h4>
+         <p>
+          Es el lugar geométrico de los puntos \(P\) para los cuales la suma de las distancias a dos puntos fijos \(F_1\) y \(F_2\), llamados focos, es constante.
+         </p>
+         <div class="conic-definition-formula">
+          \[P\in\mathcal E\quad\Longleftrightarrow\quad \operatorname{dist}(P,F_1)+\operatorname{dist}(P,F_2)=2a.\]
+         </div>
+        </div>
+       </article>
+       <article class="conic-definition-card">
+        <div class="conic-definition-number">
+         4
+        </div>
+        <div>
+         <h4>
+          Hipérbola
+         </h4>
+         <p>
+          Es el lugar geométrico de los puntos \(P\) para los cuales el valor absoluto de la diferencia de las distancias a dos focos fijos \(F_1\) y \(F_2\) es constante.
+         </p>
+         <div class="conic-definition-formula">
+          \[P\in\mathcal H\quad\Longleftrightarrow\quad \left|\operatorname{dist}(P,F_1)-\operatorname{dist}(P,F_2)\right|=2a.\]
+         </div>
+        </div>
+       </article>
+      </div>
+     </section>
+     <section class="graph-gallery">
+      <div class="graph-gallery-head">
+       <h3>
+        Applet: las definiciones en movimiento
+       </h3>
+       <p>
+        Elegí una cónica y desplazá el punto \(P\). Los segmentos auxiliares y los valores numéricos permiten observar directamente la condición de distancia que define cada lugar geométrico.
+       </p>
+      </div>
+      <div class="graph-grid graph-grid-1">
+       <article class="graph-window graph-window-applet">
+        <header class="graph-window-head">
+         <span class="graph-kind">
+          2D
+         </span>
+         <h4>
+          Explorador de lugares geométricos
+         </h4>
+         <p class="graph-window-equation">
+          Circunferencia, parábola, elipse e hipérbola mediante sus propiedades métricas.
+         </p>
+        </header>
+        <iframe
+         allow="fullscreen"
+         class="applet-frame"
+         data-src="graficos-2d/lugares-geometricos/index.html"
+         loading="lazy"
+         title="Cónicas como lugares geométricos"
+        >
+        </iframe>
+        <footer class="graph-window-foot">
+         <a href="graficos-2d/lugares-geometricos/index.html" rel="noopener" target="_blank">
+          Abrir el applet en una pestaña nueva ↗
+         </a>
+        </footer>
+       </article>
+      </div>
+     </section>
+     <article class="card concept-bridge">
+      <h3>
+       De los lugares geométricos a las secciones de un cono
+      </h3>
+      <p>
+       Otra forma de definir las curvas cónicas consiste en considerarlas como <strong>secciones de un cono circular doble</strong>, es decir, como las curvas que se obtienen al intersectar esa superficie con un plano. La forma de la intersección depende de la posición y de la inclinación del plano respecto del eje y de las generatrices del cono.
+      </p>
+      <ul class="conic-section-list">
+       <li>
+        Un plano perpendicular al eje del cono produce una <strong>circunferencia</strong>.
+       </li>
+       <li>
+        Un plano oblicuo que corta una sola hoja del cono produce una <strong>elipse</strong>.
+       </li>
+       <li>
+        Un plano paralelo a una generatriz produce una <strong>parábola</strong>.
+       </li>
+       <li>
+        Un plano que corta las dos hojas del cono produce una <strong>hipérbola</strong>.
+       </li>
+      </ul>
+      <p>
+       Estas dos maneras de presentar las cónicas —como lugares geométricos definidos mediante distancias y como intersecciones de un cono con un plano— describen las mismas curvas desde perspectivas diferentes. La primera destaca sus focos, centros y directrices; la segunda permite comprender por qué todas pertenecen a una misma familia geométrica.
+      </p>
+      <p>
+       En el caso de la elipse, la relación entre ambas nociones puede explicarse mediante las llamadas <strong>esferas de Dandelin</strong>: los puntos de tangencia de esas esferas con el plano de corte determinan los focos y permiten justificar que la suma de las distancias desde cualquier punto de la elipse a esos focos permanece constante. En el siguiente video se desarrolla esa relación entre la elipse como lugar geométrico y la elipse obtenida al cortar un cono con un plano.
+      </p>
+     </article>
      <section class="graph-gallery">
       <div class="graph-gallery-head">
        <h3>
@@ -414,6 +567,9 @@
       <a class="btn" href="graficos-3d/05-conicas-degeneradas/index.html">
        Casos degenerados
       </a>
+      <a class="btn soft" href="graficos-2d/lugares-geometricos/index.html">
+       Lugares geométricos 2D
+      </a>
       <a class="btn" href="graficos-2d/explorador-conicas/index.html">
        Explorador 2D
       </a>
@@ -517,7 +673,28 @@
        </div>
       </div>
      </div>
-    </section>
+    
+     <section data-lab-insert="conicas" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Explorar las dos definiciones de las cónicas</h3><p>Relacioná las condiciones métricas con las secciones producidas por un plano en un cono.</p></div>
+      <div class="graph-grid graph-grid-3">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Explorador de lugares geométricos</h4><p class="graph-window-equation">\(d(P,F_1)\pm d(P,F_2)=\text{constante}\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-conicas/index.html?type=ellipse" loading="lazy" title="Explorador de lugares geométricos"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-conicas/index.html?type=ellipse" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Generación mediante un plano</h4><p class="graph-window-equation">\(\text{cono}\cap\text{plano}\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/secciones-conicas/index.html" loading="lazy" title="Generación mediante un plano"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/secciones-conicas/index.html" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Esferas de Dandelin</h4><p class="graph-window-equation">\(d(P,F_1)+d(P,F_2)=2a\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/dandelin/index.html" loading="lazy" title="Esferas de Dandelin"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/dandelin/index.html" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
     <section class="content-section" id="completar">
      <div class="section-head">
       <div class="eyebrow">
@@ -732,7 +909,18 @@
        </div>
       </article>
      </div>
-    </section>
+    
+     <section data-lab-insert="completar" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Reducción algebraica paso a paso</h3><p>Avanzá desde la ecuación general hasta la forma reducida y la construcción.</p></div>
+      <div class="graph-grid graph-grid-1">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Completar cuadrados</h4><p class="graph-window-equation">\(\text{forma general}\longrightarrow\text{forma reducida}\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/paso-a-paso/index.html" loading="lazy" title="Completar cuadrados"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/paso-a-paso/index.html" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
     <section class="content-section" id="circunferencia">
      <div class="section-head">
       <div class="eyebrow">
@@ -918,7 +1106,18 @@
        </div>
       </div>
      </div>
-    </section>
+    
+     <section data-lab-insert="circunferencia" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Explorador de la circunferencia</h3><p>Modificá parámetros, traslaciones y el punto móvil de la definición focal.</p></div>
+      <div class="graph-grid graph-grid-1">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Explorador de la circunferencia</h4><p class="graph-window-equation">\((x-h)^2+(y-k)^2=r^2\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-conicas/index.html?type=circle" loading="lazy" title="Explorador de la circunferencia"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-conicas/index.html?type=circle" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
     <section class="content-section" id="parabola">
      <div class="section-head">
       <div class="eyebrow">
@@ -981,7 +1180,7 @@
         Compará la construcción cartesiana con el corte de un cono por un plano paralelo a una generatriz.
        </p>
       </div>
-      <div class="graph-grid">
+      <div class="graph-grid graph-grid-2">
        <article class="graph-window">
         <header class="graph-window-head">
          <span class="graph-kind">
@@ -1115,7 +1314,18 @@
        </div>
       </div>
      </div>
-    </section>
+    
+     <section data-lab-insert="parabola" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Explorador de la parábola</h3><p>Modificá parámetros, traslaciones y el punto móvil de la definición focal.</p></div>
+      <div class="graph-grid graph-grid-1">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Explorador de la parábola</h4><p class="graph-window-equation">\((y-k)^2=4p(x-h)\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-conicas/index.html?type=parabola" loading="lazy" title="Explorador de la parábola"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-conicas/index.html?type=parabola" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
     <section class="content-section" id="elipse">
      <div class="section-head">
       <div class="eyebrow">
@@ -1315,7 +1525,18 @@
        </div>
       </div>
      </div>
-    </section>
+    
+     <section data-lab-insert="elipse" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Explorador de la elipse</h3><p>Modificá parámetros, traslaciones y el punto móvil de la definición focal.</p></div>
+      <div class="graph-grid graph-grid-1">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Explorador de la elipse</h4><p class="graph-window-equation">\(\frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-conicas/index.html?type=ellipse" loading="lazy" title="Explorador de la elipse"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-conicas/index.html?type=ellipse" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
     <section class="content-section" id="hiperbola">
      <div class="section-head">
       <div class="eyebrow">
@@ -1515,7 +1736,18 @@
        </div>
       </div>
      </div>
-    </section>
+    
+     <section data-lab-insert="hiperbola" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Explorador de la hipérbola</h3><p>Modificá parámetros, traslaciones y el punto móvil de la definición focal.</p></div>
+      <div class="graph-grid graph-grid-1">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Explorador de la hipérbola</h4><p class="graph-window-equation">\(\frac{(x-h)^2}{a^2}-\frac{(y-k)^2}{b^2}=1\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-conicas/index.html?type=hyperbola" loading="lazy" title="Explorador de la hipérbola"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-conicas/index.html?type=hyperbola" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
     <section class="content-section" id="cuadricas">
      <div class="section-head">
       <div class="eyebrow">
@@ -1853,7 +2085,18 @@
        </div>
       </div>
      </div>
-    </section>
+    
+     <section data-lab-insert="cuadricas" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Explorador general de superficies cuádricas</h3><p>Cambiá la familia, los parámetros, el dominio visible y el plano de traza.</p></div>
+      <div class="graph-grid graph-grid-1">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Superficie y trazas dinámicas</h4><p class="graph-window-equation">\(F(x,y,z)=0\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-cuadricas/index.html" loading="lazy" title="Superficie y trazas dinámicas"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-cuadricas/index.html" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
     <section class="content-section" id="esfera-elipsoide">
      <div class="section-head">
       <div class="eyebrow">
@@ -2008,7 +2251,18 @@
        </div>
       </div>
      </div>
-    </section>
+    
+     <section data-lab-insert="esfera-elipsoide" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Laboratorio de esfera y elipsoide</h3><p>Mové el plano coordenado y estudiá las trazas.</p></div>
+      <div class="graph-grid graph-grid-1">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Elipsoide parametrizable</h4><p class="graph-window-equation">\(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-cuadricas/index.html?type=ellipsoid&traceAxis=z" loading="lazy" title="Elipsoide parametrizable"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-cuadricas/index.html?type=ellipsoid&traceAxis=z" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
     <section class="content-section" id="paraboloides">
      <div class="section-head">
       <div class="eyebrow">
@@ -2286,7 +2540,23 @@
        </div>
       </div>
      </div>
-    </section>
+    
+     <section data-lab-insert="paraboloides" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Laboratorio de paraboloides</h3><p>Alterná entre los dos tipos y elegí el eje principal.</p></div>
+      <div class="graph-grid graph-grid-2">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Paraboloide elíptico</h4><p class="graph-window-equation">\(\frac{x^2}{a^2}+\frac{y^2}{b^2}=\frac{z}{c}\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-cuadricas/index.html?type=ellipticParaboloid&axis=z" loading="lazy" title="Paraboloide elíptico"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-cuadricas/index.html?type=ellipticParaboloid&axis=z" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Paraboloide hiperbólico</h4><p class="graph-window-equation">\(\frac{x^2}{a^2}-\frac{y^2}{b^2}=\frac{z}{c}\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-cuadricas/index.html?type=hyperbolicParaboloid&axis=z" loading="lazy" title="Paraboloide hiperbólico"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-cuadricas/index.html?type=hyperbolicParaboloid&axis=z" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
     <section class="content-section" id="hiperboloides-cono">
      <div class="section-head">
       <div class="eyebrow">
@@ -2695,7 +2965,23 @@
        </div>
       </div>
      </div>
-    </section>
+    
+     <section data-lab-insert="hiperboloides-cono" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Laboratorio de hiperboloides y cono</h3><p>Estudiá signos, ejes principales y trazas.</p></div>
+      <div class="graph-grid graph-grid-2">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Hiperboloide de una hoja</h4><p class="graph-window-equation">\(\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-cuadricas/index.html?type=oneSheetHyperboloid&axis=z" loading="lazy" title="Hiperboloide de una hoja"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-cuadricas/index.html?type=oneSheetHyperboloid&axis=z" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Cono elíptico</h4><p class="graph-window-equation">\(\frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=0\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-cuadricas/index.html?type=ellipticCone&axis=z" loading="lazy" title="Cono elíptico"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-cuadricas/index.html?type=ellipticCone&axis=z" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
     <section class="content-section" id="cilindros-trazas">
      <div class="section-head">
       <div class="eyebrow">
@@ -2980,8 +3266,54 @@
        </div>
       </div>
      </div>
+    
+     <section data-lab-insert="cilindros-trazas" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Laboratorio de cilindros y trazas</h3><p>El dominio visible controla solo la porción dibujada.</p></div>
+      <div class="graph-grid graph-grid-1">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>Cilindro elíptico</h4><p class="graph-window-equation">\(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-cuadricas/index.html?type=ellipticCylinder&axis=z&traceAxis=z" loading="lazy" title="Cilindro elíptico"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-cuadricas/index.html?type=ellipticCylinder&axis=z&traceAxis=z" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+</section>
+        <section class="content-section" id="laboratorio">
+     <div class="section-title"><div class="eyebrow">Laboratorio interactivo</div><h2>Explorar, modificar y justificar</h2><p>Exploradores de parámetros, trazas dinámicas, vista doble, completamiento de cuadrados, secciones cónicas y esferas de Dandelin.</p></div>
+
+     <section data-lab-insert="laboratorio" class="graph-gallery interactive-lab-block">
+      <div class="graph-gallery-head"><h3>Herramientas del laboratorio</h3><p>Cada herramienta puede abrirse de forma independiente.</p></div>
+      <div class="graph-grid graph-grid-2">
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>1. Explorador de cónicas</h4><p class="graph-window-equation">\(\text{parámetros y definición focal}\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-conicas/index.html" loading="lazy" title="1. Explorador de cónicas"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-conicas/index.html" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>2–5. Cuádricas, ecuaciones y trazas</h4><p class="graph-window-equation">\(F(x,y,z)=0\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/explorador-cuadricas/index.html" loading="lazy" title="2–5. Cuádricas, ecuaciones y trazas"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/explorador-cuadricas/index.html" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>6. Completar cuadrados</h4><p class="graph-window-equation">\(\text{general}\to\text{reducida}\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/paso-a-paso/index.html" loading="lazy" title="6. Completar cuadrados"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/paso-a-paso/index.html" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>7. Generación de cónicas</h4><p class="graph-window-equation">\(\text{cono}\cap\text{plano}\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/secciones-conicas/index.html" loading="lazy" title="7. Generación de cónicas"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/secciones-conicas/index.html" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      <article class="graph-window graph-window-lab">
+       <header class="graph-window-head"><span class="graph-kind">Laboratorio</span><h4>8. Esferas de Dandelin</h4><p class="graph-window-equation">\(F_1,F_2\)</p></header>
+       <iframe class="lab-frame" allow="fullscreen" data-src="laboratorios/dandelin/index.html" loading="lazy" title="8. Esferas de Dandelin"></iframe>
+       <footer class="graph-window-foot"><a href="laboratorios/dandelin/index.html" rel="noopener" target="_blank">Abrir en una pestaña nueva ↗</a></footer>
+      </article>
+      </div>
+     </section>
+     <article class="card note"><h3>9. Estructura reutilizable</h3><p>Los applets comparten los módulos de <code>common/mathlab/</code>: escena 3D, superficies, trazas, cónicas 2D, MathJax y animaciones.</p></article>
     </section>
-    <section class="content-section" id="practica">
+<section class="content-section" id="practica">
      <div class="section-head">
       <div class="eyebrow">
        Trabajo Práctico N.º 7

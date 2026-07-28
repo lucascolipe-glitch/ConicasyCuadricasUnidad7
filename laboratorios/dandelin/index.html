@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Esferas de Dandelin</title>
+    <link rel="stylesheet" href="../../common/mathlab/base.css"><link rel="stylesheet" href="../../common/three-viewer.css">
+    <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+  <body>
+    <main class="lab-shell">
+      <header class="lab-header"><h1>Esferas de Dandelin y focos de la elipse</h1><p>Las esferas son tangentes al cono y al plano. Sus puntos de tangencia con el plano son los focos.</p><div id="equation" class="lab-equation"></div></header>
+      <section class="lab-stage-card">
+        <div class="toggle-bar"><label class="lab-check"><input id="show-cone" type="checkbox" checked>Cono</label><label class="lab-check"><input id="show-plane" type="checkbox" checked>Plano</label><label class="lab-check"><input id="show-spheres" type="checkbox" checked>Esferas</label><label class="lab-check"><input id="show-curve" type="checkbox" checked>Elipse</label><label class="lab-check"><input id="show-foci" type="checkbox" checked>Focos</label><label class="lab-check"><input id="show-generators" type="checkbox" checked>Generatrices</label><button id="reset-camera" class="lab-button">Cámara</button><button id="export-png" class="lab-button primary">PNG</button></div>
+        <div id="stage" class="lab-stage-3d"></div><div class="lab-status"><p id="focus-data"></p></div>
+      </section>
+      <div class="lab-note"><strong>Relación geométrica.</strong> La igualdad de los segmentos tangentes trazados desde un mismo punto permite demostrar que \(d(P,F_1)+d(P,F_2)\) es constante.</div>
+    </main>
+    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script><script type="module" src="js/app.js"></script>
+  </body>
+</html>

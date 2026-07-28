@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generación de las secciones cónicas</title>
+    <link rel="stylesheet" href="../../common/mathlab/base.css"><link rel="stylesheet" href="../../common/three-viewer.css">
+    <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  </head>
+  <body>
+    <main class="lab-shell">
+      <header class="lab-header"><h1>Animación de las secciones cónicas</h1><p>Girá el plano y observá cómo la intersección cambia de circunferencia a elipse, parábola o hipérbola.</p><div id="equation" class="lab-equation"></div></header>
+      <div class="lab-layout">
+        <aside class="lab-controls">
+          <section class="lab-control-group"><h2>Plano secante</h2><label class="lab-control">Inclinación<output id="angle-output"></output><input id="angle" type="range" min="0" max="72" step="0.1" value="0"></label><label class="lab-control">Desplazamiento \(d\)<output id="offset-output"></output><input id="offset" type="range" min="0" max="3.2" step="0.1" value="1.8"></label></section>
+          <section class="lab-control-group"><h2>Casos notables</h2><div class="lab-buttons"><button class="lab-button" data-preset="circle">Circunferencia</button><button class="lab-button" data-preset="ellipse">Elipse</button><button class="lab-button" data-preset="parabola">Parábola</button><button class="lab-button" data-preset="hyperbola">Hipérbola</button></div></section>
+          <section class="lab-control-group"><h2>Animación y vista</h2><div class="lab-buttons"><button id="play" class="lab-button primary">Animar</button><button id="reset-camera" class="lab-button">Cámara</button><button id="toggle-cone" class="lab-button">Cono</button><button id="toggle-plane" class="lab-button">Plano</button><button id="export-png" class="lab-button">PNG</button></div></section>
+          <section class="lab-control-group"><h2>Clasificación</h2><p id="classification"></p><p id="critical-angle"></p></section>
+        </aside>
+        <section class="lab-stage-card"><div id="stage" class="lab-stage-3d"></div><div class="lab-status"><strong>Lectura geométrica:</strong> <span id="description"></span></div></section>
+      </div>
+      <p class="lab-note">La parábola aparece cuando el plano es paralelo a una generatriz del cono.</p>
+    </main>
+    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
