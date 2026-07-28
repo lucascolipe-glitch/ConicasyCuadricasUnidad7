@@ -122,7 +122,7 @@ function buildConicSection(section){
 function buildDegenerateConics(){
   const offsets=[-7.5,0,7.5]; offsets.forEach(o=>doubleCone([o,0,0]));
   addPlane([-7.5,0,0],[5,4],[0,0,1],'#9ed7e7',.48); const dot=new THREE.Mesh(new THREE.SphereGeometry(.14,20,12),material('#1246c9',1)); dot.position.copy(mathToThree(-7.5,0,0)); surfaceGroup.add(dot); label('Punto',[-7.5,0,-3.8],surfaceGroup);
-  addPlane([0,0,0],[5,7],[-2/3,0,1],'#9ed7e7',.48); addLine([[-2,0,-3],[2,0,3]],'#1246c9',3); label('Una recta',[0,0,-3.8],surfaceGroup);
+  addPlane([0,0,0],[5,7],[-1,0,1],'#9ed7e7',.48); addLine([[-2,0,-3],[2,0,3]],'#1246c9',3); label('Una recta',[0,0,-3.8],surfaceGroup);
   addPlane([7.5,0,0],[6,7],[0,1,0],'#9ed7e7',.48); addLine([[5.5,0,-3],[9.5,0,3]],'#1246c9',3); addLine([[9.5,0,-3],[5.5,0,3]],'#1246c9',3); label('Dos rectas',[7.5,0,-3.8],surfaceGroup);
 }
 function addSourceTraces(){
